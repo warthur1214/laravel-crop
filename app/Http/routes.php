@@ -23,7 +23,9 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get("/menu", ['uses'=>"IndexController@menu"]);
 	Route::get("/main", ['uses'=>"IndexController@main"]);
 
-	//
+	//模块
+    Route::get("/account/accountList", ['uses'=>"AccountController@accountList"]);
+    Route::get("/account/addAccount", ['uses'=>"AccountController@addAccount"]);
 });
 
 
