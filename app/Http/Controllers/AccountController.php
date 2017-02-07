@@ -16,6 +16,11 @@ class AccountController extends Controller
 
     public function accountList()
     {
-        return view("account.accountList");
+        return view("account/accountList");
+    }
+
+    public function addAccount()
+    {
+    	return view("account/addAccount");
     }
 }

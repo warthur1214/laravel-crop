@@ -4,7 +4,7 @@
     <body>
     <section class="content-header">
         <span class="pull-right">
-        <a href="{{env("APP_URL")}}/Account/addAccount" class="btn btn-sm btn-primary"> <i class="fa fa-plus"></i> 添加账号</a>
+        <a href="{{env("APP_URL")}}/account/addAccount" class="btn btn-sm btn-primary"> <i class="fa fa-plus"></i> 添加账号</a>
       </span>
         <h1>
             账号管理
@@ -31,7 +31,7 @@
                     </div>
                 </div>
             </div>
-            <div class="text-center"><a href="javascript:;" id="searchBtn" class="btn btn-sm btn-primary selectInfo"><i
+            <div class="text-center"><a href="javascript:void(0);" id="searchBtn" class="btn btn-sm btn-primary selectInfo"><i
                             class="fa fa-search"></i> 搜索</a></div>
         </form>
         <div class="box-body">
@@ -42,11 +42,12 @@
     </body>
 @endsection
 
-<!-- /.box -->
-<link rel="stylesheet" href="{{asset("/public/plugins/datatables/dataTables.bootstrap.css")}}">
-<script src="{{asset("/public/plugins/datatables/jquery.dataTables.min.js")}}"></script>
-<script src="{{asset("/public/js/public/dataTableCus.js")}}"></script>
-<script type="text/javascript" src="{{asset("/public/js/role/roleTree.js")}}"></script>
-<!--账号归属 | 前置 roleTree.js -->
-<script type="text/javascript" src="{{asset("/public/js/role/InitOrgIdTree.js")}}"></script>
-<script type="text/javascript" src="{{asset("/public/js/account/accountList.js")}}"></script>
+@section("script")
+    <link rel="stylesheet" href="{{asset("/public/plugins/datatables/dataTables.bootstrap.css")}}">
+    <script src="{{asset("/public/plugins/datatables/jquery.dataTables.min.js")}}"></script>
+    <script src="{{asset("/public/js/public/dataTableCus.js")}}"></script>
+    <script type="text/javascript" src="{{asset("/public/js/role/roleTree.js")}}"></script>
+    <!--账号归属 | 前置 roleTree.js -->
+    <script type="text/javascript" src="{{asset("/public/js/role/InitOrgIdTree.js")}}"></script>
+    <script type="text/javascript" src="{{asset("/public/js/account/accountList.js")}}"></script>
+@endsection

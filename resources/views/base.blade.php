@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="{{asset("/resources/css/style/style.css")}}">
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+    @yield("style")
 </head>
 
 @yield("body")
@@ -33,5 +35,7 @@
 <!-- modal.js 封装过的提示框组件 -->
 <script src="{{asset("/resources/js/public/modal.js")}}"></script>
 <script src="{{asset("/resources/js/public/public.js")}}"></script>
+
+@yield("script")
 
 @yield("js")
