@@ -43,11 +43,11 @@
 @endsection
 
 @section("script")
-    <link rel="stylesheet" href="{{asset("/public/plugins/datatables/dataTables.bootstrap.css")}}">
-    <script src="{{asset("/public/plugins/datatables/jquery.dataTables.min.js")}}"></script>
-    <script src="{{asset("/public/js/public/dataTableCus.js")}}"></script>
-    <script type="text/javascript" src="{{asset("/public/js/role/roleTree.js")}}"></script>
+    <link rel="stylesheet" href="{{asset("/resources/plugins/datatables/dataTables.bootstrap.css")}}">
+    <script src="{{asset("/resources/plugins/datatables/jquery.dataTables.min.js")}}"></script>
+    <script src="{{asset("/resources/js/public/dataTableCus.js")}}"></script>
+    <script type="text/javascript" src="{{asset("/resources/js/role/roleTree.js")}}"></script>
     <!--账号归属 | 前置 roleTree.js -->
-    <script type="text/javascript" src="{{asset("/public/js/role/InitOrgIdTree.js")}}"></script>
-    <script type="text/javascript" src="{{asset("/public/js/account/accountList.js")}}"></script>
+    <script type="text/javascript" src="{{asset("/resources/js/role/InitOrgIdTree.js")}}"></script>
+    <script type="text/javascript" src="{{asset("/resources/js/account/accountList.js")}}"></script>
 @endsection

@@ -19,12 +19,14 @@ Route::group(['middleware' => ['web']], function () {
 	Route::any("/test", ['uses'=>"IndexController@test"]);
 	Route::get("/login", ['uses'=>"IndexController@login"]);
 	Route::get("/loginAjax", ['uses'=>"IndexController@loginAjax"]);
+	Route::get("/login/loginOut", ['uses'=>"IndexController@loginOut"]);
 	Route::get("/index", ['uses'=>"IndexController@index"]);
 	Route::get("/menu", ['uses'=>"IndexController@menu"]);
 	Route::get("/main", ['uses'=>"IndexController@main"]);
 
 	//模块
-    Route::get("/account/accountList", ['uses'=>"AccountController@accountList"]);
+	Route::get("/account/accountList", ['uses'=>"AccountController@accountList"]);
+	Route::get("/account/accountListAjax", ['uses'=>"AccountController@accountListAjax"]);
     Route::get("/account/addAccount", ['uses'=>"AccountController@addAccount"]);
 });
 

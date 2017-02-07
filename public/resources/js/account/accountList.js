@@ -8,7 +8,7 @@ $(function() {
     }); 
     mytable = InitDataTable({
         $el: $('#myTable'), //表格dom选择器
-        url: "/Home/Account/accountListAjax", //表格列表数据 
+        url: "{{env('APP_URL')}}/account/accountListAjax", //表格列表数据
         ajaxdata: {},
         tableOpts: {
             data: {

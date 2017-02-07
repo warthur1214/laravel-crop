@@ -67,4 +67,9 @@ class IndexController extends BaseController
 			'display_name' => 'warthur'
 		]);
 	}
+
+	public function loginOut()
+	{
+		return view("index/login");
+	}
 }

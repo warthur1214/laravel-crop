@@ -19,6 +19,11 @@ class AccountController extends Controller
         return view("account/accountList");
     }
 
+    public function accountListAjax()
+    {
+
+    }
+
     public function addAccount()
     {
     	return view("account/addAccount");

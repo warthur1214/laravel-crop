@@ -14,7 +14,7 @@
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
                         <li class="dropdown user user-menu">
-                            <a href="/Home/Login/loginOut" target="_top">
+                            <a href="{{env("APP_URL")}}/login/loginOut" target="_top">
                                 <i class="fa fa-user"></i>
                                 <span class="hidden-xs">退出</span>
                             </a>
