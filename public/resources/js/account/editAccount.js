@@ -16,7 +16,7 @@ $(function() {
         } 
     }); 
 
-    AjaxJson('/Home/Account/getInfoById/id/' + _id, function(res) {
+    AjaxJson('account/getInfoById/' + _id, function(res) {
         validateForm.assignForm(res);  
         loadRoleList(res);
         editData = res;
@@ -29,10 +29,10 @@ $(function() {
                 if( $treenode.length > 0 ){ 
                     $('#organ_id').val( $treenode.text() );
                     $treenode.addClass('active'); 
-                }; 
+                }
                  
                 clearInterval( roleTreeInterval );
-            }; 
+            }
         }, 200);
     });  
 
@@ -46,20 +46,20 @@ $(function() {
             
             if( typeof(postdata.role_id) != 'string'){
                 postdata.role_id = postdata.role_id.join(',')
-            };
+            }
             
-            AjaxJson('/Home/Account/editAccountAjax', postdata, function(res) {
+            AjaxJson('account/editAccountAjax', postdata, function(res) {
                 if (res.status == "1") {
 
                     AlertHide(res.msg, function() {
 
-                        HrefTo("/Home/Account/accountList");
+                        HrefTo("account/accountList");
                     });
                 } else {
                     AlertHide(res.msg);
-                };
+                }
             });
-        };
+        }
     });
 
     function loadRoleList(data) { 
@@ -74,9 +74,9 @@ $(function() {
                 setTimeout(function(){
                     initRoleId( data, 'role_id' ); 
                 },0);
-            };
+            }
         });
-    };
+    }
 
     /*初始化角色*/
     function initRoleId(data, roleKey) {
@@ -85,7 +85,7 @@ $(function() {
             for (var i = 0, l = roleIdData.length; i < l; i++) {
                 var _d = roleIdData[i];
                 $('[name="' + roleKey + '"][value="' + _d + '"]').prop('checked', 'checked'); 
-            };
-        };
+            }
+        }
     }
 });

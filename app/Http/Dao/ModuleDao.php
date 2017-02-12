@@ -10,22 +10,98 @@ namespace App\Http\Dao;
 
 
 use App\Http\Model\ModuleModel;
+use Illuminate\Database\Eloquent\Model;
 use MoenSun\MSLaravelExtension\MSLaravelDB;
 
 class ModuleDao
 {
-	public static function getModuleList(ModuleModel $model)
-	{
-		try {
-			$sql = "SELECT module_id, module_name, module_url 
+    public static function getModuleList(ModuleModel $model)
+    {
+        try {
+            $sql = "SELECT module_id, module_name, module_url 
 					FROM tp_module 
 					WHERE module_parent_id={$model->module_parent_id} 
 					AND is_visible={$model->is_visible}
 					AND system_id={$model->system_id}
 					ORDER BY module_sort DESC, module_id ASC";
-			return MSLaravelDB::queryAll($sql);
-		} catch (\Exception $e) {
-			throw new \Exception($e);
-		}
-	}
+            return MSLaravelDB::queryAll($sql);
+        } catch (\Exception $e) {
+            throw new \Exception($e);
+        }
+    }
+
+    public static function getModuleInfo(ModuleModel $model, $where = null, $order = null, $find = null)
+    {
+        try {
+            $sql = $model->where($where)->orderby($order)->find($find);
+            return MSLaravelDB::queryAll($sql);
+        } catch (\Exception $e) {
+            throw new \Exception($e);
+        }
+    }
+
+    public static function getSonModuleList(ModuleModel $model, $where = null)
+    {
+        try {
+            $sql = $model->where($where)->find();
+            return MSLaravelDB::queryAll($sql);
+        } catch (\Exception $e) {
+            throw new \Exception($e);
+        }
+    }
+
+    public static function deleteModuleById(ModuleModel $model, $where = null)
+    {
+        try {
+            $sql = $model->where($where)->delete();
+            return MSLaravelDB::queryAll($sql);
+        } catch (\Exception $e) {
+            throw new \Exception($e);
+        }
+    }
+
+    public static function selectModuleById(ModuleModel $model, $where = null)
+    {
+        try {
+            $sql = $model->where($where)->find();
+            return MSLaravelDB::queryRow($sql);
+        } catch (\Exception $e) {
+            throw new \Exception($e);
+        }
+    }
+
+    public static function getParentList()
+    {
+        try {
+            $sql = "SELECT 
+                        module_id, module_name 
+                    FROM tp_module 
+                    WHERE module_level < 2 
+                    AND system_id = -1 
+                    ORDER BY module_sort DESC ,module_id ASC ";
+            return MSLaravelDB::queryAll($sql);
+        } catch (\Exception $e) {
+            throw new \Exception($e);
+        }
+    }
+
+    public static function updateModuleById(ModuleModel $model, $where=null)
+    {
+        try {
+            $sql = $model->where($where)->update();
+            return MSLaravelDB::update($sql);
+        } catch (\Exception $e) {
+            throw new \Exception($e);
+        }
+    }
+
+    public static function updateModuleSort(ModuleModel $model, $where=null)
+    {
+        try {
+            $sql = $model->where($where)->update();
+            return MSLaravelDB::update($sql);
+        } catch (\Exception $e) {
+            throw new \Exception($e);
+        }
+    }
 }

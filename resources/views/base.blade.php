@@ -19,7 +19,6 @@
 @yield("body")
 
 </html>
-<!-- ./wrapper -->
 <!-- jQuery 2.2.0 -->
 <script src="{{asset("/resources/plugins/jQuery/jQuery-2.2.0.min.js")}}"></script>
 <script src="{{asset("/resources/plugins/jQuery/jquery-ui.js")}}"></script>

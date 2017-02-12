@@ -9,7 +9,7 @@ $(document).ready(function() {
 
         if (confirm('确实要删除该模块吗?')) {
             $.ajax({
-                url: '/Home/Module/delModule/id/' + id,
+                url: 'delModule/' + id,
                 type: "post",
                 dataType: "json",
                 success: function(result) {
@@ -46,10 +46,10 @@ $(document).ready(function() {
         }
         var id = $(this).attr('index');
         $.ajax({
-            url: '/Home/Module/editOther/id/' + id,
+            url: 'editModuleSort',
             type: "post",
             dataType: "json",
-            data: { 'module_sort': $(this).html() },
+            data: { 'module_sort': $(this).html(), 'module_id': id},
             success: function(result) {
                 if (result.status == 1) {
                     //重新加载列表
@@ -76,7 +76,7 @@ $(document).ready(function() {
         "info": true,
         "autoWidth": false,
         "ajax": {
-            "url": "/Home/Module/moduleListAjax",
+            "url": "moduleListAjax",
             "type": "POST"
         },
         "order": [
@@ -91,7 +91,7 @@ $(document).ready(function() {
                         if ($(this).find('i').hasClass('fa-plus-square')) {
                             $(this).find('i').removeClass('fa-plus-square').addClass('fa-minus-square');
                             $.ajax({
-                                url: '/Home/Module/getSonM/id/' + rowData.module_id,
+                                url: 'getSonM/' + rowData.module_id,
                                 type: "post",
                                 dataType: "json",
                                 success: function(result) {
@@ -105,7 +105,7 @@ $(document).ready(function() {
                                         shtml += '<th>关键字:</th><td>' + data[i]['module_matched_key'] + '</td>';
                                         shtml += '<th>排序:</th><td><span contenteditable="true" class="col-xs-9 m_order" index="' + data[i]['module_id'] + '">' + data[i]['module_sort'] + '</td>';
                                         shtml += '<th>是否在列表显示:</th><td>' + show + '</td>';
-                                        shtml += '<th><a href="/Home/Module/editModule/id/' + data[i]['module_id'] + '" class="btn btn-xs btn-primary">修改</a></th> <th> <a href="javascript:;" class="btn btn-xs btn-danger deleteById" id="deleteById" index="' + data[i]['module_id'] + '">删除</a></th></tr>';
+                                        shtml += '<th><a href="editModule/' + data[i]['module_id'] + '" class="btn btn-xs btn-primary">修改</a></th> <th> <a href="javascript:;" class="btn btn-xs btn-danger deleteById" id="deleteById" index="' + data[i]['module_id'] + '">删除</a></th></tr>';
 
                                     }
                                     shtml += '</table></td></tr>';
@@ -136,7 +136,7 @@ $(document).ready(function() {
             }, {
                 "data": null,
                 "createdCell": function(td, cellData, rowData, row, col) {
-                    var html = $(td).html("<a href='/Home/Module/editModule/id/" + rowData.module_id + "' class='btn btn-xs btn-primary'>修改</a> <a href='javascript:;' class='btn btn-xs btn-danger deleteById' id='deleteById' index='" + rowData.module_id + "'>删除</a>");
+                    var html = $(td).html("<a href='editModule/" + rowData.module_id + "' class='btn btn-xs btn-primary'>修改</a> <a href='javascript:;' class='btn btn-xs btn-danger deleteById' id='deleteById' index='" + rowData.module_id + "'>删除</a>");
                 }
             }
         ],
