@@ -5,6 +5,7 @@
  */
 namespace MoenSun\MSORM;
 
+use Illuminate\Database\Eloquent\Model;
 use MoenSun\MSORM\MSModelStatic;
 use MoenSun\MSUtil\MSRequest;
 

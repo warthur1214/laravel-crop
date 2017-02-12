@@ -54,7 +54,7 @@ class ModuleDao
     {
         try {
             $sql = $model->where($where)->delete();
-            return MSLaravelDB::queryAll($sql);
+            return MSLaravelDB::delete($sql);
         } catch (\Exception $e) {
             throw new \Exception($e);
         }

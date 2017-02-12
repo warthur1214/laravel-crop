@@ -24,7 +24,7 @@ $(function () {
                 render: function (data, type, row, meta) {
                     var _selectHtml = '<select data-id="' + row.account_id + '" onchange="changeStatus(this)"><option value="1">生效</option><option value="0" selected="selected">冻结</option></select>';
                     if (row.is_available == "1") {
-                        _selectHtml = '<select data-id="' + row.account_id + '" onchange="changeStatus(this)"><option  value="1" selected="selected">生效</option><option value="0">冻结</option></select>';
+                        _selectHtml = '<select data-id="' + row.account_id + '" onchange="changeStatus(this)"><option  value="1" selected>生效</option><option value="0">冻结</option></select>';
                     }
 
                     var _data = JSON.stringify(row);
@@ -50,7 +50,7 @@ function deleteRecord(el) {
     var $el = $(el);
     Confirm('确定删除该条记录吗？', function (res) {
         if (res) {
-            AjaxJson('account/delAccount' + $el.attr('data-id'), function (res) {
+            AjaxJson('delAccount/' + $el.attr('data-id'), function (res) {
                 AlertHide(res.msg);
 
                 if (res.status == 1) {

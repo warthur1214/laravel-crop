@@ -41,4 +41,22 @@ class AccountService
             throw new \Exception($e);
         }
     }
+
+    public static function deleteAccount(AccountModel $model, $where=null)
+    {
+        try {
+            return AccountDao::deleteAccount($model, $where);
+        } catch (\Exception $e) {
+            throw new \Exception($e);
+        }
+    }
+
+    public static function accountAvailable(AccountModel $model, $where=null)
+    {
+        try {
+            return AccountDao::accountAvailable($model, $where);
+        } catch (\Exception $e) {
+            throw new \Exception($e);
+        }
+    }
 }

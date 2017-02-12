@@ -27,10 +27,14 @@ Route::group(['middleware' => ['web']], function () {
     Route::get("/menu", ['uses' => "IndexController@menu"]);
     Route::get("/main", ['uses' => "IndexController@main"]);
 
-    //系统管理模块
+    //账号管理模块
     Route::get("/account/accountList", ['uses' => "AccountController@accountList"]);
     Route::any("/account/accountListAjax", ['uses' => "AccountController@accountListAjax"]);
     Route::get("/account/addAccount", ['uses' => "AccountController@addAccount"]);
+    Route::get("/account/delAccount/{id}", ['uses' => "AccountController@deleteAccount"]);
+    Route::get("/account/delAccount/{id}", ['uses' => "AccountController@deleteAccount"]);
+    Route::post("/account/accountAvailable/{id}", ['uses' => "AccountController@accountAvailable"]);
+    Route::get("/account/editAccount", ['uses' => "AccountController@editAccount"]);
 
     //功能菜单模块
     Route::get("/module/moduleList", ['uses' => "ModuleController@moduleList"]);

@@ -39,7 +39,8 @@ class AccountDao
     {
         try {
             $sql = "SELECT 
-                        a.account_id, a.account_name, a.display_name, o.organ_name, r.role_name, a.login_time
+                        a.account_id, a.account_name, a.display_name, o.organ_name, r.role_name, a.login_time, 
+                        a.is_available
                     FROM tp_account a
                     LEFT JOIN tp_organ o ON o.organ_id = a.organ_id
                     LEFT JOIN tp_account_role ar ON ar.account_id = a.account_id
@@ -53,6 +54,26 @@ class AccountDao
                 $sql .= " and display_name like '%{$where['display_name']}%'";
             }
             return MSLaravelDB::queryAll($sql);
+        } catch (\Exception $e) {
+            throw new \Exception($e);
+        }
+    }
+
+    public static function deleteAccount(AccountModel $model, $where=null)
+    {
+        try {
+            $sql = $model->where($where)->delete();
+            return MSLaravelDB::delete($sql);
+        } catch (\Exception $e) {
+            throw new \Exception($e);
+        }
+    }
+
+    public static function accountAvailable(AccountModel $model, $where = null)
+    {
+        try {
+            $sql = $model->where($where)->update();
+            return MSLaravelDB::update($sql);
         } catch (\Exception $e) {
             throw new \Exception($e);
         }
