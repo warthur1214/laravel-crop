@@ -38,6 +38,22 @@ class AccountController extends Controller
     	return view("account/addAccount");
     }
 
+    public function addAccountAjax()
+    {
+        $account = new AccountModel();
+        $account->initByRequest();
+
+        $result = ['msg'=>'修改成功！', 'status'=>1];
+        try {
+            AccountService::insertAccountInfo($account);
+        } catch (\Exception $e) {
+            MSLog::log($e);
+            $result = ['msg'=>'修改失败！', 'status'=>0];
+        }
+
+        return response()->json($result);
+    }
+
     public function deleteAccount($id)
     {
         $account = new AccountModel();
@@ -53,10 +69,10 @@ class AccountController extends Controller
         return response()->json($result);
     }
 
-    public function accountAvailable($id)
+    public function accountAvailable(Request $request, $id)
     {
         $account = new AccountModel();
-        $account->is_available = 0;
+        $account->is_available = $request->input("is_available");
 
         $result = ['msg' => "修改成功",'status' => 1];
         $where['account_id'] = $id;
@@ -72,13 +88,33 @@ class AccountController extends Controller
 
     public function editAccount($id)
     {
-        $account = new AccountModel();
-        $account->account_id = $id;
-        $info = AccountService::selectModuleById($module, $module);
-        $parent = ModuleService::getParentList();
-        return view("module/editModule", [
-            'info' => $info,
-            'parent' => $parent
+        return view("account/editAccount", [
+            'account_id'=>$id
         ]);
+    }
+
+    public function getAccountInfoById($id)
+    {
+        $account = new AccountModel();
+
+        $accountInfo = AccountService::getAccountInfoById($account, ['account_id'=>$id]);
+        return response()->json($accountInfo);
+    }
+
+    public function editAccountAjax(Request $request)
+    {
+        $account = new AccountModel();
+        $account->initByRequest();
+
+        $where['account_id'] = $request->input("account_id");
+        $result = ['msg'=>'修改成功！', 'status'=>1];
+        try {
+            AccountService::updateAccountInfo($account, $where);
+        } catch (\Exception $e) {
+            MSLog::log($e);
+            $result = ['msg'=>'修改失败！', 'status'=>0];
+        }
+
+        return response()->json($result);
     }
 }

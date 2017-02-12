@@ -2,10 +2,12 @@
  * (c) 2016 Guilin Yu 
  */
 
+var APP_URL = "http://localhost/laravel-master/public";
 /*=========ajax请求方法============================
  *
  */
 function AjaxJson(url, postdata, call) {
+
     var $ajaxHtml = $('<div class="modal fade in modal-ajax" style="display: block;"><i class="fa fa-refresh fa-spin"></i></div>');
     $ajaxHtml.appendTo(top.document.body);
     if (typeof postdata == "function") {
@@ -82,5 +84,5 @@ function getSearchData() {
 
 /*给指定字符串进行md5加密*/
 function newHexMd5(val) {
-    return hex_md5(val + 'md5');
+    return hex_md5(val);
 }

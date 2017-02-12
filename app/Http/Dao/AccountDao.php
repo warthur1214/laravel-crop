@@ -78,4 +78,35 @@ class AccountDao
             throw new \Exception($e);
         }
     }
+
+    public static function getAccountInfoById(AccountModel $model, $where = null)
+    {
+        try {
+            $sql = $model->where($where)->find();
+            return MSLaravelDB::queryRow($sql);
+        } catch (\Exception $e) {
+            throw new \Exception($e);
+        }
+    }
+
+    public static function updateAccountInfo(AccountModel $model, $where = null)
+    {
+        try {
+            $sql = $model->where($where)->update();
+            return MSLaravelDB::update($sql);
+        } catch (\Exception $e) {
+            throw new \Exception($e);
+        }
+    }
+
+    public static function insertAccountInfo(AccountModel $model, $where=null)
+    {
+        try {
+            $sql = $model->where($where)->save();
+            return MSLaravelDB::insert($sql);
+        } catch (\Exception $e) {
+            throw new \Exception($e);
+        }
+    }
+
 }

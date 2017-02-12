@@ -59,4 +59,31 @@ class AccountService
             throw new \Exception($e);
         }
     }
+
+    public static function getAccountInfoById(AccountModel $model, $where=null)
+    {
+        try {
+            return AccountDao::getAccountInfoById($model, $where);
+        } catch (\Exception $e) {
+            throw new \Exception($e);
+        }
+    }
+
+    public static function updateAccountInfo(AccountModel $model, $where = null)
+    {
+        try {
+            return AccountDao::updateAccountInfo($model, $where);
+        } catch (\Exception $e) {
+            throw new \Exception($e);
+        }
+    }
+
+    public static function insertAccountInfo(AccountModel $model, $where = null)
+    {
+        try {
+            return AccountDao::insertAccountInfo($model, $where);
+        } catch (\Exception $e) {
+            throw new \Exception($e);
+        }
+    }
 }

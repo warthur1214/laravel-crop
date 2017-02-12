@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::group(['middleware' => ['web']], function () {
 
     Route::any("/test", ['uses' => "IndexController@test"]);
@@ -23,6 +19,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::post("/loginAjax", ['uses' => "LoginController@loginAjax"]);
     Route::get("/loginOut", ['uses' => "LoginController@loginOut"]);
 
+    Route::get("/", ['uses' => "IndexController@index"]);
     Route::get("/index", ['uses' => "IndexController@index"]);
     Route::get("/menu", ['uses' => "IndexController@menu"]);
     Route::get("/main", ['uses' => "IndexController@main"]);
@@ -31,10 +28,13 @@ Route::group(['middleware' => ['web']], function () {
     Route::get("/account/accountList", ['uses' => "AccountController@accountList"]);
     Route::any("/account/accountListAjax", ['uses' => "AccountController@accountListAjax"]);
     Route::get("/account/addAccount", ['uses' => "AccountController@addAccount"]);
+    Route::post("/account/addAccountAjax", ['uses' => "AccountController@addAccountAjax"]);
     Route::get("/account/delAccount/{id}", ['uses' => "AccountController@deleteAccount"]);
     Route::get("/account/delAccount/{id}", ['uses' => "AccountController@deleteAccount"]);
     Route::post("/account/accountAvailable/{id}", ['uses' => "AccountController@accountAvailable"]);
-    Route::get("/account/editAccount", ['uses' => "AccountController@editAccount"]);
+    Route::get("/account/editAccount/{id}", ['uses' => "AccountController@editAccount"]);
+    Route::get("/account/getAccountInfoById/{id}", ['uses' => "AccountController@getAccountInfoById"]);
+    Route::post("/account/editAccountAjax", ['uses' => "AccountController@editAccountAjax"]);
 
     //功能菜单模块
     Route::get("/module/moduleList", ['uses' => "ModuleController@moduleList"]);

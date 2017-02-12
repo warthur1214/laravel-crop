@@ -59,35 +59,11 @@
                         <th><span class="text-red">*</span>账号姓名</th>
                         <td>
                             <input type="text" class="form-control" name="display_name" placeholder="请输入账号姓名"
-                                   readonly="readonly" required>
+                                   required>
                         </td>
                         <th><span class="text-red">*</span>账号密码</th>
                         <td>
                             <input type="password" class="form-control" name="password" placeholder="请输入账号密码" required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th><span class="text-red">*</span>账号归属</th>
-                        <td>
-                            <div class="relative">
-                                <input type="hidden" name="organ_id">
-                                <input type="text" class="form-control" id="organ_id" placeholder="选择所属企业或机构"
-                                       readonly="readonly" required style="background-color: transparent;">
-                                <div id="roleTree" class="role-tree-popup hide"></div>
-                            </div>
-                        </td>
-                        <td colspan="4">
-                        </td>
-                    </tr>
-                    <tr>
-                        <th><span class="text-red">*</span>账号角色</th>
-                        <td colspan="5">
-                            <div class="col-sm-11" id="chkGroup">
-                                <label class="checkbox-inline" v-for="item in items">
-                                    <input type="checkbox" name="role_id" required
-                                           value="{{item.role_id}}"> {{item.role_name}}
-                                </label>
-                            </div>
                         </td>
                     </tr>
                     </tbody>
@@ -104,7 +80,7 @@
 
 @section("script")
 
-    <script src="{{asset("/resources/plugins/jQuery/jquery.validate.min.js")}}}"></script>
+    <script src="{{asset("/resources/plugins/jQuery/jquery.validate.min.js")}}"></script>
     <script src="{{asset("/resources/plugins/jQuery/messages_zh.js")}}"></script>
     <script src="{{asset("/resources/js/public/validateFormCus.js")}}"></script>
     <script src="{{asset("/resources/js/public/vue.js")}}"></script>
@@ -112,4 +88,5 @@
     <!--账号归属 | 前置 roleTree.js -->
     <script type="text/javascript" src="{{asset("/resources/js/role/InitOrgIdTree.js")}}"></script>
     <script type="text/javascript" src="{{asset("/resources/js/account/editAccount.js")}}"></script>
+    <script src="{{asset('/resources/js/public/md5-min.js')}}"></script>
 @endsection

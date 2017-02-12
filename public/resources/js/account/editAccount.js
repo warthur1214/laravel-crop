@@ -1,24 +1,23 @@
 $(function () {
     var editData;
     var validateForm = InitValidateForm($('#info_form'));
-    var _id = location.href.split('id=')[1];
+    var _id = location.href.split('/')[location.href.split('/').length-1];
     var chkGroupVm = new Vue({
         el: '#chkGroup'
     });
 
-    InitOrgIdTree({
-        $inputId: $('#organ_id'),
-        $inputName: $('[name="organ_id"]'),
-        $tree: $('#roleTree'),
-        onClickTreeNode: function ($el) {
-            var id = $el.parent('li').attr('data-id');
-            loadRoleList({organ_id: id});
-        }
-    });
+    // InitOrgIdTree({
+    //     $inputId: $('#organ_id'),
+    //     $inputName: $('[name="organ_id"]'),
+    //     $tree: $('#roleTree'),
+    //     onClickTreeNode: function ($el) {
+    //         var id = $el.parent('li').attr('data-id');
+    //     }
+    // });
 
-    AjaxJson('getInfoById/' + _id, function (res) {
+    AjaxJson(APP_URL + '/account/getAccountInfoById/' + _id, function (res) {
         validateForm.assignForm(res);
-        loadRoleList(res);
+        // loadRoleList(res);
         editData = res;
 
         var roleTreeInterval = setInterval(function () {
@@ -41,19 +40,19 @@ $(function () {
         if (validateForm.validnew()) {
             var postdata = validateForm.serializeObject();
 
-            postdata.password = ( postdata.password == editData.password ? editData.password : newHexMd5(postdata.password) );
+            postdata.password = ( newHexMd5(postdata.password) == editData.password ? editData.password : newHexMd5(postdata.password) );
             postdata.account_id = _id;
 
-            if (typeof(postdata.role_id) != 'string') {
-                postdata.role_id = postdata.role_id.join(',')
-            }
+            // if (typeof(postdata.role_id) != 'string') {
+            //     postdata.role_id = postdata.role_id.join(',')
+            // }
 
-            AjaxJson('editAccountAjax', postdata, function (res) {
+            AjaxJson(APP_URL + '/account/editAccountAjax', postdata, function (res) {
                 if (res.status == "1") {
 
                     AlertHide(res.msg, function () {
 
-                        HrefTo("accountList");
+                        HrefTo(APP_URL + "/account/accountList");
                     });
                 } else {
                     AlertHide(res.msg);
