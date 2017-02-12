@@ -27,10 +27,13 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get("/menu", ['uses'=>"IndexController@menu"]);
 	Route::get("/main", ['uses'=>"IndexController@main"]);
 
-	//模块
+	//系统管理模块
 	Route::get("/account/accountList", ['uses'=>"AccountController@accountList"]);
-	Route::get("/account/accountListAjax", ['uses'=>"AccountController@accountListAjax"]);
+	Route::any("/account/accountListAjax", ['uses'=>"AccountController@accountListAjax"]);
     Route::get("/account/addAccount", ['uses'=>"AccountController@addAccount"]);
+
+    //功能菜单
+    Route::get("/module/moduleList", ['uses'=>"ModuleController@ModuleList"]);
 });
 
 

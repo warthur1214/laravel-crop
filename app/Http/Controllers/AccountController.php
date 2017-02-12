@@ -9,6 +9,9 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Model\AccountModel;
+use App\Http\Service\AccountService;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
 class AccountController extends Controller
@@ -19,9 +22,12 @@ class AccountController extends Controller
         return view("account/accountList");
     }
 
-    public function accountListAjax()
-    {
 
+    public function accountListAjax(Request $request)
+    {
+        $accountModel = new AccountModel();
+        $data = AccountService::getAccountList($accountModel);
+        return response()->json(['data'=>$data]);
     }
 
     public function addAccount()

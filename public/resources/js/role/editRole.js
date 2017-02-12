@@ -10,7 +10,7 @@ $(function() {
     var roleAccountTree; //角色权限树实例 
     var initOrgTree = InitRoleTree({ //初始化企业或者机构树实例
         $el: $roleTree,
-        url: '/Home/Son/sonParentList',
+        url: 'son/sonParentList',
         textKey: 'organ_name',
         valKey: 'organ_id',
         childrenKey: 'son',

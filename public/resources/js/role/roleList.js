@@ -4,7 +4,7 @@ $(function() {
     var _treeHeight = $('html,body').height() - $('.content-header').height() - 85;
     var initOrgTree = InitRoleTree( {
         $el: $('#roleTree'),
-        url: '/Home/Son/sonParentList',
+        url: 'son/sonParentList',
         textKey: 'organ_name',
         valKey: 'organ_id',
         childrenKey: 'son',

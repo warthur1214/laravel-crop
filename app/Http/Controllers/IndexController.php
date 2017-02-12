@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Model\AccountModel;
 use App\Http\Model\ModuleModel;
+use App\Http\Service\AccountService;
 use App\Http\Service\ModuleService;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -55,10 +57,10 @@ class IndexController extends BaseController
 		$week = array("日", "一", "二", "三", "四", "五", "六");
 		$date = date('Y年m月d日', time()) . '，星期' . $week[date('w')] . ' 北京时间：' . date('H:i:s', time());
 		//获取当前角色
-//		$display_name = $this->accountDB->field('display_name')->where(array('account_id' => session('account_id')))->find();
+
 		return view("index/main", [
 			'date' => $date,
-			'display_name' => 'warthur'
+			'display_name' => session("displayName")
 		]);
 	}
 

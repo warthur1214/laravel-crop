@@ -15,10 +15,10 @@ use App\Http\Model\AccountModel;
 class AccountService
 {
 
-    public static function getLoginUserInfo(AccountModel $model, $where = null)
+    public static function getUserInfo(AccountModel $model, $where = null)
     {
         try {
-            return AccountDao::getLoginUserInfo($model, $where);
+            return AccountDao::getUserInfo($model, $where);
         } catch (\Exception $e) {
             throw new \Exception($e);
         }
@@ -28,6 +28,15 @@ class AccountService
     {
         try {
             return AccountDao::updateLoginTime($model, $where);
+        } catch (\Exception $e) {
+            throw new \Exception($e);
+        }
+    }
+
+    public static function getAccountList(AccountModel $model, $where=null)
+    {
+        try {
+            return AccountDao::getAccountList($model, $where);
         } catch (\Exception $e) {
             throw new \Exception($e);
         }

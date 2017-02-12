@@ -30,14 +30,16 @@ class LoginController extends Controller
         $model->account_name = $request->input("accountName");
         $model->is_available = 1;
 
-        $userInfo = AccountService::getLoginUserInfo($model, $model);
+        $userInfo = AccountService::getUserInfo($model, $model);
         $statusInfo = ['msg'=>'账号不存在或被冻结，请联系管理员', 'status'=>0];
         try {
             if ($userInfo['account_id']) {
+                $statusInfo = ['msg'=>'账号不存在或被冻结，请联系管理员', 'status'=>0];
                 if ($userInfo['password'] = md5($request->input("password"))) {
                     $statusInfo['msg'] = '登录成功';
                     $statusInfo['status'] = 1;
                     $request->session()->put("accountId", $userInfo['account_id']);
+                    $request->session()->put("displayName", $userInfo['display_name']);
 
                     $loginInfo = new AccountModel();
                     $loginInfo->login_time = date("Y-m-d H:i:s");
@@ -45,6 +47,7 @@ class LoginController extends Controller
                 }
             }
         } catch (\Exception $e) {
+            $statusInfo = ['msg'=>'账号不存在或被冻结，请联系管理员', 'status'=>0];
             MSLog::log($e);
         }
 

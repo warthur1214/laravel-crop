@@ -136,7 +136,7 @@ CarGroupPopup({
     $textEl: $('#organ_id'),
     $valueEl: $('[name="parent_organ_id"]'),
     showGroup: false,
-    url: '/Home/Son/sonParentList'
+    url: 'son/sonParentList'
     // showAll: true //是否显示“全部”勾选项
 });
 //冻结机构

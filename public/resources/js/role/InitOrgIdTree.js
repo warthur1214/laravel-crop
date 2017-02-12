@@ -17,7 +17,7 @@ function InitOrgIdTree(options) {
             var me = this;
             me.initOrgTree = InitRoleTree({ //初始化企业或者机构树实例
                 $el: me.$tree,
-                url: '/Home/Son/sonParentList',
+                url: 'son/sonParentList',
                 textKey: 'organ_name',
                 valKey: 'organ_id',
                 childrenKey: 'son',

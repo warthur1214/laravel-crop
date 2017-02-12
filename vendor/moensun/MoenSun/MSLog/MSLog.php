@@ -6,10 +6,9 @@
 namespace MoenSun\MSLog;
 class MSLog{
 	public static function log($log){
-		$log=serialize($log); 
+
 		$filename=dirname(__FILE__)."/log/".date("Y-m-d")."."."mslog";		
 		if(!file_exists($filename)){
-			//chmod(dirname(__FILE__)."/log/", 0777);
 			$file=fopen($filename,"wa+");
 			
 		}else {
