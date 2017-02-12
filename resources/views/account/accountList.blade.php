@@ -21,18 +21,19 @@
                 <div class="col-sm-2">
                     <input type="text" class="form-control" id="display_name" name="display_name" placeholder="请输入账号姓名">
                 </div>
-                <label for="organListGroup" class="col-sm-1 control-label">账号归属</label>
-                <div class="col-sm-2">
-                    <div class="relative">
-                        <input type="hidden" name="organ_id">
-                        <input type="text" class="form-control" id="organ_id" placeholder="选择所属企业或机构"
-                               readonly="readonly" required style="background-color: transparent;">
-                        <div id="roleTree" class="role-tree-popup hide"></div>
-                    </div>
-                </div>
+                {{--<label for="organListGroup" class="col-sm-1 control-label">账号归属</label>--}}
+                {{--<div class="col-sm-2">--}}
+                    {{--<div class="relative">--}}
+                        {{--<input type="hidden" name="organ_id">--}}
+                        {{--<input type="text" class="form-control" id="organ_id" placeholder="选择所属企业或机构"--}}
+                               {{--readonly="readonly" required style="background-color: transparent;">--}}
+                        {{--<div id="roleTree" class="role-tree-popup hide"></div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+                <div class="text-center"><a href="javascript:void(0);" id="searchBtn"
+                                            class="btn btn-sm btn-primary selectInfo"><i
+                                class="fa fa-search"></i> 搜索</a></div>
             </div>
-            <div class="text-center"><a href="javascript:void(0);" id="searchBtn" class="btn btn-sm btn-primary selectInfo"><i
-                            class="fa fa-search"></i> 搜索</a></div>
         </form>
         <div class="box-body">
             <table id="myTable" class="table table-bordered table-hover">

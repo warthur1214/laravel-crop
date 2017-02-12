@@ -44,7 +44,14 @@ class AccountDao
                     LEFT JOIN tp_organ o ON o.organ_id = a.organ_id
                     LEFT JOIN tp_account_role ar ON ar.account_id = a.account_id
                     LEFT JOIN tp_role r ON ar.role_id = r.role_id
+                    WHERE 1 = 1
                     ";
+            if ($where['account_name']) {
+                $sql .= " and account_name like '%{$where['account_name']}%'";
+            }
+            if ($where['display_name']) {
+                $sql .= " and display_name like '%{$where['display_name']}%'";
+            }
             return MSLaravelDB::queryAll($sql);
         } catch (\Exception $e) {
             throw new \Exception($e);

@@ -26,7 +26,9 @@ class AccountController extends Controller
     public function accountListAjax(Request $request)
     {
         $accountModel = new AccountModel();
-        $data = AccountService::getAccountList($accountModel);
+        $where['account_name'] = $request->input("account_name");
+        $where['display_name'] = $request->input("display_name");
+        $data = AccountService::getAccountList($accountModel, $where);
         return response()->json(['data'=>$data]);
     }
 
