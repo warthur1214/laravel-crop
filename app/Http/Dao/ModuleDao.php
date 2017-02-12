@@ -104,4 +104,14 @@ class ModuleDao
             throw new \Exception($e);
         }
     }
+
+    public static function insertModuleInfo(ModuleModel $model, $where=null)
+    {
+        try {
+            $sql = $model->where($where)->save();
+            return MSLaravelDB::insert($sql);
+        } catch (\Exception $e) {
+            throw new \Exception($e);
+        }
+    }
 }

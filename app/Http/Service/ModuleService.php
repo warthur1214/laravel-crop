@@ -85,4 +85,13 @@ class ModuleService
             throw new \Exception($e);
         }
     }
+
+    public static function insertModuleInfo(ModuleModel $model, $where=null)
+    {
+        try {
+            return ModuleDao::insertModuleInfo($model, $where);
+        } catch (\Exception $e) {
+            throw new \Exception($e);
+        }
+    }
 }

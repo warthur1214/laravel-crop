@@ -118,6 +118,21 @@ class ModuleController extends Controller
         return view("module/addModule", [
             'parent' => $parent
         ]);
+    }
 
+    public function addModuleAjax(Request $request)
+    {
+        $module = new ModuleModel();
+        $module->initByRequest();
+
+        $result = ['msg'=>'修改成功！', 'status'=>1];
+        try {
+            ModuleService::insertModuleInfo($module);
+        } catch (\Exception $e) {
+            MSLog::log($e);
+            $result = ['msg'=>'修改失败！', 'status'=>0];
+        }
+
+        return response()->json($result);
     }
 }

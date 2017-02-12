@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>通用企业及权限管理平台</title>
+    <title>农产品管理平台</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="{{asset("/resources/css/public/bootstrap.min.css")}}">
     <link rel="stylesheet" href="{{asset("/resources/css/public/font-awesome.min.css")}}">

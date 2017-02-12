@@ -7,8 +7,8 @@
         <header class="main-header">
             <!-- Logo -->
             <a href="/" class="logo" target="_top">
-                <span class="logo-mini"><b>通用企业及权限管理</b></span>
-                <span class="logo-lg"><b>通用企业及权限管理</b></span>
+                <span class="logo-mini"><b>农产品管理平台</b></span>
+                <span class="logo-lg"><b>农产品管理平台</b></span>
             </a>
             <nav class="navbar navbar-static-top">
                 <div class="navbar-custom-menu">

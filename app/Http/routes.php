@@ -45,6 +45,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::post("/module/editModuleAjax", ['uses' => "ModuleController@updateModuleAjax"]);
     Route::post("/module/editModuleSort", ['uses' => "ModuleController@editModuleSort"]);
     Route::get("/module/addModule", ['uses' => "ModuleController@addModule"]);
+    Route::post("/module/addModuleAjax", ['uses' => "ModuleController@addModuleAjax"]);
 
     //角色管理
     Route::get("/role/roleList", ['uses' => "RoleController@roleList"]);
