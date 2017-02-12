@@ -21,5 +21,6 @@ class AccountModel extends MSBaseModel
     public $is_available;
     public $login_time;
     public $display_name;
+    public $organ_id;
 
 }
