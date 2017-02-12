@@ -41,7 +41,7 @@
     <body>
     <section class="content-header">
         <span class="pull-right">
-        <a href="/Home/Module" class="btn btn-sm btn-primary"> <i class="fa fa-plus"></i> 添加模块</a>
+        <a href="{{env("APP_URL")}}/module/addModule" class="btn btn-sm btn-primary"> <i class="fa fa-plus"></i> 添加模块</a>
       </span>
         <h1>
             模块列表
@@ -49,19 +49,20 @@
     </section>
     <div class="box marginB0">
         <form class="form-horizontal padding10" role="form" id="submit_form">
-            <div class="form-group">
-                <!-- <label for="fence_name" class="col-sm-1 control-label">围栏名称</label> -->
-                <div class="col-sm-2">
-                    <select class="form-control" id="system_id" name="system_id">
-                        <option value="0">请选择</option>
-                        <volist name="system" id="val">
-                            <option value="<{$val['system_id']}>">
-                                <{$val[ 'system_name']}>
-                            </option>
-                        </volist>
-                    </select>
-                </div>
-            </div>
+            {{--<div class="form-group">--}}
+                {{--<!-- <label for="fence_name" class="col-sm-1 control-label">围栏名称</label> -->--}}
+                {{--<div class="col-sm-2">--}}
+                    {{--<select class="form-control" id="system_id" name="system_id">--}}
+                        {{--<option value="0">请选择</option>--}}
+                        {{--@foreach($system)--}}
+                        {{--<volist name="system" id="val">--}}
+                            {{--<option value="<{$val['system_id']}>">--}}
+                                {{--<{$val[ 'system_name']}>--}}
+                            {{--</option>--}}
+                        {{--</volist>--}}
+                    {{--</select>--}}
+                {{--</div>--}}
+            {{--</div>--}}
         </form>
         <div class="box-body">
             <!-- alert start -->

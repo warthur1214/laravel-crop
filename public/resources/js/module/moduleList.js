@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
     //删除模块
     function delMoudle() {
@@ -12,13 +12,15 @@ $(document).ready(function() {
                 url: 'delModule/' + id,
                 type: "post",
                 dataType: "json",
-                success: function(result) {
+                success: function (result) {
                     if (result.status == 0) {
                         success.hide();
                         //设置msg
                         error.text(result.msg);
                         error.show();
-                        setTimeout(function() { error.hide(); }, 3000);
+                        setTimeout(function () {
+                            error.hide();
+                        }, 3000);
                         return;
                     }
                     error.hide();
@@ -28,7 +30,7 @@ $(document).ready(function() {
                     //重新加载列表
                     table.ajax.reload();
 
-                    setTimeout(function() {
+                    setTimeout(function () {
                         success.hide();
                         error.hide();
                     }, 3000);
@@ -36,38 +38,17 @@ $(document).ready(function() {
             });
         }
     }
-    //修改排序
-    function getOrder() {
-        if (isNaN($(this).html()) || $(this).html().length > 3) {
-            alert("您输入有误，请输入最多三位有效数字");
-            //重新加载列表
-            table.ajax.reload();
-            return;
-        }
-        var id = $(this).attr('index');
-        $.ajax({
-            url: 'editModuleSort',
-            type: "post",
-            dataType: "json",
-            data: { 'module_sort': $(this).html(), 'module_id': id},
-            success: function(result) {
-                if (result.status == 1) {
-                    //重新加载列表
-                    table.ajax.reload();
-                }
-            }
-        });
-    }
+
     //datatables 初始化
     var table = $('#example1').DataTable({
         "columnDefs": [
-            { "searchable": false, "orderable": false, "targets": [0] },
-            { "searchable": false, "orderable": false, "targets": [1] },
-            { "searchable": false, "orderable": false, "targets": [2] },
-            { "searchable": false, "orderable": false, "targets": [3] },
-            { "searchable": false, "orderable": true, "targets": [4] },
-            { "searchable": false, "orderable": false, "targets": [5] },
-            { "searchable": false, "orderable": false, "targets": [6] }
+            {"searchable": false, "orderable": false, "targets": [0]},
+            {"searchable": false, "orderable": false, "targets": [1]},
+            {"searchable": false, "orderable": false, "targets": [2]},
+            {"searchable": false, "orderable": false, "targets": [3]},
+            {"searchable": false, "orderable": true, "targets": [4]},
+            {"searchable": false, "orderable": false, "targets": [5]},
+            {"searchable": false, "orderable": false, "targets": [6]}
         ],
         "paging": true,
         "lengthChange": false,
@@ -83,59 +64,59 @@ $(document).ready(function() {
             [4, "desc"]
         ],
         "columns": [{
-                "data": "module_id",
-                "createdCell": function(td, cellData, rowData, row, col) {
-                    var html = "<a data-toggle='collapse' href='#' class='parent'><i class='fa fa-plus-square'></i></a>";
-                    $(td).html(html);
-                    $(td).find('.parent').click(function() {
-                        if ($(this).find('i').hasClass('fa-plus-square')) {
-                            $(this).find('i').removeClass('fa-plus-square').addClass('fa-minus-square');
-                            $.ajax({
-                                url: 'getSonM/' + rowData.module_id,
-                                type: "post",
-                                dataType: "json",
-                                success: function(result) {
-                                    var data = result.data;
+            "data": "module_id",
+            "createdCell": function (td, cellData, rowData, row, col) {
+                var html = "<a data-toggle='collapse' href='#' class='parent'><i class='fa fa-plus-square'></i></a>";
+                $(td).html(html);
+                $(td).find('.parent').click(function () {
+                    if ($(this).find('i').hasClass('fa-plus-square')) {
+                        $(this).find('i').removeClass('fa-plus-square').addClass('fa-minus-square');
+                        $.ajax({
+                            url: 'getSonM/' + rowData.module_id,
+                            type: "post",
+                            dataType: "json",
+                            success: function (result) {
+                                var data = result.data;
 
-                                    var shtml = '<tr class="table-box-td"><td colspan="7"><table>';
-                                    for (var i = 0; i < data.length; i++) {
-                                        var show = (data[i]['is_visible'] == 0) ? '否' : '是';
-                                        shtml += '<tr><th>模块名:</th><td>' + data[i]['module_name'] + '</td>';
-                                        shtml += '<th>模块地址:</th><td>' + data[i]['module_url'] + '</td>';
-                                        shtml += '<th>关键字:</th><td>' + data[i]['module_matched_key'] + '</td>';
-                                        shtml += '<th>排序:</th><td><span contenteditable="true" class="col-xs-9 m_order" index="' + data[i]['module_id'] + '">' + data[i]['module_sort'] + '</td>';
-                                        shtml += '<th>是否在列表显示:</th><td>' + show + '</td>';
-                                        shtml += '<th><a href="editModule/' + data[i]['module_id'] + '" class="btn btn-xs btn-primary">修改</a></th> <th> <a href="javascript:;" class="btn btn-xs btn-danger deleteById" id="deleteById" index="' + data[i]['module_id'] + '">删除</a></th></tr>';
+                                var shtml = '<tr class="table-box-td"><td colspan="7"><table>';
+                                for (var i = 0; i < data.length; i++) {
+                                    var show = (data[i]['is_visible'] == 0) ? '否' : '是';
+                                    shtml += '<tr><th>模块名:</th><td>' + data[i]['module_name'] + '</td>';
+                                    shtml += '<th>模块地址:</th><td>' + data[i]['module_url'] + '</td>';
+                                    shtml += '<th>关键字:</th><td>' + data[i]['module_matched_key'] + '</td>';
+                                    shtml += '<th>排序:</th><td><span contenteditable="true" class="col-xs-9 m_order" index="' + data[i]['module_id'] + '">' + data[i]['module_sort'] + '</td>';
+                                    shtml += '<th>是否在列表显示:</th><td>' + show + '</td>';
+                                    shtml += '<th><a href="editModule/' + data[i]['module_id'] + '" class="btn btn-xs btn-primary">修改</a></th> <th> <a href="javascript:;" class="btn btn-xs btn-danger deleteById" id="deleteById" index="' + data[i]['module_id'] + '">删除</a></th></tr>';
 
-                                    }
-                                    shtml += '</table></td></tr>';
-                                    $(td).parent('tr').after(shtml);
                                 }
-                            });
-                        } else {
-                            $(this).find('i').removeClass('fa-minus-square').addClass('fa-plus-square');
-                            $(td).parent('tr').next('.table-box-td').remove();
-                        }
-                    })
-                }
-            },
-            { "data": "module_name" },
-            { "data": "module_url" },
-            { "data": "module_matched_key" }, {
+                                shtml += '</table></td></tr>';
+                                $(td).parent('tr').after(shtml);
+                            }
+                        });
+                    } else {
+                        $(this).find('i').removeClass('fa-minus-square').addClass('fa-plus-square');
+                        $(td).parent('tr').next('.table-box-td').remove();
+                    }
+                })
+            }
+        },
+            {"data": "module_name"},
+            {"data": "module_url"},
+            {"data": "module_matched_key"}, {
                 "data": "module_sort",
-                "createdCell": function(td, cellData, rowData, row, col) {
+                "createdCell": function (td, cellData, rowData, row, col) {
                     var html = "<span contenteditable='true' class='col-xs-9 m_order' index='" + rowData.module_id + "'>" + rowData.module_sort + "</span>";
                     $(td).html(html);
                 }
             }, {
                 "data": "is_visible",
-                "createdCell": function(td, cellData, rowData, row, col) {
+                "createdCell": function (td, cellData, rowData, row, col) {
                     var show = (rowData.is_visible == 0) ? '否' : '是';
                     $(td).html(show);
                 }
             }, {
                 "data": null,
-                "createdCell": function(td, cellData, rowData, row, col) {
+                "createdCell": function (td, cellData, rowData, row, col) {
                     var html = $(td).html("<a href='editModule/" + rowData.module_id + "' class='btn btn-xs btn-primary'>修改</a> <a href='javascript:;' class='btn btn-xs btn-danger deleteById' id='deleteById' index='" + rowData.module_id + "'>删除</a>");
                 }
             }
@@ -157,8 +138,8 @@ $(document).ready(function() {
             }
         }
     });
-    $("#system_id").change(function() {
-        var _val = $(this).val(); 
+    $("#system_id").change(function () {
+        var _val = $(this).val();
         reloadData({
             "system_id": _val
         });
@@ -167,7 +148,32 @@ $(document).ready(function() {
     function reloadData(param) {
         table.settings()[0].ajax.data = param;
         table.ajax.reload();
-    };
+    }
+
     $('#example1').on('click', '#deleteById', delMoudle);
-    $('#example1').on('blur', 'span.m_order', getOrder);
+    $('#example1').on('keydown', 'span.m_order', function (e) {
+
+        if (e.keyCode == 13) {
+            if (isNaN($(this).html()) || $(this).html().length > 3) {
+                alert("您输入有误，请输入最多三位有效数字");
+                //重新加载列表
+                table.ajax.reload();
+                return;
+            }
+            var id = $(this).attr('index');
+            $.ajax({
+                url: 'editModuleSort',
+                type: "post",
+                dataType: "json",
+                data: {'module_sort': $(this).html(), 'module_id': id},
+                success: function (result) {
+                    if (result.status == 1) {
+                        //重新加载列表
+                        table.ajax.reload();
+                    }
+                }
+            });
+        }
+    });
+
 });

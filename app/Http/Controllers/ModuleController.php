@@ -111,4 +111,13 @@ class ModuleController extends Controller
 
         return response()->json($result);
     }
+
+    public function addModule()
+    {
+        $parent = ModuleService::getParentList();
+        return view("module/addModule", [
+            'parent' => $parent
+        ]);
+
+    }
 }

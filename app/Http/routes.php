@@ -40,6 +40,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get("/module/editModule/{id}", ['uses' => "ModuleController@updateModuleById"]);
     Route::post("/module/editModuleAjax", ['uses' => "ModuleController@updateModuleAjax"]);
     Route::post("/module/editModuleSort", ['uses' => "ModuleController@editModuleSort"]);
+    Route::get("/module/addModule", ['uses' => "ModuleController@addModule"]);
 });
 
 
