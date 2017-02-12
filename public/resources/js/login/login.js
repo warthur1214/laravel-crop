@@ -55,11 +55,11 @@ $(function() {
         var password = $('#password').val(); 
         password = newHexMd5( password ); 
         var requestData = {
-            "account_name": account_name,
+            "accountName": account_name,
             "password": password
-        }; 
+        };
         $.ajax({
-            url: "/loginAjax",
+            url: "loginAjax",
             type: "post",
             data: requestData,
             dataType: "json",
@@ -70,7 +70,7 @@ $(function() {
                     setTimeout(function() { window.location.reload() }, 2000);
                 } else {
                     $('.alert').show().removeClass('alert-error').addClass('alert-success');
-                    setTimeout(function() { window.location.href = '/' }, 2000);
+                    setTimeout(function() { window.location.href = "index"}, 2000);
                 }
 
             }

@@ -13,20 +13,10 @@ class IndexController extends BaseController
 {
 	use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-	public function test()
+    public function test()
     {
         dump(env('APP_URL'));
     }
-
-	public function login()
-	{
-		return view("index/login");
-	}
-
-	public function loginAjax()
-	{
-		return view("index/index");
-	}
 
 	public function top()
 	{
@@ -35,7 +25,11 @@ class IndexController extends BaseController
 
 	public function index()
 	{
-		return view("index/index");
+        if (session('accountId')) {
+            return view("index/index");
+        } else {
+            return view("index/login");
+        }
 	}
 
 	public function menu()
@@ -68,8 +62,4 @@ class IndexController extends BaseController
 		]);
 	}
 
-	public function loginOut()
-	{
-		return view("index/login");
-	}
 }

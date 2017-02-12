@@ -14,7 +14,7 @@
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
                         <li class="dropdown user user-menu">
-                            <a href="{{env("APP_URL")}}/login/loginOut" target="_top">
+                            <a href="{{env("APP_URL")}}/loginOut" target="_top">
                                 <i class="fa fa-user"></i>
                                 <span class="hidden-xs">退出</span>
                             </a>
@@ -24,12 +24,12 @@
             </nav>
         </header>
         <aside class="main-sidebar">
-            <iframe src="http://localhost/laravel-master/public/menu" width="100%" height="100%" scrolling="no"
+            <iframe src="{{env('APP_URL')}}/menu" width="100%" height="100%" scrolling="no"
                     frameborder="0"></iframe>
         </aside>
         <!-- Content Wrapper. Contains page content -->
         <div id="content" class="content-wrapper">
-            <iframe src="http://localhost/laravel-master/public/main" width="100%" height="100%" name="myFrame"
+            <iframe src="{{env('APP_URL')}}/main" width="100%" height="100%" name="myFrame"
                     scrolling="no"
                     frameborder="0"></iframe>
         </div>
