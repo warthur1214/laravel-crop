@@ -6,7 +6,7 @@
     <div class="wrapper">
         <header class="main-header">
             <!-- Logo -->
-            <a href="/" class="logo" target="_top">
+            <a href="{{env("APP_URL")}}/index" class="logo" target="_top">
                 <span class="logo-mini"><b>农产品管理平台</b></span>
                 <span class="logo-lg"><b>农产品管理平台</b></span>
             </a>
