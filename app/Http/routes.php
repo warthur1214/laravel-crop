@@ -26,7 +26,7 @@ Route::group(['middleware' => ['web']], function () {
 
     //账号管理模块
     Route::get("/account/accountList", ['uses' => "AccountController@accountList"]);
-    Route::any("/account/accountListAjax", ['uses' => "AccountController@accountListAjax"]);
+    Route::post("/account/accountListAjax", ['uses' => "AccountController@accountListAjax"]);
     Route::get("/account/addAccount", ['uses' => "AccountController@addAccount"]);
     Route::post("/account/addAccountAjax", ['uses' => "AccountController@addAccountAjax"]);
     Route::get("/account/delAccount/{id}", ['uses' => "AccountController@deleteAccount"]);
@@ -51,6 +51,16 @@ Route::group(['middleware' => ['web']], function () {
     Route::get("/role/roleList", ['uses' => "RoleController@roleList"]);
     Route::post("/role/roleListAjax", ['uses' => "RoleController@roleListAjax"]);
     Route::get("/company/sonParentList", ['uses' => "CompanyController@sonParentList"]);
+
+    //周期管理
+    Route::get("/cycle/cycleList", ['uses' => "CycleController@cycleList"]);
+    Route::post("/cycle/cycleListAjax", ['uses' => "CycleController@getCycleList"]);
+    Route::get("/cycle/addCycle", ['uses' => "CycleController@addCycle"]);
+    Route::post("/cycle/addCycleAjax", ['uses' => "CycleController@insertCycle"]);
+    Route::get("/cycle/editCycle/{cycleId}", ['uses' => "CycleController@editCycle"]);
+    Route::post("/cycle/editCycleAjax", ['uses' => "CycleController@updateCycleById"]);
+    Route::get("/cycle/delCycle/{cycleId}", ['uses' => "CycleController@deleteCycleById"]);
+
 });
 
 

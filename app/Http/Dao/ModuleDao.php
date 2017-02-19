@@ -22,7 +22,6 @@ class ModuleDao
 					FROM tp_module 
 					WHERE module_parent_id={$model->module_parent_id} 
 					AND is_visible={$model->is_visible}
-					AND system_id={$model->system_id}
 					ORDER BY module_sort DESC, module_id ASC";
             return MSLaravelDB::queryAll($sql);
         } catch (\Exception $e) {
@@ -76,8 +75,7 @@ class ModuleDao
             $sql = "SELECT 
                         module_id, module_name 
                     FROM tp_module 
-                    WHERE module_level < 2 
-                    AND system_id = -1 
+                    WHERE module_level < 2
                     ORDER BY module_sort DESC ,module_id ASC ";
             return MSLaravelDB::queryAll($sql);
         } catch (\Exception $e) {

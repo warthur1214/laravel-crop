@@ -39,7 +39,6 @@ class IndexController extends BaseController
 		$module = new ModuleModel();
 		$module->module_parent_id = 0;
 		$module->is_visible = 1;
-		$module->system_id = -1;
 		$menu = ModuleService::getModuleList($module);
 		foreach ($menu as $k=>&$v) {
 			$module->module_parent_id = $v['module_id'];

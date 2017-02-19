@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\common\ReturnUtil;
 use App\Http\Model\AccountModel;
 use App\Http\Service\AccountService;
 use Illuminate\Http\Request;
@@ -43,15 +44,14 @@ class AccountController extends Controller
 		$account = new AccountModel();
 		$account->initByRequest();
 
-		$result = ['msg' => '修改成功！', 'status' => 1];
+		$result = ReturnUtil::success();
 		try {
 			AccountService::insertAccountInfo($account);
 		} catch (\Exception $e) {
-			MSLog::log($e);
-			$result = ['msg' => '修改失败！', 'status' => 0];
+			return ReturnUtil::error($e);
 		}
 
-		return response()->json($result);
+		return $result;
 	}
 
 	public function deleteAccount($id)

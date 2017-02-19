@@ -81,7 +81,7 @@
                                 <option value="">请选择</option>
                                 @foreach($parent as $val)
                                     <option value="{{$val['module_id']}}"
-                                            {{$val['module_id'] == $info['module_id'] ? 'selected' : null}} >
+                                            {{$val['module_id'] == $info['module_parent_id'] ? 'selected' : null}} >
                                         {{$val['module_name']}}
                                     </option>
                                 @endforeach
