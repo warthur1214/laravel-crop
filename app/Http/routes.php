@@ -61,6 +61,14 @@ Route::group(['middleware' => ['web']], function () {
     Route::post("/cycle/editCycleAjax", ['uses' => "CycleController@updateCycleById"]);
     Route::post("/cycle/delCycle/{cycleId}", ['uses' => "CycleController@deleteCycleById"]);
 
+    //品类管理
+    Route::get("/variety/varietyList", ['uses' => "VarietyController@varietyList"]);
+    Route::post("/variety/varietyListAjax", ['uses' => "VarietyController@getVarietyList"]);
+    Route::get("/variety/addVariety", ['uses' => "VarietyController@addVariety"]);
+    Route::post("/variety/addVarietyAjax", ['uses' => "VarietyController@insertVariety"]);
+    Route::get("/variety/editVariety/{varietyId}", ['uses' => "VarietyController@editVariety"]);
+    Route::post("/variety/editVarietyAjax", ['uses' => "VarietyController@updateVarietyById"]);
+    Route::post("/variety/delVariety/{varietyId}", ['uses' => "VarietyController@deleteVarietyById"]);
 });
 
 
