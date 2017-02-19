@@ -81,4 +81,18 @@ class CycleController extends Controller
         }
         return $result;
     }
+
+    public function deleteCycleById($cycleId)
+    {
+        $cycle = new CycleModel();
+        $where['id'] = $cycleId;
+
+        $result = ReturnUtil::success();
+        try {
+            CycleService::deleteCycleById($cycle, $where);
+        } catch (\Exception $e) {
+            return ReturnUtil::error($e);
+        }
+        return $result;
+    }
 }

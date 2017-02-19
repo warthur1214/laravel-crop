@@ -59,7 +59,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::post("/cycle/addCycleAjax", ['uses' => "CycleController@insertCycle"]);
     Route::get("/cycle/editCycle/{cycleId}", ['uses' => "CycleController@editCycle"]);
     Route::post("/cycle/editCycleAjax", ['uses' => "CycleController@updateCycleById"]);
-    Route::get("/cycle/delCycle/{cycleId}", ['uses' => "CycleController@deleteCycleById"]);
+    Route::post("/cycle/delCycle/{cycleId}", ['uses' => "CycleController@deleteCycleById"]);
 
 });
 

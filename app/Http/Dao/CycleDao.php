@@ -54,4 +54,14 @@ class CycleDao
             throw new \Exception($e);
         }
     }
+
+    public static function deleteCycleById(CycleModel $model, $where=null)
+    {
+        try {
+            $sql = $model->where($where)->delete();
+            return MSLaravelDB::delete($sql);
+        } catch (\Exception $e) {
+            throw new \Exception($e);
+        }
+    }
 }

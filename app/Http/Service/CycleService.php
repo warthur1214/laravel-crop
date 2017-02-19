@@ -50,4 +50,13 @@ class CycleService
             throw new \Exception($e);
         }
     }
+
+    public static function deleteCycleById(CycleModel $model, $where=null)
+    {
+        try {
+            return CycleDao::deleteCycleById($model, $where);
+        } catch (\Exception $e) {
+            throw new \Exception($e);
+        }
+    }
 }
