@@ -15,11 +15,9 @@
                             </a>
                             <ul class="treeview-menu">
                                 @foreach($vals['menu_two'] as $val)
-                                    <li>
+                                    <li style="margin-left: 10%;">
                                         <a href="{{env("APP_URL").$val['module_url']}}" target="myFrame">
-                                            <i class="fa fa-circle-o"></i>
-                                            {{$val['module_name']}}
-                                        </a>
+                                            <i class="fa fa-circle-o"></i>{{$val['module_name']}}</a>
                                     </li>
                                 @endforeach
                             </ul>
