@@ -69,11 +69,14 @@ class VarietyController extends Controller
     {
         $cycle = new VarietyModel();
         $cycle->initByRequest();
-        $where['id'] = $request->input("cycle_id");
+
+        $where['id'] = $request->input("variety_id");
 
         $result = ReturnUtil::success();
         try {
-            VarietyService::updateVarietyById($cycle, $where);
+            if ($where['id']) {
+                VarietyService::updateVarietyById($cycle, $where);
+            }
         } catch (\Exception $e) {
             return ReturnUtil::error($e);
         }

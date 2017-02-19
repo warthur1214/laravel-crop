@@ -262,8 +262,10 @@ class MSBaseModel
                 $values = array();
                 foreach ($insertArray as $k => $v) {
                     $v = MSModelStatic::sqlRegular($v);
-                    $fields[] = $k;
-                    $values[] = (preg_match($this->mysqlFunReg, $v) ? $v : "'" . $v . "'");
+                    if ($v) {
+                        $fields[] = $k;
+                        $values[] = (preg_match($this->mysqlFunReg, $v) ? $v : "'" . $v . "'");
+                    }
                 }
                 return "insert into " . $this->getTableName() . " (" . implode(",", $fields) . ") values (" . implode(",", $values) . ")";
             } else {

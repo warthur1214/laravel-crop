@@ -75,7 +75,9 @@ class CycleController extends Controller
 
         $result = ReturnUtil::success();
         try {
-            CycleService::updateCycleById($cycle, $where);
+            if ($where['id']) {
+                CycleService::updateCycleById($cycle, $where);
+            }
         } catch (\Exception $e) {
             return ReturnUtil::error($e);
         }
