@@ -17,6 +17,10 @@
             background-color: #f2dede;
             border-color: #eed3d7
         }
+        .img_browser {
+            height: 400px;
+            width: 300px;
+        }
     </style>
 @endsection
 
@@ -64,6 +68,15 @@
                                                            placeholder="节点图片描述"></div>
                         </td>
                     </tr>
+
+                    <tr class="form-group">
+                        <th>图片预览</th>
+                        <td colspan="5">
+                            <div class="form-group">
+                                <img src="" class="img_browser" id="img_browser" alt="图片预览">
+                            </div>
+                        </td>
+                    </tr>
                     <tr class="form-group">
                         <th>是否生效</th>
                         <td>
@@ -97,4 +110,30 @@
     <!-- iCheck 1.0.1 -->
     <script src="{{asset("/resources/plugins/iCheck/icheck.min.js")}}"></script>
     <script src="{{asset("/resources/js/cycle/addCycle.js")}}"></script>
+@endsection
+
+@section("js")
+    <script type="text/javascript">
+        //待上传图片预览
+        $("#cycle_img").change(function () {
+            var objUrl = getObjectURL(this.files[0]);
+            if (objUrl) {
+                $("#img_browser").attr("src", objUrl);
+            }
+        });
+
+        //建立一個可存取到該file的url
+        function getObjectURL(file) {
+            var url = null;
+            window.createObjectURL = undefined;
+            if (window.createObjectURL != undefined) { // basic
+                url = window.createObjectURL(file);
+            } else if (window.URL != undefined) { // mozilla(firefox)
+                url = window.URL.createObjectURL(file);
+            } else if (window.webkitURL != undefined) { // webkit or chrome
+                url = window.webkitURL.createObjectURL(file);
+            }
+            return url;
+        }
+    </script>
 @endsection
