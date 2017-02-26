@@ -44,7 +44,7 @@ class BatchController extends Controller
     public function addBatch()
     {
         return view("batch/addBatch", [
-            'batchNumber' => "BNC".date("Ymd").NumberUtil::getNonceStr(6)
+            'batchNumber' => "BNC".date("Ymd").NumberUtil::getNonceStr(4)
         ]);
     }
 

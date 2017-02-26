@@ -6,14 +6,20 @@ $(function () {
         errorClass: 'text-red', // default input error message class
         focusInvalid: false, // do not focus the last invalid input
         rules: {
-            module_name: {
+            crop_name: {
                 required: true
             },
-            module_matched_key: {
+            crop_number: {
                 required: true
             },
-            module_order: {
-                maxlength: 3
+            batch_id: {
+                required: true
+            },
+            cycle_id: {
+                required: true
+            },
+            variety_id: {
+                required: true
             }
         },
         invalidHandler: function (event, validator) { //display error alert on form submit
@@ -44,17 +50,22 @@ $(function () {
         if (form.valid() == false) {
             return false;
         }
+
         var formData = new FormData(form);
-        var cropImg = document.getElementById('cycle_img').files[0];
+        var cropImg = document.getElementById('crop_img').files[0];
         if (cropImg) {
-            formData.append("cycle_img", document.getElementById('cycle_img').files[0]);
+            formData.append("crop_img", document.getElementById('crop_img').files[0]);
         }
-        formData.append("cycle_name", $("#cycle_name").val());
-        formData.append("cycle_describe", $("#cycle_describe").val());
-        formData.append("cycle_status", $("#cycle_status").val());
+        formData.append("crop_number", $("#crop_number").val());
+        formData.append("crop_name", $("#crop_name").val());
+        formData.append("crop_describe", $("#crop_describe").val());
+        formData.append("cycle_id", $("#cycle_id").val());
+        formData.append("batch_id", $("#batch_id").val());
+        formData.append("variety_id", $("#variety_id").val());
+        formData.append("crop_weight", $("#crop_weight").val());
 
         $.ajax({
-            url: $("#app_url").val()+"/cycle/addCycleAjax",
+            url: $("#app_url").val()+"/crop/addCropAjax",
             type: "post",
             data: formData,
             dataType: "json",
@@ -68,7 +79,7 @@ $(function () {
                 else {
                     $('.alert').show().removeClass('alert-error').addClass('alert-success');
                     setTimeout(function () {
-                        window.location.href = $("#app_url").val()+'/cycle/cycleList'
+                        window.location.href = $("#app_url").val()+'/crop/cropList'
                     }, 2000);
                 }
 

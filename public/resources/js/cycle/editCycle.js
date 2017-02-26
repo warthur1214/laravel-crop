@@ -42,8 +42,10 @@ $(function () {
             return false;
         }
         var formData = new FormData(form);
-
-        formData.append("cycle_img", document.getElementById('cycle_img').files[0]);
+        var cropImg = document.getElementById('cycle_img').files[0];
+        if (cropImg) {
+            formData.append("cycle_img", document.getElementById('cycle_img').files[0]);
+        }
         formData.append("cycle_id", $("#cycle_id").val());
         formData.append("cycle_name", $("#cycle_name").val());
         formData.append("cycle_describe", $("#cycle_describe").val());

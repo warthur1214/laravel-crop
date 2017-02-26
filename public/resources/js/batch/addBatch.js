@@ -6,10 +6,10 @@ $(function () {
         errorClass: 'text-red', // default input error message class
         focusInvalid: false, // do not focus the last invalid input
         rules: {
-            module_name: {
+            batch_name: {
                 required: true
             },
-            module_matched_key: {
+            batch_number: {
                 required: true
             },
             module_order: {
@@ -44,22 +44,11 @@ $(function () {
         if (form.valid() == false) {
             return false;
         }
-        var formData = new FormData(form);
-        var cropImg = document.getElementById('cycle_img').files[0];
-        if (cropImg) {
-            formData.append("cycle_img", document.getElementById('cycle_img').files[0]);
-        }
-        formData.append("cycle_name", $("#cycle_name").val());
-        formData.append("cycle_describe", $("#cycle_describe").val());
-        formData.append("cycle_status", $("#cycle_status").val());
-
         $.ajax({
-            url: $("#app_url").val()+"/cycle/addCycleAjax",
+            url: $("#app_url").val()+"/batch/addBatchAjax",
             type: "post",
-            data: formData,
+            data: form.serialize(),
             dataType: "json",
-            processData: false,
-            contentType: false,
             success: function (result) {
                 $('.alert').html(result.msg);
                 if (result.status == 0) {
@@ -68,7 +57,7 @@ $(function () {
                 else {
                     $('.alert').show().removeClass('alert-error').addClass('alert-success');
                     setTimeout(function () {
-                        window.location.href = $("#app_url").val()+'/cycle/cycleList'
+                        window.location.href = $("#app_url").val()+'/batch/batchList'
                     }, 2000);
                 }
 

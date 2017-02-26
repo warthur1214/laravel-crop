@@ -78,6 +78,16 @@ Route::group(['middleware' => ['web']], function () {
     Route::get("/batch/editBatch/{batchId}", ['uses' => "BatchController@editBatch"]);
     Route::post("/batch/editBatchAjax", ['uses' => "BatchController@updateBatchById"]);
     Route::post("/batch/delBatch/{batchId}", ['uses' => "BatchController@deleteBatchById"]);
+
+    //作物管理
+    Route::get("/crop/cropList", ['uses' => "CropController@cropList"]);
+    Route::post("/crop/cropListAjax", ['uses' => "CropController@getCropList"]);
+    Route::get("/crop/addCrop", ['uses' => "CropController@addCrop"]);
+    Route::post("/crop/addCropAjax", ['uses' => "CropController@insertCrop"]);
+    Route::get("/crop/editCrop/{cropId}", ['uses' => "CropController@editCrop"]);
+    Route::post("/crop/editCropAjax", ['uses' => "CropController@updateCropById"]);
+    Route::post("/crop/delCrop/{cropId}", ['uses' => "CropController@deleteCropById"]);
+    Route::get("/crop/scanBinCode/{cropId}", ['uses' => "CropController@scanBinCode"]);
 });
 
 

@@ -48,6 +48,16 @@ class CycleController extends Controller
         $cycle->initByRequest();
         $result = ReturnUtil::success();
         try {
+            if ($request->hasFile("cycle_img")) {
+                $cycleImg = $request->file("cycle_img");
+                $ext = ['jpg', 'png'];
+                if (in_array($cycleImg->getClientOriginalExtension(), $ext)) {
+                    $ext = $cycleImg->getClientOriginalExtension();
+                    $fileName = "cycle_".date("YmdH:i:s.").$ext;
+                    $cycleImg->move("uploads/", $fileName);
+                    $cycle->cycle_img = env('APP_URL'). "/uploads/" . $fileName;
+                }
+            }
             CycleService::insertCycleInfo($cycle);
         } catch (\Exception $e) {
             Log::ERROR($e);

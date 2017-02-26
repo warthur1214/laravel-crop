@@ -3,7 +3,6 @@
  *   Author: Guilin Yu 
 !*/
 
-
 /*主页样式重写*/
 
 html,
@@ -13,11 +12,11 @@ body {
     overflow: auto;
     overflow-x: hidden;
     position: relative;
-    margin:0 0;
+    margin: 0 0;
 }
 
 .padding0 {
-    padding: 0!important;
+    padding: 0 !important;
 }
 
 .paddingTB10 {
@@ -36,9 +35,11 @@ body {
 .marginB0 {
     margin-bottom: 0;
 }
-.paddingT10{
+
+.paddingT10 {
     margin-top: 10px;
 }
+
 nav,
 aside,
 .content-wrapper,
@@ -61,18 +62,19 @@ p {
     overflow: auto;
 }
 
-.sidebar-menu .treeview-menu>li>a {
+.sidebar-menu .treeview-menu > li > a {
     padding: 7px 5px 7px 15px;
 }
 
-.sidebar-menu>li>a {
+.sidebar-menu > li > a {
     padding: 13px 5px 13px 15px;
 }
 
 .auto-table {
     overflow: auto;
 }
-.relative{
+
+.relative {
     position: relative;
 }
 
@@ -82,9 +84,9 @@ p {
     padding: 10px;
 }
 
-.table-bordered>thead>tr>th,
-.table-bordered>tbody>tr>th,
-.table-bordered>tfoot>tr>th {
+.table-bordered > thead > tr > th,
+.table-bordered > tbody > tr > th,
+.table-bordered > tfoot > tr > th {
     white-space: nowrap;
 }
 
@@ -153,11 +155,11 @@ td .calendar-box .fa-calendar {
 
 .box-cus .table-bordered > tbody > tr th {
     background-color: #f9f9f9;
-    width: 150px;
+    width: 20%;
     vertical-align: middle;
 }
 
-.box-cus-form .table-bordered>tbody>tr>td {
+.box-cus-form .table-bordered > tbody > tr > td {
     padding: 8px;
 }
 
@@ -186,7 +188,6 @@ td .calendar-box .fa-calendar {
     border-top: 1px solid #f4f4f4;
 }
 
-
 /*历史轨迹页面地图控制器*/
 
 .contorl-box {
@@ -209,7 +210,6 @@ td .calendar-box .fa-calendar {
     border: 1px solid #dbdbdb;
 }
 
-
 /*车辆信息弹出窗口样式*/
 
 .car-info-window .badge {
@@ -225,7 +225,6 @@ td .calendar-box .fa-calendar {
 .car-info-window li {
     padding: 1px 0;
 }
-
 
 /* 车辆位置页面 */
 
@@ -257,7 +256,7 @@ td .calendar-box .fa-calendar {
     padding: 0;
 }
 
-.car-status-box .nav>li>a {
+.car-status-box .nav > li > a {
     padding: 5px 10px;
 }
 
@@ -344,7 +343,6 @@ td .calendar-box .fa-calendar {
     color: #777;
 }
 
-
 /*企业硬件添加页面-新增设备号*/
 
 .device_info {
@@ -369,7 +367,6 @@ td .calendar-box .fa-calendar {
     background: #dd4b39;
     border-color: #dd4b39;
 }
-
 
 /*分页样式*/
 
@@ -422,7 +419,6 @@ td .calendar-box .fa-calendar {
     font-weight: bold;
 }
 
-
 /*周月年日期选择器*/
 
 .daterange-box {
@@ -456,7 +452,6 @@ td .calendar-box .fa-calendar {
     -ms-user-select: none;
     user-select: none;
 }
-
 
 /*数据统计模块*/
 
@@ -562,7 +557,6 @@ td .calendar-box .fa-calendar {
     padding: 0 20px;
 }
 
-
 /*提示框*/
 
 .alert_page_success {
@@ -576,7 +570,6 @@ td .calendar-box .fa-calendar {
     background-color: #f2dede;
     border-color: #eed3d7
 }
-
 
 /*自定义datatable样式*/
 
@@ -672,12 +665,11 @@ table.datatable-custom {
     overflow: auto;
 }
 
-table.datatable-custom>thead>tr>th {
+table.datatable-custom > thead > tr > th {
     text-align: center;
     vertical-align: middle;
     padding-right: 8px;
 }
-
 
 /* 自定义弹窗样式*/
 
@@ -719,7 +711,6 @@ table.datatable-custom>thead>tr>th {
     margin-right: 5px;
 }
 
-
 /*实时搜索*/
 
 .ui-menu.ui-autocomplete {
@@ -745,7 +736,6 @@ table.datatable-custom>thead>tr>th {
 .item-data-box .box-title {
     padding-left: 0;
 }
-
 
 /*电子围栏——车辆列表*/
 
@@ -782,11 +772,10 @@ table.datatable-custom>thead>tr>th {
     background-color: #f3b95c;
 }
 
-.fencelist-table-box .table>tbody>tr>td,
-.fencelist-table-box .table>thead>tr>th {
+.fencelist-table-box .table > tbody > tr > td,
+.fencelist-table-box .table > thead > tr > th {
     padding: 4px 5px;
 }
-
 
 /*增减车辆*/
 
@@ -836,7 +825,6 @@ table.datatable-custom>thead>tr>th {
     padding: 0 0 0 20px;
 }
 
-
 /*自定义树结构*/
 
 .tree-list-cus,
@@ -851,15 +839,17 @@ table.datatable-custom>thead>tr>th {
     padding-left: 15px;
     position: relative;
 }
-.tree-list-default li{
+
+.tree-list-default li {
     padding-left: 20px;
 }
+
 .tree-list-cus li > ul,
 .tree-list-default li > ul {
     padding-left: 5px;
 }
 
-.tree-list-cus >li > .tree-node {
+.tree-list-cus > li > .tree-node {
     color: #fff;
     background-color: #329832;
     border: 1px solid green;
@@ -880,26 +870,31 @@ table.datatable-custom>thead>tr>th {
     border: 1px solid #666;
     cursor: default;
 }
-.tree-list-default .tree-node{
+
+.tree-list-default .tree-node {
     cursor: default;
-} 
+}
+
 .tree-list-default .tree-node:hover,
-.tree-list-default .tree-node.active{
+.tree-list-default .tree-node.active {
     color: #f1633f;
 }
+
 .tree-list-cus .fa-collapse,
-.tree-list-default .fa-collapse{
+.tree-list-default .fa-collapse {
     position: absolute;
     left: 0;
     top: 3px;
 }
-.tree-list-default .fa-collapse{
+
+.tree-list-default .fa-collapse {
     left: 3px;
     top: 2px;
 }
+
 /* 树结构弹出层*/
-.role-tree-popup{
-    position: absolute; 
+.role-tree-popup {
+    position: absolute;
     width: 100%;
     height: 200px;
     overflow-y: auto;
@@ -915,54 +910,71 @@ table.datatable-custom>thead>tr>th {
     font-weight: bold;
 }
 
-.nav-tabs-cus>li>a {
+.nav-tabs-cus > li > a {
     border-radius: 0;
     padding: 6px 15px;
     color: #555;
 }
-.nav-tabs-cus>li.active>a, 
-.nav-tabs-cus>li.active>a:focus, 
-.nav-tabs-cus>li.active>a:hover{
-        background-color: #f9f9f9;
+
+.nav-tabs-cus > li.active > a,
+.nav-tabs-cus > li.active > a:focus,
+.nav-tabs-cus > li.active > a:hover {
+    background-color: #f9f9f9;
 }
+
 /*角色管理——功能权限*/
-.callout-cus{
+.callout-cus {
     border: 1px solid #f3f3f3;
     border-left: 5px solid #eee;
     margin: 10px 0 0 0;
     padding: 10px;
-} 
-.role-module-box{ 
+}
+
+.role-module-box {
     position: relative;
     padding-left: 110px;
     min-height: 21px;
 }
-.role-module-box .title{
+
+.role-module-box .title {
     position: absolute;
     width: 100px;
     left: 0;
     /* border-right: 1px solid #333; */
     font-weight: bold;
 }
-.role-module-box ul li:first-child{
+
+.role-module-box ul li:first-child {
     border-right: 1px solid #333;
     padding: 0 15px 0 0;
 }
-.role-module-box .title .checkbox-inline, 
-.role-module-box .title .radio-inline{
+
+.role-module-box .title .checkbox-inline,
+.role-module-box .title .radio-inline {
     font-weight: bold;
 }
-.role-module-box .checkbox-all{
+
+.role-module-box .checkbox-all {
     color: red;
 }
 
-.modal-ajax{
+.modal-ajax {
     display: block;
     text-align: center;
     background-color: transparent;
 }
-.modal-ajax .fa-refresh{
+
+.modal-ajax .fa-refresh {
     font-size: 40px;
     color: #333;
     margin-top: 20%;
+}
+
+.span1 {
+    font-size: small;
+    padding-left: 10px;
+}
+
+.a1 {
+    color: red;
 }
