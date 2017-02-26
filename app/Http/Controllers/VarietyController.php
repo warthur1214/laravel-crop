@@ -14,6 +14,7 @@ use App\Http\Model\VarietyModel;
 use App\Http\Service\VarietyService;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Log;
 
 class VarietyController extends Controller
 {
@@ -49,7 +50,8 @@ class VarietyController extends Controller
         try {
             VarietyService::insertVarietyInfo($account);
         } catch (\Exception $e) {
-            return ReturnUtil::error($e);
+            Log::ERROR($e);
+            return ReturnUtil::error();
         }
 
         return $result;
@@ -78,7 +80,8 @@ class VarietyController extends Controller
                 VarietyService::updateVarietyById($cycle, $where);
             }
         } catch (\Exception $e) {
-            return ReturnUtil::error($e);
+            Log::ERROR($e);
+            return ReturnUtil::error();
         }
         return $result;
     }
@@ -92,7 +95,8 @@ class VarietyController extends Controller
         try {
             VarietyService::deleteVarietyById($cycle, $where);
         } catch (\Exception $e) {
-            return ReturnUtil::error($e);
+            Log::ERROR($e);
+            return ReturnUtil::error();
         }
         return $result;
     }

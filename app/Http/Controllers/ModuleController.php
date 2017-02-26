@@ -9,11 +9,13 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\common\ReturnUtil;
 use App\Http\Model\ModuleModel;
 use App\Http\Service\ModuleService;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\URL;
+use Log;
 use MoenSun\MSLog\MSLog;
 
 class ModuleController extends Controller
@@ -51,15 +53,14 @@ class ModuleController extends Controller
 
         $module = new ModuleModel();
         $module->module_id = $id;
-        $result = ['msg' => '删除失败，该模块存在子模块', 'status' => 0];
+        $result = ReturnUtil::success();
         try {
             ModuleService::deleteModuleById($module, $module);
-            $result = ['msg' => '删除成功', 'status' => 1];
-            return response()->json($result);
         } catch (\Exception $e) {
-            MSLog::log($e);
-            return response()->json($result);
+            Log::ERROR($e);
+            return ReturnUtil::error('删除失败，该模块存在子模块');
         }
+        return $result;
     }
 
     public function updateModuleById($id)
@@ -83,15 +84,15 @@ class ModuleController extends Controller
         $moduleModel->module_parent_id = $request->input("module_parent_id");
 
         $where['module_id'] = $request->input("module_id");
-        $result = ['msg'=>'修改成功', 'status'=>1];
+        $result = ReturnUtil::success();
         try {
             ModuleService::updateModuleById($moduleModel, $where);
         } catch (\Exception $e) {
-            MSLog::log($e);
-            $result = ['msg'=>'修改失败', 'status'=>0];
+            Log::ERROR($e);
+            return ReturnUtil::error();
         }
 
-        return response()->json($result);
+        return $result;
     }
 
     public function editModuleSort(Request $request)
@@ -101,15 +102,15 @@ class ModuleController extends Controller
         $model->module_id = $request->input("module_id");
 
         $where['module_id'] = $request->input("module_id");
-        $result = ['msg'=>'修改成功', 'status'=>1];
+        $result = ReturnUtil::success();
         try {
             ModuleService::updateModuleSort($model, $where);
         } catch (\Exception $e) {
-            MSLog::log($e);
-            $result = ['msg'=>'修改失败', 'status'=>0];
+            Log::ERROR($e);
+            return ReturnUtil::error();
         }
 
-        return response()->json($result);
+        return $result;
     }
 
     public function addModule()
@@ -125,14 +126,14 @@ class ModuleController extends Controller
         $module = new ModuleModel();
         $module->initByRequest();
 
-        $result = ['msg'=>'修改成功！', 'status'=>1];
+        $result = ReturnUtil::success();
         try {
             ModuleService::insertModuleInfo($module);
         } catch (\Exception $e) {
-            MSLog::log($e);
-            $result = ['msg'=>'修改失败！', 'status'=>0];
+            Log::ERROR($e);
+            return ReturnUtil::error();
         }
 
-        return response()->json($result);
+        return $result;
     }
 }

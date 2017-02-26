@@ -15,6 +15,11 @@
             background-color: #f2dede;
             border-color: #eed3d7
         }
+
+        .img_browser {
+            height: 400px;
+            width: 300px;
+        }
     </style>
 @endsection
 
@@ -61,14 +66,30 @@
                         </td>
                     </tr>
                     <tr class="form-group">
+                        <th>上传图片</th>
+                        <td colspan="5">
+                            <div class="form-group"><input type="file" class="form-control" id="cycle_img"
+                                                           name="cycle_img"
+                                                           placeholder="节点图片描述"></div>
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <th>图片预览</th>
+                        <td colspan="5">
+                            <div class="form-group">
+                                <img src="{{$cycleInfo['cycle_img']}}" class="img_browser" id="img_browser" alt="图片预览">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="form-group">
                         <th>是否生效</th>
                         <td>
                             <label>
-                                <input type="radio" name="cycle_status" class="flat-red"
+                                <input type="radio" name="cycle_status" id="cycle_status" class="flat-red"
                                        {{$cycleInfo['cycle_status']==0 ? 'checked' : ''}} value="0"> 不生效
                             </label>
                             <label>
-                                <input type="radio" name="cycle_status" class="flat-red"
+                                <input type="radio" name="cycle_status" id="cycle_status" class="flat-red"
                                        {{$cycleInfo['cycle_status']==1 ? 'checked' : ''}} value="1"> 生效
                             </label>
                         </td>
@@ -78,7 +99,7 @@
             </form>
         </div>
         <div class="box-footer clearfix text-center">
-            <button type="submit" class="btn btn-primary" id="submit"><i class="fa fa-save"></i> 提交</button>
+            <button type="submit" class="btn btn-primary" id="submit"><i class="fa fa-save"></i> 修改</button>
             <a href="{{env("APP_URL")}}/cycle/cycleList" class="btn btn-default"><i class="fa fa-arrow-left"></i>
                 返回</a>
         </div>
@@ -93,4 +114,30 @@
     <script src="{{asset("/resources/plugins/jQuery/jquery.validate.min.js")}}"></script>
     <script src="{{asset("/resources/plugins/jQuery/additional-methods.min.js")}}"></script>
     <script src="{{asset("/resources/js/cycle/editCycle.js")}}"></script>
+@endsection
+
+@section("js")
+    <script type="text/javascript">
+        //待上传图片预览
+        $("#cycle_img").change(function () {
+            var objUrl = getObjectURL(this.files[0]);
+            if (objUrl) {
+                $("#img_browser").attr("src", objUrl);
+            }
+        });
+
+        //建立一個可存取到該file的url
+        function getObjectURL(file) {
+            var url = null;
+            window.createObjectURL = undefined;
+            if (window.createObjectURL != undefined) { // basic
+                url = window.createObjectURL(file);
+            } else if (window.URL != undefined) { // mozilla(firefox)
+                url = window.URL.createObjectURL(file);
+            } else if (window.webkitURL != undefined) { // webkit or chrome
+                url = window.webkitURL.createObjectURL(file);
+            }
+            return url;
+        }
+    </script>
 @endsection

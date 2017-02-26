@@ -14,7 +14,7 @@ use App\Http\Model\CycleModel;
 use App\Http\Service\CycleService;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Log;
+use Log, Input;
 
 class CycleController extends Controller
 {
@@ -44,14 +44,14 @@ class CycleController extends Controller
 
     public function insertCycle(Request $request)
     {
-        $account = new CycleModel();
-        $account->initByRequest();
-
+        $cycle = new CycleModel();
+        $cycle->initByRequest();
         $result = ReturnUtil::success();
         try {
-            CycleService::insertCycleInfo($account);
+            CycleService::insertCycleInfo($cycle);
         } catch (\Exception $e) {
-            return ReturnUtil::error($e);
+            Log::ERROR($e);
+            return ReturnUtil::error();
         }
 
         return $result;
@@ -76,10 +76,21 @@ class CycleController extends Controller
         $result = ReturnUtil::success();
         try {
             if ($where['id']) {
+                if ($request->hasFile("cycle_img")) {
+                    $cycleImg = $request->file("cycle_img");
+                    $ext = ['jpg', 'png'];
+                    if (in_array($cycleImg->getClientOriginalExtension(), $ext)) {
+                        $ext = $cycleImg->getClientOriginalExtension();
+                        $fileName = "cycle_".date("YmdH:i:s.").$ext;
+                        $cycleImg->move("uploads/", $fileName);
+                        $cycle->cycle_img = env('APP_URL'). "/uploads/" . $fileName;
+                    }
+                }
                 CycleService::updateCycleById($cycle, $where);
             }
         } catch (\Exception $e) {
-            return ReturnUtil::error($e);
+            Log::ERROR($e);
+            return ReturnUtil::error();
         }
         return $result;
     }
@@ -93,7 +104,8 @@ class CycleController extends Controller
         try {
             CycleService::deleteCycleById($cycle, $where);
         } catch (\Exception $e) {
-            return ReturnUtil::error($e);
+            Log::ERROR($e);
+            return ReturnUtil::error();
         }
         return $result;
     }

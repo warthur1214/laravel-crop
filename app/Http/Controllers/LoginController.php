@@ -9,10 +9,12 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\common\ReturnUtil;
 use App\Http\Model\AccountModel;
 use App\Http\Service\AccountService;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Log;
 use MoenSun\MSLog\MSLog;
 use MoenSun\MSUtil\MSReturn;
 
@@ -31,13 +33,12 @@ class LoginController extends Controller
         $model->is_available = 1;
 
         $userInfo = AccountService::getUserInfo($model, $model);
-        $statusInfo = ['msg'=>'账号不存在或被冻结，请联系管理员', 'status'=>0];
+        $statusInfo = ReturnUtil::error("账号不存在或被冻结，请联系管理员");
         try {
             if ($userInfo['account_id']) {
-                $statusInfo = ['msg'=>'账号不存在或被冻结，请联系管理员', 'status'=>0];
+                $statusInfo = ReturnUtil::error("账号不存在或被冻结，请联系管理员");
                 if ($userInfo['password'] = md5($request->input("password"))) {
-                    $statusInfo['msg'] = '登录成功';
-                    $statusInfo['status'] = 1;
+                    $statusInfo = ReturnUtil::success("登录成功");
                     $request->session()->put("accountId", $userInfo['account_id']);
                     $request->session()->put("displayName", $userInfo['display_name']);
 
@@ -47,11 +48,11 @@ class LoginController extends Controller
                 }
             }
         } catch (\Exception $e) {
-            $statusInfo = ['msg'=>'账号不存在或被冻结，请联系管理员', 'status'=>0];
-            MSLog::log($e);
+            Log::ERROR($e);
+            return ReturnUtil::error("账号不存在或被冻结，请联系管理员");
         }
 
-        return response()->json($statusInfo);
+        return $statusInfo;
     }
 
     public function loginOut(Request $request)

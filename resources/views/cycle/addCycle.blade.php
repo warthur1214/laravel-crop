@@ -51,7 +51,17 @@
                     <tr class="form-group">
                         <th>节点描述</th>
                         <td colspan="5">
-                            <div class="form-group"><textarea class="form-control" id="cycle_describe" name="cycle_describe" placeholder="输入节点描述信息"></textarea></div>
+                            <div class="form-group"><textarea class="form-control" id="cycle_describe"
+                                                              name="cycle_describe" placeholder="输入节点描述信息"></textarea>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <th>上传图片</th>
+                        <td colspan="5">
+                            <div class="form-group"><input type="file" class="form-control" id="cycle_img"
+                                                           name="cycle_img"
+                                                           placeholder="节点图片描述"></div>
                         </td>
                     </tr>
                     <tr class="form-group">

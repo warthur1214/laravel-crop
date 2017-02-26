@@ -14,15 +14,14 @@ use Log;
 class ReturnUtil
 {
 
-    public static function success()
+    public static function success($msg=null)
     {
-        return response()->json(['msg' => '修改成功！', 'status' => 1]);
+        return response()->json(['msg' => $msg?$msg:'处理成功！', 'status' => 1]);
     }
 
-    public static function error($e)
+    public static function error($msg=null)
     {
-        Log::ERROR($e);
-        return response()->json(['msg' => '修改失败！', 'status' => 0]);
+        return response()->json(['msg' => $msg?$msg:"处理失败", 'status' => 0]);
     }
 
     public static function json($info)

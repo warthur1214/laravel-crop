@@ -80,7 +80,7 @@ $(document).ready(function () {
                 "data": null,
                 "createdCell": function (td, cellData, rowData, row, col) {
                     var html = $(td).html("<a href='editCycle/" + rowData.id + "' " +
-                        "class='btn btn-xs btn-primary'>修改</a> <a href='javascript:;' " +
+                        "class='btn btn-xs btn-primary'>查看</a> <a href='javascript:;' " +
                         "class='btn btn-xs btn-danger deleteById' id='deleteById' index='" +
                         rowData.id + "'>删除</a>");
                 }

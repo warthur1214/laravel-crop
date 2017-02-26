@@ -14,6 +14,7 @@ use App\Http\Model\AccountModel;
 use App\Http\Service\AccountService;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Log;
 use MoenSun\MSLog\MSLog;
 
 class AccountController extends Controller
@@ -48,7 +49,8 @@ class AccountController extends Controller
 		try {
 			AccountService::insertAccountInfo($account);
 		} catch (\Exception $e) {
-			return ReturnUtil::error($e);
+            Log::ERROR($e);
+			return ReturnUtil::error();
 		}
 
 		return $result;
@@ -58,15 +60,15 @@ class AccountController extends Controller
 	{
 		$account = new AccountModel();
 		$account->account_id = $id;
-		$result = ['msg' => "删除成功", 'status' => 1];
+		$result = ReturnUtil::success();
 		try {
 			AccountService::deleteAccount($account, $account);
 		} catch (\Exception $e) {
-			MSLog::log($e);
-			$result = ['msg' => "删除失败", 'status' => 0];
+			Log::ERROR($e);
+			return ReturnUtil::error();
 		}
 
-		return response()->json($result);
+		return $result;
 	}
 
 	public function accountAvailable(Request $request, $id)
@@ -74,16 +76,16 @@ class AccountController extends Controller
 		$account = new AccountModel();
 		$account->is_available = $request->input("is_available");
 
-		$result = ['msg' => "修改成功", 'status' => 1];
+		$result = ReturnUtil::success();
 		$where['account_id'] = $id;
 		try {
 			AccountService::accountAvailable($account, $where);
 		} catch (\Exception $e) {
 			MSLog::log($e);
-			$result = ['msg' => "修改失败", 'status' => 0];
+			return ReturnUtil::error();
 		}
 
-		return response()->json($result);
+		return $result;
 	}
 
 	public function editAccount($id)
@@ -107,14 +109,14 @@ class AccountController extends Controller
 		$account->initByRequest();
 
 		$where['account_id'] = $request->input("account_id");
-		$result = ['msg' => '修改成功！', 'status' => 1];
+		$result = ReturnUtil::success();
 		try {
 			AccountService::updateAccountInfo($account, $where);
 		} catch (\Exception $e) {
-			MSLog::log($e);
-			$result = ['msg' => '修改失败！', 'status' => 0];
+            Log::ERROR($e);
+			return ReturnUtil::error();
 		}
 
-		return response()->json($result);
+		return $result;
 	}
 }

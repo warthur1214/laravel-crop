@@ -2,24 +2,23 @@
 /**
  * Created by PhpStorm.
  * User: warthur
- * Date: 17/2/19
- * Time: 下午2:37
+ * Date: 17/2/26
+ * Time: 下午2:04
  */
 
-namespace App\Http\Dao;
+namespace App\Http\Service;
 
 
+use App\Http\Dao\BatchDao;
 use App\Http\Model\BatchModel;
-use MoenSun\MSLaravelExtension\MSLaravelDB;
 
-class BatchDao
+class BatchService
 {
 
     public static function getBatchList(BatchModel $model, $where = null)
     {
         try {
-            $sql = $model->where($where)->find();
-            return MSLaravelDB::queryAll($sql);
+            return BatchDao::getBatchList($model, $where);
         } catch (\Exception $e) {
             throw new \Exception($e);
         }
@@ -28,8 +27,7 @@ class BatchDao
     public static function getBatchInfoById(BatchModel $model, $where=null)
     {
         try {
-            $sql = $model->where($where)->find();
-            return MSLaravelDB::queryRow($sql);
+            return BatchDao::getBatchInfoById($model, $where);
         } catch (\Exception $e) {
             throw new \Exception($e);
         }
@@ -38,18 +36,16 @@ class BatchDao
     public static function insertBatchInfo(BatchModel $model, $where=null)
     {
         try {
-            $sql = $model->where($where)->save();
-            return MSLaravelDB::insert($sql);
+            return BatchDao::insertBatchInfo($model, $where);
         } catch (\Exception $e) {
             throw new \Exception($e);
         }
     }
 
-    public static function updateBatchById(BatchModel $model, $where = null)
+    public static function updateBatchById(BatchModel $model, $where=null)
     {
         try {
-            $sql = $model->where($where)->update();
-            return MSLaravelDB::update($sql);
+            return BatchDao::updateBatchById($model, $where);
         } catch (\Exception $e) {
             throw new \Exception($e);
         }
@@ -58,8 +54,7 @@ class BatchDao
     public static function deleteBatchById(BatchModel $model, $where=null)
     {
         try {
-            $sql = $model->where($where)->delete();
-            return MSLaravelDB::delete($sql);
+            return BatchDao::deleteBatchById($model, $where);
         } catch (\Exception $e) {
             throw new \Exception($e);
         }

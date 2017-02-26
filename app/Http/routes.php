@@ -58,7 +58,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get("/cycle/addCycle", ['uses' => "CycleController@addCycle"]);
     Route::post("/cycle/addCycleAjax", ['uses' => "CycleController@insertCycle"]);
     Route::get("/cycle/editCycle/{cycleId}", ['uses' => "CycleController@editCycle"]);
-    Route::post("/cycle/editCycleAjax", ['uses' => "CycleController@updateCycleById"]);
+    Route::any("/cycle/editCycleAjax", ['uses' => "CycleController@updateCycleById"]);
     Route::post("/cycle/delCycle/{cycleId}", ['uses' => "CycleController@deleteCycleById"]);
 
     //品类管理
@@ -69,6 +69,15 @@ Route::group(['middleware' => ['web']], function () {
     Route::get("/variety/editVariety/{varietyId}", ['uses' => "VarietyController@editVariety"]);
     Route::post("/variety/editVarietyAjax", ['uses' => "VarietyController@updateVarietyById"]);
     Route::post("/variety/delVariety/{varietyId}", ['uses' => "VarietyController@deleteVarietyById"]);
+
+    //批次管理
+    Route::get("/batch/batchList", ['uses' => "BatchController@batchList"]);
+    Route::post("/batch/batchListAjax", ['uses' => "BatchController@getBatchList"]);
+    Route::get("/batch/addBatch", ['uses' => "BatchController@addBatch"]);
+    Route::post("/batch/addBatchAjax", ['uses' => "BatchController@insertBatch"]);
+    Route::get("/batch/editBatch/{batchId}", ['uses' => "BatchController@editBatch"]);
+    Route::post("/batch/editBatchAjax", ['uses' => "BatchController@updateBatchById"]);
+    Route::post("/batch/delBatch/{batchId}", ['uses' => "BatchController@deleteBatchById"]);
 });
 
 

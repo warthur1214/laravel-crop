@@ -41,11 +41,21 @@ $(function () {
         if (form.valid() == false) {
             return false;
         }
+        var formData = new FormData(form);
+
+        formData.append("cycle_img", document.getElementById('cycle_img').files[0]);
+        formData.append("cycle_id", $("#cycle_id").val());
+        formData.append("cycle_name", $("#cycle_name").val());
+        formData.append("cycle_describe", $("#cycle_describe").val());
+        formData.append("cycle_status", $("#cycle_status").val());
+
         $.ajax({
             url:  $("#app_url").val()+"/cycle/editCycleAjax",
             type: "post",
-            data: form.serialize(),
+            data: formData,
             dataType: "json",
+            processData: false,
+            contentType: false,
             success: function (result) {
                 $('.alert').html(result.msg);
                 if (result.status == 0) {
