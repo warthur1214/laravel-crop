@@ -1,3 +1,4 @@
+var table;
 $(document).ready(function () {
 
     //删除模块
@@ -89,7 +90,7 @@ $(document).ready(function () {
                 "createdCell": function (td, cellData, rowData, row, col) {
                     var html = $(td).html("<a href='editCrop/" + rowData.id + "' " +
                         "class='btn btn-xs btn-primary'>查看</a> <a href='javascript:;' " +
-                        "class='btn btn-xs btn-primary'>二维码</a> <a href='scanBinCode/' " + rowData.id + "' " +
+                        "class='btn btn-xs btn-primary' cropName='"+rowData.crop_name+"' cropId='" + rowData.id + "' id='scanBinCode'>二维码</a> <a href='javascript:void(0);' " + rowData.id + "' " +
                         "class='btn btn-xs btn-danger deleteById' id='deleteById' index='" +
                         rowData.id + "'>删除</a>");
                 }
@@ -120,5 +121,36 @@ $(document).ready(function () {
     }
 
     $('#example1').on('click', '#deleteById', delMoudle);
+    $('#example1').on('click', '#scanBinCode', scanBinCode);
+
+
+    function scanBinCode() {
+        var loc = encodeURI("http://localhost/laravel-master/public/crop/scanBinCode/" + $(this).attr("cropId")),
+            cropName = $(this).attr("cropName");
+
+        layer.open({
+            title: '农产品二维码',
+            area: ['380px', '710px'], //宽高
+            btn: ['确定', '取消'], //按钮
+            content: '<div style="padding-left: 10%;">' +
+            '<label style=""><h3>苏州市农产品质量追溯</h3></label>' +
+            '<hr style="height:1px;border:none;border-top:1px solid #555555;" />' +
+            '<label>产品名称：'+ cropName+'</label><br>' +
+            '<label>追溯码：无</label><br>' +
+            '<label>生产企业：太仓市海丰农场专业合作社</label><br>' +
+            '<label>产品重量：20</label><br>' +
+            '<label>销售去向：门店</label><br>' +
+            "<img style='margin-left: -20px;' src='http://pan.baidu.com/share/qrcode?w=300&h=300&url="+loc+"' alt='农产品追溯二维码' /></a>" +
+            '<br><label>追溯地址：www.ncpziaq.suzhou.gov.cn</label>' +
+            '</div>',
+            yes: function (index, elem) {
+                var _data = serializeFormData(elem.find('form'));
+                var _postData = $.extend({}, res.classInfo, _data);
+            },
+            success: function (elem) { //成功弹出弹窗后的回调方法
+
+            }
+        });
+    }
 
 });

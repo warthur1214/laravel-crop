@@ -101,4 +101,5 @@
     <script src="{{asset("/resources/plugins/datatables/jquery.dataTables.min.js")}}"></script>
     <script src="{{asset("/resources/js/public/dataTableCus.js")}}"></script>
     <script src="{{asset("/resources/js/crop/cropList.js")}}"></script>
+    <script src="{{asset("/resources/js/thirdparty/layer/layer.js")}}"></script>
 @endsection
