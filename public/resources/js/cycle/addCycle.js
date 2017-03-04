@@ -52,6 +52,7 @@ $(function () {
         formData.append("cycle_name", $("#cycle_name").val());
         formData.append("cycle_describe", $("#cycle_describe").val());
         formData.append("cycle_status", $("#cycle_status").val());
+        formData.append("cycle_sort", $("#cycle_sort").val());
 
         $.ajax({
             url: $("#app_url").val()+"/cycle/addCycleAjax",

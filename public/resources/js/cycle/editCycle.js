@@ -6,10 +6,7 @@ $(function () {
         errorClass: 'text-red', // default input error message class
         focusInvalid: false, // do not focus the last invalid input
         rules: {
-            module_name: {
-                required: true
-            },
-            module_matched_key: {
+            cycle_name: {
                 required: true
             }
         },
@@ -50,6 +47,7 @@ $(function () {
         formData.append("cycle_name", $("#cycle_name").val());
         formData.append("cycle_describe", $("#cycle_describe").val());
         formData.append("cycle_status", $("#cycle_status").val());
+        formData.append("cycle_sort", $("#cycle_sort").val());
 
         $.ajax({
             url:  $("#app_url").val()+"/cycle/editCycleAjax",

@@ -15,10 +15,10 @@ use App\Http\Model\CycleModel;
 class CycleService
 {
 
-    public static function getCycleList(CycleModel $model, $where=null)
+    public static function getCycleList(CycleModel $model, $where=null, $order=null)
     {
         try {
-            return CycleDao::getCycleList($model, $where);
+            return CycleDao::getCycleList($model, $where, $order);
         } catch (\Exception $e) {
             throw new \Exception($e);
         }

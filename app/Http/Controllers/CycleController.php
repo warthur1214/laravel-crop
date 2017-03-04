@@ -27,7 +27,7 @@ class CycleController extends Controller
     public function getCycleList(Request $request)
     {
         $model = new CycleModel();
-        $cycleList = CycleService::getCycleList($model);
+        $cycleList = CycleService::getCycleList($model, null);
         $result = array(
             "draw" => $request->input("draw"),
             "recordsTotal" => count($cycleList),

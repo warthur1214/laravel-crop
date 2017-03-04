@@ -48,6 +48,7 @@ $(document).ready(function () {
             {"searchable": false, "orderable": false, "targets": [3]},
             {"searchable": false, "orderable": true, "targets": [4]},
             {"searchable": false, "orderable": true, "targets": [5]},
+            {"searchable": false, "orderable": true, "targets": [6]},
             {"searchable": false, "orderable": true, "targets": [6]}
         ],
         "paging": true,
@@ -61,12 +62,20 @@ $(document).ready(function () {
             "type": "POST"
         },
         "order": [
-            [0, "asc"]
+            [3, "asc"]
         ],
         "columns": [
             {"data": "id"},
             {"data": "cycle_name"},
             {"data": "cycle_describe"},
+            {
+                "data": "cycle_sort",
+                "createdCell": function (td, cellData, rowData, row, col) {
+                    var html = "<span contenteditable='true' class='col-xs-9 m_order' index='" + rowData.id + "'>" + rowData.cycle_sort + "</span>";
+                    $(td).html(html);
+                }
+
+            },
             {
                 "data": "cycle_status",
                 "createdCell": function (td, cellData, rowData, row, col) {
@@ -111,5 +120,28 @@ $(document).ready(function () {
     }
 
     $('#example1').on('click', '#deleteById', delMoudle);
+    $('#example1').on('keydown', 'span.m_order', function (e) {
 
+        if (e.keyCode == 13) {
+            if (isNaN($(this).html()) || $(this).html().length > 3) {
+                alert("您输入有误，请输入最多三位有效数字");
+                //重新加载列表
+                table.ajax.reload();
+                return;
+            }
+            var id = $(this).attr('index');
+            $.ajax({
+                url: 'editCycleSort',
+                type: "post",
+                dataType: "json",
+                data: {'cycle_sort': $(this).html(), 'cycle_id': id},
+                success: function (result) {
+                    if (result.status == 1) {
+                        //重新加载列表
+                        table.ajax.reload();
+                    }
+                }
+            });
+        }
+    });
 });

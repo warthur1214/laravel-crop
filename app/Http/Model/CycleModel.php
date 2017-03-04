@@ -22,5 +22,6 @@ class CycleModel extends MSBaseModel
     public $create_time;
     public $update_time;
     public $cycle_img;
+    public $cycle_sort;
 
 }

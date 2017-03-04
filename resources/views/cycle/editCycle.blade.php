@@ -56,6 +56,13 @@
                         </td>
                     </tr>
                     <tr class="form-group">
+                        <th>节点序号 <span class="text-red">*</span></th>
+                        <td>
+                            <input type="text" class="form-control" id="cycle_sort" name="cycle_sort"
+                                   value="{{$cycleInfo['cycle_sort']}}" placeholder="节点序号">
+                        </td>
+                    </tr>
+                    <tr class="form-group">
                         <th>节点描述</th>
                         <td colspan="5">
                             <div class="form-group">

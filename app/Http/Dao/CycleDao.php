@@ -15,7 +15,7 @@ use MoenSun\MSLaravelExtension\MSLaravelDB;
 class CycleDao
 {
 
-    public static function getCycleList(CycleModel $model, $where=null)
+    public static function getCycleList(CycleModel $model, $where=null, $order=null)
     {
         try {
             $sql = $model->where($where)->find();

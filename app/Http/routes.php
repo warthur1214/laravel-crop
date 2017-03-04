@@ -60,6 +60,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get("/cycle/editCycle/{cycleId}", ['uses' => "CycleController@editCycle"]);
     Route::any("/cycle/editCycleAjax", ['uses' => "CycleController@updateCycleById"]);
     Route::post("/cycle/delCycle/{cycleId}", ['uses' => "CycleController@deleteCycleById"]);
+    Route::post("/cycle/editCycleSort", ['uses' => "CycleController@updateCycleById"]);
 
     //品类管理
     Route::get("/variety/varietyList", ['uses' => "VarietyController@varietyList"]);

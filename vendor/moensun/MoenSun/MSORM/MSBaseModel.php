@@ -170,13 +170,17 @@ class MSBaseModel
         return $this;
     }
 
-    public function orderby($fields = "", $asc = true)
+    public function orderby($fields = "")
     {
         if ($fields) {
             if (is_array($fields)) {
-                $this->orderby = " order by " . implode(",", $fields) . " " . ($asc ? "asc " : "desc ");
+                $this->orderby = " order by ";
+                foreach ($fields as $k => $v) {
+                    $this->orderby .= "{$k} {$v}, ";
+                }
+                $this->orderby = substr($this->orderby, 0, -1);
             } else if (is_string($fields)) {
-                $this->orderby = " order by " . $fields . " " . ($asc ? "asc " : "desc ");
+                $this->orderby = " " . $fields;
             }
         }
         return $this;
@@ -217,7 +221,7 @@ class MSBaseModel
      * 查询多行数据
      * @return string
      */
-    public function find($obj=null)
+    public function find($obj = null)
     {
         if ($obj) {
             if (is_array($obj)) {
@@ -325,8 +329,6 @@ class MSBaseModel
     {
         return $result[$field];
     }
-
-
 }
 
 ?>
