@@ -42,10 +42,10 @@
     <section class="content-header">
         <span class="pull-right">
         <a href="{{env("APP_URL")}}/crop/addCrop" class="btn btn-sm btn-primary"> <i
-                    class="fa fa-plus"></i> 添加农作物</a>
+                    class="fa fa-plus"></i> 添加农产品</a>
         </span>
         <h1>
-            农作物列表
+            农产品列表
         </h1>
     </section>
     <div class="box marginB0">
@@ -74,14 +74,14 @@
             <table id="example1" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                    <th>作物id</th>
-                    <th>作物名称</th>
-                    <th>作物编号</th>
-                    <th>作物重量</th>
+                    <th>产品id</th>
+                    <th>产品名称</th>
+                    <th>产品编号</th>
+                    <th>产品重量</th>
                     <th>批次名称</th>
                     <th>生长周期</th>
-                    <th>作物品类</th>
-                    <th>作物描述</th>
+                    <th>产品品类</th>
+                    <th>产品描述</th>
                     <th>创建时间</th>
                     <th>修改时间</th>
                     <th>操作</th>

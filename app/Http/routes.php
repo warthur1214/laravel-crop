@@ -79,7 +79,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::post("/batch/editBatchAjax", ['uses' => "BatchController@updateBatchById"]);
     Route::post("/batch/delBatch/{batchId}", ['uses' => "BatchController@deleteBatchById"]);
 
-    //作物管理
+    //农产品管理
     Route::get("/crop/cropList", ['uses' => "CropController@cropList"]);
     Route::post("/crop/cropListAjax", ['uses' => "CropController@getCropList"]);
     Route::get("/crop/addCrop", ['uses' => "CropController@addCrop"]);

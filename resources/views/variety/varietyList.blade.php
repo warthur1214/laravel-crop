@@ -42,10 +42,10 @@
     <section class="content-header">
         <span class="pull-right">
         <a href="{{env("APP_URL")}}/variety/addVariety" class="btn btn-sm btn-primary"> <i
-                    class="fa fa-plus"></i> 添加作物品类</a>
+                    class="fa fa-plus"></i> 添加产品品类</a>
         </span>
         <h1>
-            农作物品类列表
+            农产品品类列表
         </h1>
     </section>
     <div class="box marginB0">

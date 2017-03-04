@@ -25,7 +25,7 @@
     <body>
     <section class="content-header">
         <h1>
-            农作物品类列表
+            农产品品类列表
         </h1>
     </section>
     <div class="box box-cus box-cus-form">

@@ -42,10 +42,10 @@
     <section class="content-header">
         <span class="pull-right">
         <a href="{{env("APP_URL")}}/batch/addBatch" class="btn btn-sm btn-primary"> <i
-                    class="fa fa-plus"></i> 添加作物批次</a>
+                    class="fa fa-plus"></i> 添加产品批次</a>
         </span>
         <h1>
-            作物批次列表
+            产品批次列表
         </h1>
     </section>
     <div class="box marginB0">

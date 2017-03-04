@@ -30,7 +30,7 @@
     <body>
     <section class="content-header">
         <h1>
-            添加农作物信息
+            添加农产品信息
         </h1>
     </section>
     <div class="box box-cus box-cus-form">
@@ -42,29 +42,29 @@
                 <table class="table table-bordered">
                     <tbody>
                     <tr class="form-group">
-                        <td class="title" colspan="2"><i class="fa fa fa-info-circle"></i> 添加农作物</td>
+                        <td class="title" colspan="2"><i class="fa fa fa-info-circle"></i> 添加农产品</td>
                         <input type="hidden" class="form-control" id="app_url"
                                value="{{env("APP_URL")}}">
                     </tr>
                     <tr class="form-group">
-                        <th>农作物编码 <span class="text-red">*</span></th>
+                        <th>农产品编码 <span class="text-red">*</span></th>
                         <td>
                             <input type="text" class="form-control" id="crop_number" name="crop_number"
-                                   value="{{$cropNumber}}" placeholder="农作物编码" readonly>
+                                   value="{{$cropNumber}}" placeholder="农产品编码" readonly>
                         </td>
                     </tr>
                     <tr class="form-group">
-                        <th>农作物名称 <span class="text-red">*</span></th>
+                        <th>农产品名称 <span class="text-red">*</span></th>
                         <td>
                             <input type="text" class="form-control" id="crop_name" name="crop_name"
-                                   placeholder="农作物名称">
+                                   placeholder="农产品名称">
                         </td>
                     </tr>
                     <tr class="form-group">
-                        <th>作物重量 <span class="text-red">*</span></th>
+                        <th>产品重量 <span class="text-red">*</span></th>
                         <td>
                             <input type="text" class="form-control" id="crop_weight" name="crop_weight"
-                                   placeholder="作物重量">
+                                   placeholder="产品重量">
                         </td>
                     </tr>
 
@@ -94,9 +94,9 @@
                         </td>
                     </tr>
                     <tr class="form-group">
-                        <th>农作物品类 <span class="text-red">*</span></th>
+                        <th>农产品品类 <span class="text-red">*</span></th>
                         <td>
-                            <select name="variety_id" id="variety_id" class="form-group" title="选择农作物品类">
+                            <select name="variety_id" id="variety_id" class="form-group" title="选择农产品品类">
                                 @foreach($varietyInfo as $v)
                                     <option value="{{$v['id']}}">{{$v['variety_name']}}</option>
                                 @endforeach
@@ -110,7 +110,7 @@
                         <td colspan="5">
                             <div class="form-group"><input type="file" class="form-control" id="crop_img"
                                                            name="crop_img"
-                                                           placeholder="农作物图片"></div>
+                                                           placeholder="农产品图片"></div>
                         </td>
                     </tr>
 
@@ -123,10 +123,10 @@
                         </td>
                     </tr>
                     <tr class="form-group">
-                        <th>农作物描述</th>
+                        <th>农产品描述</th>
                         <td colspan="5">
                             <div class="form-group"><textarea class="form-control" id="crop_describe"
-                                                              name="crop_describe" placeholder="输入农作物描述信息"></textarea>
+                                                              name="crop_describe" placeholder="输入农产品描述信息"></textarea>
                             </div>
                         </td>
                     </tr>

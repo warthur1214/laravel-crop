@@ -22,7 +22,7 @@
     <body>
     <section class="content-header">
         <h1>
-            修改作物批次
+            修改产品批次
         </h1>
     </section>
     <div class="box box-cus box-cus-form">

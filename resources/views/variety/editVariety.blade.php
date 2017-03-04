@@ -22,7 +22,7 @@
     <body>
     <section class="content-header">
         <h1>
-            修改农作物节点
+            修改农产品节点
         </h1>
     </section>
     <div class="box box-cus box-cus-form">

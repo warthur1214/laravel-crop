@@ -25,7 +25,7 @@
     <body>
     <section class="content-header">
         <h1>
-            作物批次
+            产品批次
         </h1>
     </section>
     <div class="box box-cus box-cus-form">
