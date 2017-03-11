@@ -71,4 +71,9 @@ $(function () {
             }
         });
     });
+
+    $('#cycle_section').daterangepicker();
+    $('.fa-calendar-times-o').click(function () {
+        $('#cycle_section').val('');
+    });
 });

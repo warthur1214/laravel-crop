@@ -17,6 +17,7 @@ class CycleModel extends MSBaseModel
 
     public $id;
     public $cycle_name;
+    public $cycle_section;
     public $cycle_describe;
     public $cycle_status;
     public $create_time;

@@ -3,6 +3,7 @@
 @section("style")
 
     <link rel="stylesheet" href="{{asset("/resources/plugins/datatables/dataTables.bootstrap.css")}}">
+    <link rel="stylesheet" href="{{asset("/resources/plugins/daterangepicker/daterangepicker-bs3.css")}}">
     <style type="text/css">
         .alert_page_success {
             color: #468847;
@@ -63,6 +64,20 @@
                         </td>
                     </tr>
                     <tr class="form-group">
+                        <th>节点区间 <span class="text-red">*</span></th>
+                        <td>
+                            <div class="input-group-addon" style="float: left; width: 39px;height: 34px;">
+                                <i class="fa fa-calendar-times-o" style="margin-top: 4px;"></i>
+                            </div>
+                            <div>
+                                <input type="text" class="form-control" style="width: 218px;height: 34px;"
+                                       id="cycle_section" name="cycle_section" value="{{$cycleInfo['cycle_section']}}"
+                                       placeholder="节点区间">
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr class="form-group">
                         <th>节点描述</th>
                         <td colspan="5">
                             <div class="form-group">
@@ -120,7 +135,10 @@
     <script src="{{asset("/resources/plugins/datatables/dataTables.bootstrap.min.js")}}"></script>
     <script src="{{asset("/resources/plugins/jQuery/jquery.validate.min.js")}}"></script>
     <script src="{{asset("/resources/plugins/jQuery/additional-methods.min.js")}}"></script>
+    <script src="{{asset("/resources/plugins/daterangepicker/daterangepicker-dob.js")}}"></script>
     <script src="{{asset("/resources/js/cycle/editCycle.js")}}"></script>
+    <script src="{{asset("/resources/plugins/uploadify/jquery.uploadify.min.js")}}"></script>
+    <script src="{{asset('/resources/plugins/daterangepicker/moment.js')}}"></script>
 @endsection
 
 @section("js")

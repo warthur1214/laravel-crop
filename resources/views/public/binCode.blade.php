@@ -737,8 +737,8 @@
                                         class="tn-Powered-by-XIUMI">太仓万丰村农产品质量查询</section></span></section>
                         <section style="padding: 6px; font-size: 1em; line-height: 1.4; font-family: inherit;"
                                  class="tn-Powered-by-XIUMI">
-                            <section class="tn-Powered-by-XIUMI">万丰水稻</section>
-                            <section class="tn-Powered-by-XIUMI">农产品描述</section>
+                            <section class="tn-Powered-by-XIUMI">{{$cropInfo['crop_name']}}</section>
+                            <section class="tn-Powered-by-XIUMI">{{$cropInfo['crop_describe']}}</section>
                         </section>
                         <section style="width: 0px; height: 0px; clear: both;"></section>
                     </section>
