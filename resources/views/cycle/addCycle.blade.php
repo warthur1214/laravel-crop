@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="{{asset("/resources/plugins/datatables/dataTables.bootstrap.css")}}">
 <!-- iCheck for checkboxes and radio inputs -->
 <link rel="stylesheet" href="{{asset("/resources/plugins/iCheck/all.css")}}">
+<link rel="stylesheet" href="{{asset("/resources/plugins/daterangepicker/daterangepicker-bs3.css")}}">
 @section("style")
     <style type="text/css">
         .alert_page_success {
@@ -57,6 +58,20 @@
                         <td>
                             <input type="text" class="form-control" id="cycle_sort" name="cycle_sort"
                                    placeholder="节点序号">
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <th>节点区间 <span class="text-red">*</span></th>
+                        <td>
+                            <div class="input-group-addon" style="float: left; width: 39px;height: 34px;">
+                                <i class="fa fa-calendar-times-o" style="margin-top: 4px;"></i>
+                            </div>
+                            <div>
+                                <input type="text" class="form-control" style="width: 218px;height: 34px;"
+                                       id="cycle_section" name="cycle_section" value="{{$cycleInfo['cycle_section']}}"
+                                       placeholder="节点区间" readonly>
+                            </div>
+
                         </td>
                     </tr>
                     <tr class="form-group">
@@ -117,6 +132,9 @@
     <!-- iCheck 1.0.1 -->
     <script src="{{asset("/resources/plugins/iCheck/icheck.min.js")}}"></script>
     <script src="{{asset("/resources/js/cycle/addCycle.js")}}"></script>
+    <script src="{{asset("/resources/plugins/uploadify/jquery.uploadify.min.js")}}"></script>
+    <script src="{{asset('/resources/plugins/daterangepicker/moment.js')}}"></script>
+    <script src="{{asset("/resources/plugins/daterangepicker/daterangepicker-dob.js")}}"></script>
 @endsection
 
 @section("js")

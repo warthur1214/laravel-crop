@@ -46,8 +46,10 @@ $(function () {
         formData.append("cycle_id", $("#cycle_id").val());
         formData.append("cycle_name", $("#cycle_name").val());
         formData.append("cycle_describe", $("#cycle_describe").val());
-        formData.append("cycle_status", $("#cycle_status").val());
         formData.append("cycle_sort", $("#cycle_sort").val());
+        formData.append("cycle_section", $("#cycle_section").val());
+        var status = document.getElementsByName('cycle_status');
+        formData.append("cycle_status", status[1].checked ? 1 : 0);
 
         $.ajax({
             url:  $("#app_url").val()+"/cycle/editCycleAjax",

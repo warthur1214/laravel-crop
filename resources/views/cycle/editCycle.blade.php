@@ -72,7 +72,7 @@
                             <div>
                                 <input type="text" class="form-control" style="width: 218px;height: 34px;"
                                        id="cycle_section" name="cycle_section" value="{{$cycleInfo['cycle_section']}}"
-                                       placeholder="节点区间">
+                                       placeholder="节点区间" readonly>
                             </div>
 
                         </td>
@@ -135,10 +135,10 @@
     <script src="{{asset("/resources/plugins/datatables/dataTables.bootstrap.min.js")}}"></script>
     <script src="{{asset("/resources/plugins/jQuery/jquery.validate.min.js")}}"></script>
     <script src="{{asset("/resources/plugins/jQuery/additional-methods.min.js")}}"></script>
-    <script src="{{asset("/resources/plugins/daterangepicker/daterangepicker-dob.js")}}"></script>
     <script src="{{asset("/resources/js/cycle/editCycle.js")}}"></script>
     <script src="{{asset("/resources/plugins/uploadify/jquery.uploadify.min.js")}}"></script>
     <script src="{{asset('/resources/plugins/daterangepicker/moment.js')}}"></script>
+    <script src="{{asset("/resources/plugins/daterangepicker/daterangepicker-dob.js")}}"></script>
 @endsection
 
 @section("js")
