@@ -695,6 +695,7 @@
                 margin-top: 0
             }
         }
+
         .link-us {
             text-align: center;
         }
@@ -768,10 +769,12 @@
                                 class="tn-Powered-by-XIUMI"></section>
                         <section
                                 style="border-width: 1px; border-style: solid; border-color: rgb(249, 110, 87); box-shadow: rgb(226, 226, 226) 0px 16px 1px -13px; line-height: 1.6; padding: 3px; font-size: 1em; font-family: inherit; text-decoration: inherit; color: rgb(255, 255, 255); background-color: rgb(249, 110, 87);"
-                                class="tn-Powered-by-XIUMI"><span style="display: inline-block; font-family: inherit;"
-                                                                  class="tn-Powered-by-XIUMI"><section
+                                class="tn-Powered-by-XIUMI">
+                            <span style="display: inline-block; font-family: inherit; margin-left: 35%;"
+                                  class="tn-Powered-by-XIUMI"><section
                                         class="tn-Powered-by-XIUMI">农产品生长周期</section></span></section>
-                        <section style="font-size: 1.5em; color: rgb(249, 110, 87);" class="tn-Powered-by-XIUMI">↓↓↓
+                        <section style="font-size: 1.5em; color: rgb(249, 110, 87); padding-left: 40%"
+                                 class="tn-Powered-by-XIUMI">↓↓↓
                         </section>
                         <section style="width: 0px; height: 0px; clear: both;"></section>
                     </section>
@@ -782,7 +785,7 @@
                                     style="display: inline-block; float: left; width: 1.5em; height: 1.5em; line-height: 1.5em; margin-top: 1em; margin-bottom: -2em; margin-left: -0.75em; border-width: 1px; border-style: solid; border-color: rgb(249, 110, 87); border-radius: 100%; background-color: rgb(255, 255, 255); font-size: 1em; font-family: inherit; text-align: center; text-decoration: inherit; color: rgb(249, 110, 87);"
                                     class="tn-Powered-by-XIUMI">
                                 <section class="tn-Powered-by-XIUMI">
-                                    <section class="tn-Powered-by-XIUMI">2</section>
+                                    <section class="tn-Powered-by-XIUMI">*</section>
                                 </section>
                             </section>
                             <section class="tn-Powered-by-XIUMI">
@@ -798,13 +801,46 @@
                                         <section class="tn-Powered-by-XIUMI"><span style="color: rgb(249, 110, 87);"
                                                                                    class="tn-Powered-by-XIUMI">种子产品</span>
                                         </section>
-                                        <section class="tn-Powered-by-XIUMI">某某种子</section>
+                                        <section class="tn-Powered-by-XIUMI">{{$cropInfo['crop_name']}}</section>
                                     </section>
                                 </section>
                             </section>
                         </section>
                         <section style="width: 0px; height: 0px; clear: both;"></section>
                     </section>
+                    @foreach($cropInfo['cycleList'] as $key => $cycle)
+
+                        <section style="border-width: 0px; border-style: initial; border-color: initial; height: 50px;"
+                                 class="tn-Powered-by-XIUMI">
+                            <section style="width: 95%; margin-left: 5%;" class="tn-Powered-by-XIUMI">
+                                <section
+                                        style="display: inline-block; float: left; width: 1.5em; height: 1.5em; line-height: 1.5em; margin-top: 1em; margin-bottom: -2em; margin-left: -0.75em; border-width: 1px; border-style: solid; border-color: rgb(249, 110, 87); border-radius: 100%; background-color: rgb(255, 255, 255); font-size: 1em; font-family: inherit; text-align: center; text-decoration: inherit; color: rgb(249, 110, 87);"
+                                        class="tn-Powered-by-XIUMI">
+                                    <section class="tn-Powered-by-XIUMI">
+                                        <section class="tn-Powered-by-XIUMI">{{$key+1}}</section>
+                                    </section>
+                                </section>
+                                <section class="tn-Powered-by-XIUMI">
+                                    <section
+                                            style="border-left: 1px solid rgb(249, 110, 87); height: 20px; border-top-color: rgb(249, 110, 87); border-right-color: rgb(249, 110, 87); border-bottom-color: rgb(249, 110, 87);"
+                                            class="tn-Powered-by-XIUMI"></section>
+                                    <section
+                                            style="border-left: 1px solid rgb(249, 110, 87); border-top-color: rgb(249, 110, 87); border-right-color: rgb(249, 110, 87); border-bottom-color: rgb(249, 110, 87);"
+                                            class="tn-Powered-by-XIUMI">
+                                        <section
+                                                style="clear: both; margin-top: -0.4em; margin-left: 1.6em; padding-bottom: 0.2em; font-size: 1em; font-family: inherit; text-decoration: inherit; color: rgb(160, 160, 160);"
+                                                class="tn-Powered-by-XIUMI">
+                                            <section class="tn-Powered-by-XIUMI"><span style="color: rgb(249, 110, 87);"
+                                                                                       class="tn-Powered-by-XIUMI">{{$cycle['cycle_name']}}</span>
+                                            </section>
+                                            <section class="tn-Powered-by-XIUMI"><span class="tn-Powered-by-XIUMI">{{$cycle['cycle_section']}}</span>
+                                            </section>
+                                        </section>
+                                    </section>
+                                </section>
+                            </section>
+                        </section>
+                    @endforeach
                     <section style="border-width: 0px; border-style: initial; border-color: initial;height: 50px;"
                              class="tn-Powered-by-XIUMI">
                         <section style="width: 95%; margin-left: 5%;" class="tn-Powered-by-XIUMI">
@@ -812,7 +848,7 @@
                                     style="display: inline-block; float: left; width: 1.5em; height: 1.5em; line-height: 1.5em; margin-top: 1em; margin-bottom: -2em; margin-left: -0.75em; border-width: 1px; border-style: solid; border-color: rgb(249, 110, 87); border-radius: 100%; background-color: rgb(255, 255, 255); font-size: 1em; font-family: inherit; text-align: center; text-decoration: inherit; color: rgb(249, 110, 87);"
                                     class="tn-Powered-by-XIUMI">
                                 <section class="tn-Powered-by-XIUMI">
-                                    <section class="tn-Powered-by-XIUMI">3</section>
+                                    <section class="tn-Powered-by-XIUMI">*</section>
                                 </section>
                             </section>
                             <section class="tn-Powered-by-XIUMI">
@@ -825,128 +861,7 @@
                                     <section
                                             style="clear: both; margin-top: -0.4em; margin-left: 1.6em; padding-bottom: 0.2em; font-size: 1em; font-family: inherit; text-decoration: inherit; color: rgb(160, 160, 160);"
                                             class="tn-Powered-by-XIUMI">
-                                        <section class="tn-Powered-by-XIUMI"><span style="color: rgb(249, 110, 87);"
-                                                                                   class="tn-Powered-by-XIUMI">浸泡时间</span>
-                                        </section>
-                                        <section class="tn-Powered-by-XIUMI"><span class="tn-Powered-by-XIUMI">2016年3月4日—2016年3月8日</span>
-                                        </section>
-                                    </section>
-                                </section>
-                            </section>
-                        </section>
-                        <section style="width: 0px; height: 0px; clear: both;"></section>
-                    </section>
-                    <section style="border-width: 0px; border-style: initial; border-color: initial;height: 50px;"
-                             class="tn-Powered-by-XIUMI">
-                        <section style="width: 95%; margin-left: 5%;" class="tn-Powered-by-XIUMI">
-                            <section
-                                    style="display: inline-block; float: left; width: 1.5em; height: 1.5em; line-height: 1.5em; margin-top: 1em; margin-bottom: -2em; margin-left: -0.75em; border-width: 1px; border-style: solid; border-color: rgb(249, 110, 87); border-radius: 100%; background-color: rgb(255, 255, 255); font-size: 1em; font-family: inherit; text-align: center; text-decoration: inherit; color: rgb(249, 110, 87);"
-                                    class="tn-Powered-by-XIUMI">
-                                <section class="tn-Powered-by-XIUMI">
-                                    <section class="tn-Powered-by-XIUMI">4</section>
-                                </section>
-                            </section>
-                            <section class="tn-Powered-by-XIUMI">
-                                <section
-                                        style="border-left: 1px solid rgb(249, 110, 87); height: 1.2em; border-top-color: rgb(249, 110, 87); border-right-color: rgb(249, 110, 87); border-bottom-color: rgb(249, 110, 87);"
-                                        class="tn-Powered-by-XIUMI"></section>
-                                <section
-                                        style="border-left: 1px solid rgb(249, 110, 87); border-top-color: rgb(249, 110, 87); border-right-color: rgb(249, 110, 87); border-bottom-color: rgb(249, 110, 87);"
-                                        class="tn-Powered-by-XIUMI">
-                                    <section
-                                            style="clear: both; margin-top: -0.4em; margin-left: 1.6em; padding-bottom: 0.2em; font-size: 1em; font-family: inherit; text-decoration: inherit; color: rgb(160, 160, 160);"
-                                            class="tn-Powered-by-XIUMI">
-                                        <section class="tn-Powered-by-XIUMI"><span style="color: rgb(249, 110, 87);"
-                                                                                   class="tn-Powered-by-XIUMI">播种时间</span>
-                                        </section>
-                                        <section class="tn-Powered-by-XIUMI">2016年4月4日—2016年4月8日</section>
-                                    </section>
-                                </section>
-                            </section>
-                        </section>
-                        <section style="width: 0px; height: 0px; clear: both;"></section>
-                    </section>
-                    <section style="border-width: 0px; border-style: initial; border-color: initial;height: 50px;"
-                             class="tn-Powered-by-XIUMI">
-                        <section style="width: 95%; margin-left: 5%;" class="tn-Powered-by-XIUMI">
-                            <section
-                                    style="display: inline-block; float: left; width: 1.5em; height: 1.5em; line-height: 1.5em; margin-top: 1em; margin-bottom: -2em; margin-left: -0.75em; border-width: 1px; border-style: solid; border-color: rgb(249, 110, 87); border-radius: 100%; background-color: rgb(255, 255, 255); font-size: 1em; font-family: inherit; text-align: center; text-decoration: inherit; color: rgb(249, 110, 87);"
-                                    class="tn-Powered-by-XIUMI">
-                                <section class="tn-Powered-by-XIUMI">
-                                    <section class="tn-Powered-by-XIUMI">5</section>
-                                </section>
-                            </section>
-                            <section class="tn-Powered-by-XIUMI">
-                                <section
-                                        style="border-left: 1px solid rgb(249, 110, 87); height: 1.2em; border-top-color: rgb(249, 110, 87); border-right-color: rgb(249, 110, 87); border-bottom-color: rgb(249, 110, 87);"
-                                        class="tn-Powered-by-XIUMI"></section>
-                                <section
-                                        style="border-left: 1px solid rgb(249, 110, 87); border-top-color: rgb(249, 110, 87); border-right-color: rgb(249, 110, 87); border-bottom-color: rgb(249, 110, 87);"
-                                        class="tn-Powered-by-XIUMI">
-                                    <section
-                                            style="clear: both; margin-top: -0.4em; margin-left: 1.6em; padding-bottom: 0.2em; font-size: 1em; font-family: inherit; text-decoration: inherit; color: rgb(160, 160, 160);"
-                                            class="tn-Powered-by-XIUMI">
-                                        <section class="tn-Powered-by-XIUMI"><span style="color: rgb(249, 110, 87);"
-                                                                                   class="tn-Powered-by-XIUMI">收割时间</span>
-                                        </section>
-                                        <section class="tn-Powered-by-XIUMI">2016年11月1日—2016年11月10日</section>
-                                    </section>
-                                </section>
-                            </section>
-                        </section>
-                        <section style="width: 0px; height: 0px; clear: both;"></section>
-                    </section>
-                    <section style="border-width: 0px; border-style: initial; border-color: initial;height: 50px;"
-                             class="tn-Powered-by-XIUMI">
-                        <section style="width: 95%; margin-left: 5%;" class="tn-Powered-by-XIUMI">
-                            <section
-                                    style="display: inline-block; float: left; width: 1.5em; height: 1.5em; line-height: 1.5em; margin-top: 1em; margin-bottom: -2em; margin-left: -0.75em; border-width: 1px; border-style: solid; border-color: rgb(249, 110, 87); border-radius: 100%; background-color: rgb(255, 255, 255); font-size: 1em; font-family: inherit; text-align: center; text-decoration: inherit; color: rgb(249, 110, 87);"
-                                    class="tn-Powered-by-XIUMI">
-                                <section class="tn-Powered-by-XIUMI">
-                                    <section class="tn-Powered-by-XIUMI">6</section>
-                                </section>
-                            </section>
-                            <section class="tn-Powered-by-XIUMI">
-                                <section
-                                        style="border-left: 1px solid rgb(249, 110, 87); height: 1.2em; border-top-color: rgb(249, 110, 87); border-right-color: rgb(249, 110, 87); border-bottom-color: rgb(249, 110, 87);"
-                                        class="tn-Powered-by-XIUMI"></section>
-                                <section
-                                        style="border-left: 1px solid rgb(249, 110, 87); border-top-color: rgb(249, 110, 87); border-right-color: rgb(249, 110, 87); border-bottom-color: rgb(249, 110, 87);"
-                                        class="tn-Powered-by-XIUMI">
-                                    <section
-                                            style="clear: both; margin-top: -0.4em; margin-left: 1.6em; padding-bottom: 0.2em; font-size: 1em; font-family: inherit; text-decoration: inherit; color: rgb(160, 160, 160);"
-                                            class="tn-Powered-by-XIUMI">
-                                        <section class="tn-Powered-by-XIUMI"><span style="color: rgb(249, 110, 87);"
-                                                                                   class="tn-Powered-by-XIUMI">加工时间</span>
-                                        </section>
-                                        <section class="tn-Powered-by-XIUMI">2016年12月1日—2016年12月10日</section>
-                                    </section>
-                                </section>
-                            </section>
-                        </section>
-                        <section style="width: 0px; height: 0px; clear: both;"></section>
-                    </section>
-                    <section style="border-width: 0px; border-style: initial; border-color: initial;height: 50px;"
-                             class="tn-Powered-by-XIUMI">
-                        <section style="width: 95%; margin-left: 5%;" class="tn-Powered-by-XIUMI">
-                            <section
-                                    style="display: inline-block; float: left; width: 1.5em; height: 1.5em; line-height: 1.5em; margin-top: 1em; margin-bottom: -2em; margin-left: -0.75em; border-width: 1px; border-style: solid; border-color: rgb(249, 110, 87); border-radius: 100%; background-color: rgb(255, 255, 255); font-size: 1em; font-family: inherit; text-align: center; text-decoration: inherit; color: rgb(249, 110, 87);"
-                                    class="tn-Powered-by-XIUMI">
-                                <section class="tn-Powered-by-XIUMI">
-                                    <section class="tn-Powered-by-XIUMI">7</section>
-                                </section>
-                            </section>
-                            <section class="tn-Powered-by-XIUMI">
-                                <section
-                                        style="border-left: 1px solid rgb(249, 110, 87); height: 1.2em; border-top-color: rgb(249, 110, 87); border-right-color: rgb(249, 110, 87); border-bottom-color: rgb(249, 110, 87);"
-                                        class="tn-Powered-by-XIUMI"></section>
-                                <section
-                                        style="border-left: 1px solid rgb(249, 110, 87); border-top-color: rgb(249, 110, 87); border-right-color: rgb(249, 110, 87); border-bottom-color: rgb(249, 110, 87);"
-                                        class="tn-Powered-by-XIUMI">
-                                    <section
-                                            style="clear: both; margin-top: -0.4em; margin-left: 1.6em; padding-bottom: 0.2em; font-size: 1em; font-family: inherit; text-decoration: inherit; color: rgb(160, 160, 160);"
-                                            class="tn-Powered-by-XIUMI">
-                                        <section class="tn-Powered-by-XIUMI">结束</section>
+                                        <section class="tn-Powered-by-XIUMI">... ...</section>
                                     </section>
                                 </section>
                             </section>
@@ -1000,8 +915,8 @@
                                 class="tn-Powered-by-XIUMI">
                             <section
                                     style="display: inline-block; width: 7em; height: 7em; float: right; margin-right:
-                                    0.5em; margin-top: 13px; background-position: 50% 50%; background-repeat: no-repeat;
-                                    background-size: cover; background-image: url(http://pan.baidu.com/share/qrcode?w=300&h=300&url=http://pingjia.ngrok.cc/laravel-master/public/crop/scanBinCode/{{$cropInfo['id']}};);"
+                                            0.5em; margin-top: 13px; background-position: 50% 50%; background-repeat: no-repeat;
+                                            background-size: cover; background-image: url(http://pan.baidu.com/share/qrcode?w=300&h=300&url=http://pingjia.ngrok.cc/laravel-master/public/crop/scanBinCode/{{$cropInfo['id']}};);"
                                     class="tn-Powered-by-XIUMI"></section>
                             <section
                                     style="width: 100%; padding: 0.5em; background: rgb(142, 201, 101); font-size: 1em; font-family: inherit;"
@@ -1019,8 +934,10 @@
                                 <section
                                         style="margin-top: 0.5em; font-size: 1em; font-family: inherit; text-decoration: inherit;"
                                         class="tn-Powered-by-XIUMI">
-                                    <section class="tn-Powered-by-XIUMI">2、施肥...... <br class="tn-Powered-by-XIUMI"/></section>
-                                    <section class="tn-Powered-by-XIUMI link-us">联系我们 <br class="tn-Powered-by-XIUMI"/></section>
+                                    <section class="tn-Powered-by-XIUMI">2、施肥...... <br class="tn-Powered-by-XIUMI"/>
+                                    </section>
+                                    <section class="tn-Powered-by-XIUMI link-us">联系我们 <br class="tn-Powered-by-XIUMI"/>
+                                    </section>
                                 </section>
                             </section>
                             <section

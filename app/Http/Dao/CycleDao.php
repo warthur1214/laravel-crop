@@ -18,7 +18,7 @@ class CycleDao
     public static function getCycleList(CycleModel $model, $where=null, $order=null)
     {
         try {
-            $sql = $model->where($where)->find();
+            $sql = $model->where($where)->orderby($order)->find();
             return MSLaravelDB::queryAll($sql);
         } catch (\Exception $e) {
             throw new \Exception($e);

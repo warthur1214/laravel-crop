@@ -10,7 +10,9 @@ namespace App\Http\Service;
 
 
 use App\Http\Dao\CropDao;
+use App\Http\Dao\CycleDao;
 use App\Http\Model\CropModel;
+use App\Http\Model\CycleModel;
 
 class CropService
 {
@@ -26,8 +28,11 @@ class CropService
 
     public static function getCropInfoById(CropModel $model, $where=null) {
         try {
-            $result = CropDao::getCropList($model, $where);
-            return $result[0];
+            $cropInfo = (CropDao::getCropList($model, $where))[0];
+            $where = "cycle_sort <= {$cropInfo['cycle_sort']}";
+            $order = "order by cycle_sort asc";
+            $cropInfo['cycleList'] = CycleDao::getCycleList(new CycleModel(), $where, $order);
+            return $cropInfo;
         } catch (\Exception $e) {
             throw new \Exception($e);
         }

@@ -19,7 +19,7 @@ class CropDao
         try {
             $sql = "SELECT 
                         c.id, c.crop_name, c.crop_number, c.crop_weight, c.crop_describe, v.variety_name,
-                        cc.cycle_name, b.batch_name, c.create_time, c.update_time
+                        cc.cycle_name, b.batch_name, c.create_time, c.update_time, c.cycle_id, cc.cycle_sort
                     FROM t_crop c
                     LEFT JOIN t_crop_cycle cc ON cc.id = c.cycle_id
                     LEFT JOIN t_crop_variety v ON c.variety_id = v.id
