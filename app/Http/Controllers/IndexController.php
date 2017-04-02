@@ -17,7 +17,7 @@ class IndexController extends BaseController
 
     public function test()
     {
-        dump(env('APP_URL'));
+        dump(config('app.url'));
     }
 
 	public function top()

@@ -6,7 +6,7 @@
     <div class="wrapper">
         <header class="main-header">
             <!-- Logo -->
-            <a href="{{env("APP_URL")}}/index" class="logo" target="_top">
+            <a href="{{config('app.url')}}/index" class="logo" target="_top">
                 <span class="logo-mini"><b>农产品管理平台</b></span>
                 <span class="logo-lg"><b>农产品管理平台</b></span>
             </a>
@@ -24,12 +24,12 @@
             </nav>
         </header>
         <aside class="main-sidebar">
-            <iframe src="{{env('APP_URL')}}/menu" width="100%" height="100%" scrolling="no"
+            <iframe src="{{config('app.url')}}/menu" width="100%" height="100%" scrolling="no"
                     frameborder="0"></iframe>
         </aside>
         <!-- Content Wrapper. Contains page content -->
         <div id="content" class="content-wrapper">
-            <iframe src="{{env('APP_URL')}}/main" width="100%" height="100%" name="myFrame"
+            <iframe src="{{config('app.url')}}/main" width="100%" height="100%" name="myFrame"
                     scrolling="no"
                     frameborder="0"></iframe>
         </div>

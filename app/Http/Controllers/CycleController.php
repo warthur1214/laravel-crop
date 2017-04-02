@@ -55,7 +55,7 @@ class CycleController extends Controller
                     $ext = $cycleImg->getClientOriginalExtension();
                     $fileName = "cycle_".date("YmdH:i:s.").$ext;
                     $cycleImg->move("uploads/", $fileName);
-                    $cycle->cycle_img = env('APP_URL'). "/uploads/" . $fileName;
+                    $cycle->cycle_img = config('app.url'). "/uploads/" . $fileName;
                 }
             }
             CycleService::insertCycleInfo($cycle);
@@ -93,7 +93,7 @@ class CycleController extends Controller
                         $ext = $cycleImg->getClientOriginalExtension();
                         $fileName = "cycle_".date("YmdH:i:s.").$ext;
                         $cycleImg->move("uploads/", $fileName);
-                        $cycle->cycle_img = env('APP_URL'). "/uploads/" . $fileName;
+                        $cycle->cycle_img = config('app.url'). "/uploads/" . $fileName;
                     }
                 }
                 CycleService::updateCycleById($cycle, $where);
