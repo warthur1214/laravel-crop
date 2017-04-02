@@ -28,7 +28,8 @@ class CropService
 
     public static function getCropInfoById(CropModel $model, $where=null) {
         try {
-            $cropInfo = (CropDao::getCropList($model, $where))[0];
+            $arr = CropDao::getCropList($model, $where);
+            $cropInfo = $arr[0];
             $where = "cycle_sort <= {$cropInfo['cycle_sort']}";
             $order = "order by cycle_sort asc";
             $cropInfo['cycleList'] = CycleDao::getCycleList(new CycleModel(), $where, $order);
