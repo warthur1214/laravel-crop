@@ -13,7 +13,7 @@
 
 Route::any("/test", function () {
     dump(config("mail.host"));
-    dump(env("APP_URL"));
+    dump(config('app.url'));
 });
 
 Route::group(['middleware' => ['web']], function () {

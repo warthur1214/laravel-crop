@@ -38,7 +38,7 @@
         <div class="box-body">
 
             <input type="hidden" class="form-control" id="app_url" name="app_url"
-                   value="{{env("APP_URL")}}">
+                   value="{{config('app.url')}}">
             <form role="form" id="info_form">
                 <table class="table table-bordered">
                     <tbody>
@@ -122,7 +122,7 @@
         </div>
         <div class="box-footer clearfix text-center">
             <button type="submit" class="btn btn-primary" id="submit"><i class="fa fa-save"></i> 修改</button>
-            <a href="{{env("APP_URL")}}/cycle/cycleList" class="btn btn-default"><i class="fa fa-arrow-left"></i>
+            <a href="{{config('app.url')}}/cycle/cycleList" class="btn btn-default"><i class="fa fa-arrow-left"></i>
                 返回</a>
         </div>
     </div>

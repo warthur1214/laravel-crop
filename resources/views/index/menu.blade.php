@@ -10,13 +10,13 @@
                 @foreach($menu as $vals)
                     @if(count($vals) != 0)
                         <li class="treeview">
-                            <a href="{{env("APP_URL").$vals['module_url']}}">
+                            <a href="{{config('app.url').$vals['module_url']}}">
                                 <span>{{$vals['module_name']}}</span> <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
                                 @foreach($vals['menu_two'] as $val)
                                     <li style="margin-left: 10%;">
-                                        <a href="{{env("APP_URL").$val['module_url']}}" target="myFrame">
+                                        <a href="{{config('app.url').$val['module_url']}}" target="myFrame">
                                             <i class="fa fa-circle-o"></i>{{$val['module_name']}}</a>
                                     </li>
                                 @endforeach

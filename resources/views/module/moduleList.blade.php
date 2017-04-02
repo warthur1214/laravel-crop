@@ -41,7 +41,7 @@
     <body>
     <section class="content-header">
         <span class="pull-right">
-        <a href="{{env("APP_URL")}}/module/addModule" class="btn btn-sm btn-primary"> <i class="fa fa-plus"></i> 添加模块</a>
+        <a href="{{config('app.url')}}/module/addModule" class="btn btn-sm btn-primary"> <i class="fa fa-plus"></i> 添加模块</a>
       </span>
         <h1>
             模块列表

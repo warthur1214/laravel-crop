@@ -4,7 +4,7 @@
     <body>
     <section class="content-header">
         <span class="pull-right">
-        <a href="{{env("APP_URL")}}/account/addAccount" class="btn btn-sm btn-primary"> <i class="fa fa-plus"></i> 添加账号</a>
+        <a href="{{config('app.url')}}/account/addAccount" class="btn btn-sm btn-primary"> <i class="fa fa-plus"></i> 添加账号</a>
       </span>
         <h1>
             账号管理
