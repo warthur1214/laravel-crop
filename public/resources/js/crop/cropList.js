@@ -125,7 +125,7 @@ $(document).ready(function () {
 
 
     function scanBinCode() {
-        var loc = encodeURI("http://warthur.ngrok.cc/laravel-master/public/crop/scanBinCode/" + $(this).attr("cropId")),
+        var loc = encodeURI("http://www.tcwanfeng.com/crop/public/crop/scanBinCode/" + $(this).attr("cropId")),
             cropName = $(this).attr("cropName");
 
         layer.open({

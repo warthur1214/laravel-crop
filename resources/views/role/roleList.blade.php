@@ -5,8 +5,8 @@
     <body>
     <section class="content-header">
         <span class="pull-right">
-        <a href="{{env("APP_URL")}}/role/addRole" class="btn btn-sm btn-primary"> <i class="fa fa-plus"></i> 添加角色</a>
-        <input type="hidden" id="app_url" value="{{env("APP_URL")}}">
+        <a href="{{config('app.url')}}/role/addRole" class="btn btn-sm btn-primary"> <i class="fa fa-plus"></i> 添加角色</a>
+        <input type="hidden" id="app_url" value="{{config('app.url')}}">
       </span>
         <h1>
             角色管理

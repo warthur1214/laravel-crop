@@ -41,7 +41,7 @@
     <body>
     <section class="content-header">
         <span class="pull-right">
-        <a href="{{env("APP_URL")}}/batch/addBatch" class="btn btn-sm btn-primary"> <i
+        <a href="{{config('app.url')}}/batch/addBatch" class="btn btn-sm btn-primary"> <i
                     class="fa fa-plus"></i> 添加产品批次</a>
         </span>
         <h1>

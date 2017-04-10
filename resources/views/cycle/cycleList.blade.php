@@ -41,7 +41,7 @@
     <body>
     <section class="content-header">
         <span class="pull-right">
-        <a href="{{env("APP_URL")}}/cycle/addCycle" class="btn btn-sm btn-primary"> <i
+        <a href="{{config('app.url')}}/cycle/addCycle" class="btn btn-sm btn-primary"> <i
                     class="fa fa-plus"></i> 添加周期节点</a>
         </span>
         <h1>

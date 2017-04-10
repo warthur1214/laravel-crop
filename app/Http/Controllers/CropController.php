@@ -85,7 +85,7 @@ class CropController extends Controller
                     $ext = $cropImg->getClientOriginalExtension();
                     $fileName = "crop_".date("YmdH:i:s.").$ext;
                     $cropImg->move("uploads/", $fileName);
-                    $crop->crop_img = env('APP_URL'). "/uploads/" . $fileName;
+                    $crop->crop_img = config('app.url'). "/uploads/" . $fileName;
                 }
             }
             CropService::insertCropInfo($crop);
@@ -131,7 +131,7 @@ class CropController extends Controller
                         $ext = $cropImg->getClientOriginalExtension();
                         $fileName = "crop_".date("YmdH:i:s.").$ext;
                         $cropImg->move("uploads/", $fileName);
-                        $crop->crop_img = env('APP_URL'). "/uploads/" . $fileName;
+                        $crop->crop_img = config('app.url'). "/uploads/" . $fileName;
                     }
                 }
                 CropService::updateCropById($crop, $where);

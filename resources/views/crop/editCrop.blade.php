@@ -36,7 +36,7 @@
         <div class="box-body">
 
             <input type="hidden" class="form-control" id="app_url"
-                   value="{{env("APP_URL")}}">
+                   value="{{config('app.url')}}">
             <form role="form" id="info_form">
                 <table class="table table-bordered">
                     <tbody>
@@ -75,7 +75,7 @@
                                     <option value="{{$c['id']}}" {{$c['id']==$cropInfo['cycle_id'] ? 'selected' : ''}}>{{$c['cycle_name']}}</option>
                                 @endforeach
                             </select>
-                            <span class="span1">没有？<a href="{{env("APP_URL")}}/cycle/addCycle"
+                            <span class="span1">没有？<a href="{{config('app.url')}}/cycle/addCycle"
                                                       class="a1">加一个</a></span>
                         </td>
                     </tr>
@@ -87,7 +87,7 @@
                                     <option value="{{$b['id']}}" {{$b['id']==$cropInfo['batch_id'] ? 'selected' : ''}}>{{$b['batch_name']}}</option>
                                 @endforeach
                             </select>
-                            <span class="span1">没有？<a href="{{env("APP_URL")}}/batch/addBatch"
+                            <span class="span1">没有？<a href="{{config('app.url')}}/batch/addBatch"
                                                       class="a1">加一个</a></span>
                         </td>
                     </tr>
@@ -99,7 +99,7 @@
                                     <option value="{{$var['id']}}" {{$var['id']==$cropInfo['variety_id'] ? 'selected' : ''}}>{{$var['variety_name']}}</option>
                                 @endforeach
                             </select>
-                            <span class="span1">没有？<a href="{{env("APP_URL")}}/variety/addVariety"
+                            <span class="span1">没有？<a href="{{config('app.url')}}/variety/addVariety"
                                                       class="a1">加一个</a></span>
                         </td>
                     </tr>
@@ -135,7 +135,7 @@
         </div>
         <div class="box-footer clearfix text-center">
             <button type="submit" class="btn btn-primary" id="submit"><i class="fa fa-save"></i> 提交</button>
-            <a href="{{env("APP_URL")}}/crop/cropList" class="btn btn-default"><i class="fa fa-arrow-left"></i>
+            <a href="{{config('app.url')}}/crop/cropList" class="btn btn-default"><i class="fa fa-arrow-left"></i>
                 返回</a>
         </div>
     </div>

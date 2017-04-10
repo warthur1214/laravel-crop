@@ -41,7 +41,7 @@
     <body>
     <section class="content-header">
         <span class="pull-right">
-        <a href="{{env("APP_URL")}}/variety/addVariety" class="btn btn-sm btn-primary"> <i
+        <a href="{{config('app.url')}}/variety/addVariety" class="btn btn-sm btn-primary"> <i
                     class="fa fa-plus"></i> 添加产品品类</a>
         </span>
         <h1>

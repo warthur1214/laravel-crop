@@ -11,9 +11,13 @@
 |
 */
 
+Route::any("/test", function () {
+    dump(config("mail.host"));
+    dump(config('app.url'));
+});
+
 Route::group(['middleware' => ['web']], function () {
 
-    Route::any("/test", ['uses' => "IndexController@test"]);
 
     Route::get("/login", ['uses' => "LoginController@login"]);
     Route::post("/loginAjax", ['uses' => "LoginController@loginAjax"]);

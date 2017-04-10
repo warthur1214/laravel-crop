@@ -41,7 +41,7 @@
     <body>
     <section class="content-header">
         <span class="pull-right">
-        <a href="{{env("APP_URL")}}/crop/addCrop" class="btn btn-sm btn-primary"> <i
+        <a href="{{config('app.url')}}/crop/addCrop" class="btn btn-sm btn-primary"> <i
                     class="fa fa-plus"></i> 添加农产品</a>
         </span>
         <h1>

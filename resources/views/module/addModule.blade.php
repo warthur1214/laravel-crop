@@ -39,7 +39,7 @@
                     <tr>
                         <td class="title" colspan="2"><i class="fa fa fa-info-circle"></i> 添加模块信息</td>
                         <input type="hidden" class="form-control" id="app_url" name="app_url"
-                               value="{{env("APP_URL")}}">
+                               value="{{config('app.url')}}">
                     </tr>
                     <tr>
                         <th><span class="text-red">*</span> 模块名称</th>
@@ -99,7 +99,7 @@
         </div>
         <div class="box-footer clearfix text-center">
             <button type="submit" class="btn btn-primary" id="submit"><i class="fa fa-save"></i> 提交</button>
-            <a href="{{env("APP_URL")}}/module/moduleList" class="btn btn-default"><i class="fa fa-arrow-left"></i>
+            <a href="{{config('app.url')}}/module/moduleList" class="btn btn-default"><i class="fa fa-arrow-left"></i>
                 返回</a>
         </div>
     </div>
