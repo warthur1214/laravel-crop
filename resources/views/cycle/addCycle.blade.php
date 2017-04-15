@@ -68,7 +68,7 @@
                             </div>
                             <div>
                                 <input type="text" class="form-control" style="width: 218px;height: 34px;"
-                                       id="cycle_section" name="cycle_section" value="{{$cycleInfo['cycle_section']}}"
+                                       id="cycle_section" name="cycle_section" value=""
                                        placeholder="节点区间" readonly>
                             </div>
 

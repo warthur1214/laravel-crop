@@ -2,7 +2,7 @@
  * (c) 2016 Guilin Yu 
  */
 
-var APP_URL = "http://localhost/laravel-master/public";
+var APP_URL = "http://localhost/crop/public";
 // var APP_URL = "http://www.tcwanfeng.com/crop/public";
 /*=========ajax请求方法============================
  *

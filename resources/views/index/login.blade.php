@@ -17,11 +17,10 @@
 <body class="hold-transition login-page login">
 <div class="login-box">
     <div class="login-logo">
-        <b>登录</b>
+        <b>农产品追溯监管平台</b>
     </div>
     <div class="login-box-body">
         <p class="login-box-msg"></p>
-
         <div class="alert alert-error" style="display:none;">
 
             <span>请输入用户登录信息</span>
@@ -30,11 +29,11 @@
 
         <form action="" method="post" id="login_form">
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" placeholder="账号" name="account_name" id="account_name">
+                <input type="text" class="form-control" placeholder="请输入账号" name="account_name" id="account_name">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="密码" name="password" id="password">
+                <input type="password" class="form-control" placeholder="请输入密码" name="password" id="password">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
         </form>

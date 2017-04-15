@@ -50,20 +50,6 @@
     </section>
     <div class="box marginB0">
         <form class="form-horizontal padding10" role="form" id="submit_form">
-            {{--<div class="form-group">--}}
-            {{--<!-- <label for="fence_name" class="col-sm-1 control-label">围栏名称</label> -->--}}
-            {{--<div class="col-sm-2">--}}
-            {{--<select class="form-control" id="system_id" name="system_id">--}}
-            {{--<option value="0">请选择</option>--}}
-            {{--@foreach($system)--}}
-            {{--<volist name="system" id="val">--}}
-            {{--<option value="<{$val['system_id']}>">--}}
-            {{--<{$val[ 'system_name']}>--}}
-            {{--</option>--}}
-            {{--</volist>--}}
-            {{--</select>--}}
-            {{--</div>--}}
-            {{--</div>--}}
         </form>
         <div class="box-body">
             <!-- alert start -->
