@@ -1,11 +1,9 @@
 @extends("base")
 
-<!-- DataTables -->
-<link rel="stylesheet" href="{{asset("/resources/plugins/datatables/dataTables.bootstrap.css")}}">
-<!-- iCheck for checkboxes and radio inputs -->
-<link rel="stylesheet" href="{{asset("/resources/plugins/iCheck/all.css")}}">
-<link rel="stylesheet" href="{{asset("/resources/plugins/daterangepicker/daterangepicker-bs3.css")}}">
 @section("style")
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{{asset("/resources/plugins/datatables/dataTables.bootstrap.css")}}">
+    <link rel="stylesheet" href="{{asset("/resources/plugins/daterangepicker/daterangepicker-bs3.css")}}">
     <style type="text/css">
         .alert_page_success {
             color: #468847;
@@ -18,6 +16,7 @@
             background-color: #f2dede;
             border-color: #eed3d7
         }
+
         .img_browser {
             height: 400px;
             width: 300px;
@@ -129,8 +128,6 @@
     <script src="{{asset("/resources/plugins/datatables/dataTables.bootstrap.min.js")}}"></script>
     <script src="{{asset("/resources/plugins/jQuery/jquery.validate.min.js")}}"></script>
     <script src="{{asset("/resources/plugins/jQuery/additional-methods.min.js")}}"></script>
-    <!-- iCheck 1.0.1 -->
-    <script src="{{asset("/resources/plugins/iCheck/icheck.min.js")}}"></script>
     <script src="{{asset("/resources/js/cycle/addCycle.js")}}"></script>
     <script src="{{asset("/resources/plugins/uploadify/jquery.uploadify.min.js")}}"></script>
     <script src="{{asset('/resources/plugins/daterangepicker/moment.js')}}"></script>

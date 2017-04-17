@@ -74,7 +74,6 @@ $(document).ready(function () {
             {"data": "crop_number"},
             {"data": "crop_weight"},
             {"data": "batch_name"},
-            {"data": "variety_name"},
             {
                 "data": null,
                 "createdCell": function (td, cellData, rowData, row, col) {
@@ -82,6 +81,7 @@ $(document).ready(function () {
                     $(td).html(html);
                 }
             },
+            {"data": "variety_name"},
             {"data": "crop_describe"},
             {"data": "create_time"},
             {"data": "update_time"},
