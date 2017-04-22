@@ -66,15 +66,6 @@
                                    value="{{$cropInfo['crop_weight']}}" placeholder="产品重量">
                         </td>
                     </tr>
-
-                    <tr class="form-group">
-                        <th>生长周期<span class="text-red">*</span></th>
-                        <td>
-                            <a href="{{config('app.url')}}/crop/cropCycle/{{$cropInfo['id']}}"
-                               class="btn btn-default">分配生长周期<i class="fa fa-arrow-right"></i>
-                            </a>
-                        </td>
-                    </tr>
                     <tr class="form-group">
                         <th>选择批次 <span class="text-red">*</span></th>
                         <td>

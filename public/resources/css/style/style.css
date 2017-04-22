@@ -979,11 +979,6 @@ table.datatable-custom > thead > tr > th {
     color: red;
 }
 
-.img-box {
-    width: 150px;
-    height:80px;
-}
-
 .has-error {
     border: 1px solid #0000ff;
 }

@@ -74,24 +74,22 @@ $(document).ready(function () {
             {"data": "crop_number"},
             {"data": "crop_weight"},
             {"data": "batch_name"},
-            {
-                "data": null,
-                "createdCell": function (td, cellData, rowData, row, col) {
-                    var html = rowData.cycle_name ? rowData.cycle_name : '初始状态';
-                    $(td).html(html);
-                }
-            },
             {"data": "variety_name"},
             {"data": "crop_describe"},
             {"data": "create_time"},
             {"data": "update_time"},
             {
                 "data": null,
-                "createdCell": function (td, cellData, rowData, row, col) {
-                    var html = $(td).html("<a href='editCrop/" + rowData.id + "' " +
-                        "class='btn btn-xs btn-primary'>查看</a> <a href='javascript:;' " +
-                        "class='btn btn-xs btn-primary' cropName='"+rowData.crop_name+"' cropId='" + rowData.id + "' id='scanBinCode'>二维码</a> <a href='javascript:void(0);' " + rowData.id + "' " +
-                        "class='btn btn-xs btn-danger deleteById' id='deleteById' index='" +
+                "createdCell": function (td, cellData, rowData) {
+                    $(td).html('<a href="cropCycle/'+rowData.id+'" class="btn btn-xs btn-primary">分配周期</a>');
+                }
+            },
+            {
+                "data": null,
+                "createdCell": function (td, cellData, rowData) {
+                    $(td).html("<a href='editCrop/" + rowData.id + "' class='btn btn-xs btn-primary'>查看</a> " +
+                        "<a href='javascript:;' class='btn btn-xs btn-primary' cropName='"+rowData.crop_name+"' cropId='" + rowData.id + "' id='scanBinCode'>二维码</a> " +
+                        "<a href='javascript:void(0);' " + rowData.id + " class='btn btn-xs btn-danger deleteById' id='deleteById' index='" +
                         rowData.id + "'>删除</a>");
                 }
             }
