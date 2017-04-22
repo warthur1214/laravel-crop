@@ -32,6 +32,7 @@ class LoginController extends Controller
         $model->account_name = $request->input("accountName");
         $model->is_available = 1;
 
+
         $userInfo = AccountService::getUserInfo($model, $model);
         $statusInfo = ReturnUtil::error("账号不存在或被冻结，请联系管理员");
         try {

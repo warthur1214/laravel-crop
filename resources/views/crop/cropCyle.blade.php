@@ -4,19 +4,14 @@
     <!-- DataTables -->
     <link rel="stylesheet" href="{{asset("/resources/plugins/datatables/dataTables.bootstrap.css")}}">
     <link rel="stylesheet" href="{{asset("/resources/plugins/daterangepicker/daterangepicker-bs3.css")}}">
-    <style type="text/css">
-        .img_browser {
-            height: 400px;
-            width: 300px;
-        }
-    </style>
 @endsection
 
 @section("body")
     <body>
     <section class="content-header">
+        <span class="pull-right"></span>
         <h1>
-            添加农产品周期属性
+            配置农产品周期属性
         </h1>
     </section>
     <div class="box box-cus box-cus-form">
@@ -26,81 +21,75 @@
         <div class="box-body">
             <form role="form" id="info_form">
                 <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th style="width: 30px;">
+                            <input type="checkbox" title=""/>
+                        </th>
+                        <th>周期名称</th>
+                        <th>周期区间</th>
+                        <th>周期描述</th>
+                        <th>周期图片</th>
+                    </tr>
+                    </thead>
                     <tbody>
-                    <tr class="form-group">
-                        <td class="title" colspan="2"><i class="fa fa fa-info-circle"></i> 添加周期属性</td>
-                        <input type="hidden" class="form-control" id="app_url" name="app_url"
-                               value="{{config('app.url')}}">
-                    </tr>
-                    <tr class="form-group">
-                        <th>选择周期 <span class="text-red">*</span></th>
-                        <td>
-                            <select name="cycle_id" id="cycle_id" class="form-group" title="选择生长周期">
-                                <option value="0">初始状态</option>
-                                @foreach($cycleInfo as $c)
-                                    <option value="{{$c['id']}}" {{$c['id']==$cropInfo['cycle_id'] ? 'selected' : ''}}>{{$c['cycle_name']}}</option>
-                                @endforeach
-                            </select>
-                        </td>
-                    </tr>
-                    <tr class="form-group">
-                        <th>节点序号 <span class="text-red">*</span></th>
-                        <td>
-                            <input type="text" class="form-control" id="cycle_sort" name="cycle_sort"
-                                   placeholder="节点序号">
-                        </td>
-                    </tr>
-                    <tr class="form-group">
-                        <th>节点区间 <span class="text-red">*</span></th>
-                        <td>
-                            <div class="input-group-addon" style="float: left; width: 39px;height: 34px;">
-                                <i class="fa fa-calendar-times-o" style="margin-top: 4px;"></i>
-                            </div>
-                            <div>
-                                <input type="text" class="form-control" style="width: 218px;height: 34px;"
-                                       id="cycle_section" name="cycle_section" value=""
-                                       placeholder="节点区间" readonly>
-                            </div>
-
-                        </td>
-                    </tr>
-                    <tr class="form-group">
-                        <th>节点描述</th>
-                        <td colspan="5">
-                            <div class="form-group"><textarea class="form-control" id="cycle_describe"
-                                                              name="cycle_describe" placeholder="输入节点描述信息"></textarea>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="form-group">
-                        <th>上传图片</th>
-                        <td colspan="5">
-                            <div class="form-group"><input type="file" class="form-control" id="cycle_img"
-                                                           name="cycle_img"
-                                                           placeholder="节点图片描述"></div>
-                        </td>
-                    </tr>
-
-                    <tr class="form-group">
-                        <th>图片预览</th>
-                        <td colspan="5">
-                            <div class="form-group">
-                                <img src="" class="img_browser" id="img_browser" alt="图片预览">
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="form-group">
-                        <th>是否生效</th>
-                        <td>
-                            <label>
-                                <input type="radio" name="cycle_status" class="flat-red" checked value="0"> 不生效
-                            </label>
-                            <label>
-                                <input type="radio" name="cycle_status" class="flat-red" value="1"> 生效
-                            </label>
-                        </td>
-                    </tr>
+                    @foreach($cycleInfo as $c)
+                        <tr>
+                            <td>
+                                <input type="checkbox" title=""/>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input class="form-control" type="hidden" name="crop_id" value="{{$crop_id}}"
+                                           title=""/>
+                                    <input class="form-control" type="hidden" name="cycle_id" value="{{$c['id']}}"
+                                           title=""/>
+                                    <input class="form-control" type="text" name="cycle_name"
+                                           value="{{$c['cycle_name']}}" title="" readonly/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group-addon" style="float: left; width: 39px;height: 34px;">
+                                    <i class="fa fa-calendar-times-o" style="margin-top: 4px;"></i>
+                                </div>
+                                <div>
+                                    <input type="text" class="form-control" style="width: 218px;height: 34px;"
+                                           id="cycle_section" name="cycle_section" value="{{$c['cycle_section']}}"
+                                           placeholder="节点区间">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" name="cycle_describe"
+                                               value="{{$c['cycle_describe']}}" title=""/>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="uploadfile-box no-img clearfix form-group">
+                                    <div class="img-box">
+                                        @if($c['cycle_img'])
+                                            <img style="width: 150px; height: 80px;" src="{{$c['cycle_img']}}" >
+                                        @endif
+                                    </div>
+                                    <input type="hidden" data-name="cycle_img"/>
+                                    <span class="file-btn">
+                                            <input type="file" accept="image/*" multiple="multiple" name="cycle_img"
+                                                   onchange="renderUploadImg(this)"/>
+                                        </span>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
                     </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="4"><a class="btn btn-danger" onclick="removeTr()"><i class="fa fa-remove"></i>
+                                删除</a>
+                        </td>
+                    </tr>
+                    </tfoot>
                 </table>
             </form>
         </div>

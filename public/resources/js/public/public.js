@@ -2,7 +2,7 @@
  * (c) 2016 Guilin Yu 
  */
 
-var APP_URL = "http://localhost/crop/public";
+var APP_URL = "http://localhost";
 // var APP_URL = "http://www.tcwanfeng.com/crop/public";
 /*=========ajax请求方法============================
  *
@@ -46,6 +46,78 @@ function AjaxJson(url, postdata, call) {
         });
     }
 
+}
+
+/*==========================================================
+ * post方式发的ajax请求
+ */
+function Ajaxjson(_url, _data, call) {
+    var $loading = $('<div class="modal fade in modal-ajax" style="display: block;"><i class="fa fa-refresh fa-spin"></i></div>');
+    $loading.appendTo('body');
+
+    $.ajax({
+        url: _url + '?X-TokenAccess=' + getToken(),
+        type: "POST",
+        dataType: 'json',
+        contentType: "application/json",
+        data: JSON.stringify(_data),
+        success: function (res, status, xhr) {
+            $loading.remove();
+
+            if (xhr.status === 403) {
+                HrefTo("login");
+                return;
+            }
+
+            if (res.status == 0) { //操作失败
+                layer.msg(res.message, {icon: 0, time: 1000});
+                return;
+            }
+            ;
+            if (call) {
+                call(res);
+            }
+            ;
+        },
+        error: function (res) {
+            $loading.remove();
+            layer.alert('请求失败');
+        }
+
+    });
+};
+
+/*=============================================================
+ * form方式发的ajax
+ */
+function AjaxjsonForm(_url, formData, call) {
+    var $loading = $('<div class="modal fade in modal-ajax" style="display: block;"><i class="fa fa-refresh fa-spin"></i></div>');
+    $loading.appendTo('body');
+
+    $.ajax({
+        url: _url,
+        type: 'POST',
+        data: formData,
+        async: false,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function (res, status, xhr) {
+            $loading.remove();
+
+            if (res.status === 0) {
+                return;
+            }
+
+            if (call) {
+                call(res);
+            }
+
+        },
+        error: function (res) {
+            $loading.remove();
+        }
+    });
 }
 
 /*======================================

@@ -128,6 +128,9 @@ $(document).ready(function () {
         var loc = encodeURI("http://www.tcwanfeng.com/crop/public/crop/scanBinCode/" + $(this).attr("cropId")),
             cropName = $(this).attr("cropName");
 
+        // var loc = encodeURI("http://192.168.2.202/crop/scanBinCode/" + $(this).attr("cropId")),
+        //     cropName = $(this).attr("cropName");
+
         layer.open({
             title: '农产品二维码',
             area: ['380px', '710px'], //宽高

@@ -10,6 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+use Illuminate\Support\Facades\Route;
 
 Route::any("/test", function () {
     dump(config("mail.host"));
@@ -93,6 +94,9 @@ Route::group(['middleware' => ['web']], function () {
     Route::post("/crop/editCropAjax", ['uses' => "CropController@updateCropById"]);
     Route::post("/crop/delCrop/{cropId}", ['uses' => "CropController@deleteCropById"]);
     Route::get("/crop/scanBinCode/{cropId}", ['uses' => "CropController@scanBinCode"]);
+    Route::get("/crop/cropCycle/{crop_id?}", ['uses' => "CropController@cropCycle"]);
+    Route::post("/crop/uploadCycleImg", ['uses' => "CropController@uploadCycleImg"]);
+    Route::post("/crop/saveCycleProperty", ['uses' => "CropController@savePropertyInfo"]);
 });
 
 

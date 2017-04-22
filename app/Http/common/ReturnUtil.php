@@ -14,9 +14,13 @@ use Log;
 class ReturnUtil
 {
 
-    public static function success($msg=null)
+    public static function success($msg=null, $data=null)
     {
-        return response()->json(['msg' => $msg?$msg:'处理成功！', 'status' => 1]);
+        $result = ['msg' => $msg?$msg:'处理成功！', 'status' => 1];
+        if ($data) {
+            $result['data'] = $data;
+        }
+        return response()->json($result);
     }
 
     public static function error($msg=null)

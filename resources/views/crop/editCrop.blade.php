@@ -15,6 +15,7 @@
             background-color: #f2dede;
             border-color: #eed3d7
         }
+
         .img_browser {
             height: 400px;
             width: 300px;
@@ -69,14 +70,9 @@
                     <tr class="form-group">
                         <th>生长周期<span class="text-red">*</span></th>
                         <td>
-                            <select name="cycle_id" id="cycle_id" class="form-group" title="选择生长周期">
-                                <option value="0">初始状态</option>
-                                @foreach($cycleInfo as $c)
-                                    <option value="{{$c['id']}}" {{$c['id']==$cropInfo['cycle_id'] ? 'selected' : ''}}>{{$c['cycle_name']}}</option>
-                                @endforeach
-                            </select>
-                            <span class="span1">没有？<a href="{{config('app.url')}}/cycle/addCycle"
-                                                      class="a1">加一个</a></span>
+                            <a href="{{config('app.url')}}/crop/cropCycle/{{$cropInfo['id']}}"
+                               class="btn btn-default">分配生长周期<i class="fa fa-arrow-right"></i>
+                            </a>
                         </td>
                     </tr>
                     <tr class="form-group">

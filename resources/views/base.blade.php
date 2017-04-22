@@ -16,8 +16,8 @@
     @yield("style")
 </head>
 
+<input type="hidden" id="app_url" value="{{config("app.url")}}"/>
 @yield("body")
-
 </html>
 <!-- jQuery 2.2.0 -->
 <script src="{{asset("/resources/plugins/jQuery/jQuery-2.2.0.min.js")}}"></script>

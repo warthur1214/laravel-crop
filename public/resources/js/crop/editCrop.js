@@ -50,7 +50,6 @@ $(function () {
         formData.append("crop_number", $("#crop_number").val());
         formData.append("crop_name", $("#crop_name").val());
         formData.append("crop_describe", $("#crop_describe").val());
-        formData.append("cycle_id", $("#cycle_id").val());
         formData.append("batch_id", $("#batch_id").val());
         formData.append("variety_id", $("#variety_id").val());
         formData.append("crop_weight", $("#crop_weight").val());

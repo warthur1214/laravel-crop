@@ -9,7 +9,6 @@
 namespace App\Http\Controllers;
 
 
-use App\Http\common\NumberUtil;
 use App\Http\common\ReturnUtil;
 use App\Http\Model\BatchModel;
 use App\Http\Model\CropModel;
@@ -22,6 +21,7 @@ use App\Http\Service\VarietyService;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Log;
+use Mockery\Exception;
 
 class CropController extends Controller
 {
@@ -167,5 +167,58 @@ class CropController extends Controller
         return view("public/binCode", [
             'cropInfo' => $cropInfo
         ]);
+    }
+
+    public function cropCycle($crop_id)
+    {
+        $where['cycle_status'] = 1;
+
+        if ($crop_id) {
+            $where['crop_id'] = $crop_id;
+        }
+
+        $cycleInfo = CropService::getCyclePropertyList($crop_id);
+
+        return view("crop.cropCyle", [
+           'cycleInfo' => $cycleInfo,
+            "crop_id" => $crop_id
+        ]);
+    }
+
+    public function uploadCycleImg(Request $request)
+    {
+
+        try {
+            if (!$request->hasFile("cycle_img")) {
+                return ReturnUtil::error("空图片");
+            }
+
+            $cropImg = $request->file("cycle_img");
+            $ext = ['jpg', 'png'];
+            if (!in_array($cropImg->getClientOriginalExtension(), $ext)) {
+                return ReturnUtil::error("非法图片格式");
+            }
+            $ext = $cropImg->getClientOriginalExtension();
+            $fileName = "cycle_".date("YmdH:i:s.").$ext;
+            $cropImg->move("uploads/", $fileName);
+
+            $data = config('app.url'). "/uploads/" . $fileName;
+        } catch (\Exception $e) {
+            Log::ERROR($e);
+            return ReturnUtil::error();
+        }
+        return ReturnUtil::success("上传成功", $data);
+    }
+
+    public function savePropertyInfo(Request $request)
+    {
+        $data = $request->all();
+
+        try {
+            return CropService::insertCycleProperty($data);
+        } catch (Exception $e) {
+            Log::ERROR($e);
+            return ReturnUtil::error();
+        }
     }
 }
