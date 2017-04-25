@@ -134,7 +134,7 @@ $(document).ready(function () {
             area: ['380px', '710px'], //宽高
             btn: ['确定', '取消'], //按钮
             content: '<div style="padding-left: 10%;">' +
-            '<label style=""><h3>苏州市农产品质量追溯</h3></label>' +
+            '<label style=""><h4>太仓市海丰农产品质量追溯管理系统</h4></label>' +
             '<hr style="height:1px;border:none;border-top:1px solid #555555;" />' +
             '<label>产品名称：'+ cropName+'</label><br>' +
             '<label>追溯码：无</label><br>' +

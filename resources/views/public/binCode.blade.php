@@ -724,7 +724,7 @@
         <div id="page-content">
             <div id="img-content" class="rich_media_area_primary">
                 <h2 class="rich_media_title" id="activity-name">
-                    太仓万丰村农产品质量查询
+                    太仓市海丰农产品质量查询
                 </h2>
                 <div class="rich_media_content " id="js_content">
                     <section
@@ -735,7 +735,7 @@
                                 class="tn-Powered-by-XIUMI"><span
                                     style="display: inline-block; padding: 4px 8px; line-height: 1.4; box-shadow: rgb(165, 165, 165) 4px 4px 2px; font-size: 1em; font-family: inherit; text-decoration: inherit; color: rgb(255, 255, 255); background-color: rgb(142, 201, 101); border-color: rgb(249, 110, 87);"
                                     class="tn-Powered-by-XIUMI"><section
-                                        class="tn-Powered-by-XIUMI">太仓万丰村农产品质量查询</section></span></section>
+                                        class="tn-Powered-by-XIUMI">太仓市海丰农产品质量查询</section></span></section>
                         <section style="padding: 6px; font-size: 1em; line-height: 1.4; font-family: inherit;"
                                  class="tn-Powered-by-XIUMI">
                             <section class="tn-Powered-by-XIUMI">{{$cropInfo['crop_name']}}</section>
@@ -760,6 +760,9 @@
                         </section>
                         <section style="width: 0px; height: 0px; clear: both;"></section>
                     </section>
+                    <div>
+                        <img style="width: 400px;height: 300px; background-size: 100% 100%;" src="{{$cropInfo['crop_img']}}" />
+                    </div>
                     <section style="border-width: 0px; border-style: initial; border-color: initial;"
                              class="tn-Powered-by-XIUMI">
                         <section style="height: 0.1em; background-color: rgb(255, 255, 255);"
@@ -817,7 +820,7 @@
                                         style="display: inline-block; float: left; width: 1.5em; height: 1.5em; line-height: 1.5em; margin-top: 1em; margin-bottom: -2em; margin-left: -0.75em; border-width: 1px; border-style: solid; border-color: rgb(249, 110, 87); border-radius: 100%; background-color: rgb(255, 255, 255); font-size: 1em; font-family: inherit; text-align: center; text-decoration: inherit; color: rgb(249, 110, 87);"
                                         class="tn-Powered-by-XIUMI">
                                     <section class="tn-Powered-by-XIUMI">
-                                        <section class="tn-Powered-by-XIUMI">{{$key+1}}</section>
+                                        <section class="tn-Powered-by-XIUMI">*</section>
                                     </section>
                                 </section>
                                 <section class="tn-Powered-by-XIUMI">
@@ -841,33 +844,6 @@
                             </section>
                         </section>
                     @endforeach
-                    <section style="border-width: 0px; border-style: initial; border-color: initial;height: 50px;"
-                             class="tn-Powered-by-XIUMI">
-                        <section style="width: 95%; margin-left: 5%;" class="tn-Powered-by-XIUMI">
-                            <section
-                                    style="display: inline-block; float: left; width: 1.5em; height: 1.5em; line-height: 1.5em; margin-top: 1em; margin-bottom: -2em; margin-left: -0.75em; border-width: 1px; border-style: solid; border-color: rgb(249, 110, 87); border-radius: 100%; background-color: rgb(255, 255, 255); font-size: 1em; font-family: inherit; text-align: center; text-decoration: inherit; color: rgb(249, 110, 87);"
-                                    class="tn-Powered-by-XIUMI">
-                                <section class="tn-Powered-by-XIUMI">
-                                    <section class="tn-Powered-by-XIUMI">*</section>
-                                </section>
-                            </section>
-                            <section class="tn-Powered-by-XIUMI">
-                                <section
-                                        style="border-left: 1px solid rgb(249, 110, 87); height: 1.2em; border-top-color: rgb(249, 110, 87); border-right-color: rgb(249, 110, 87); border-bottom-color: rgb(249, 110, 87);"
-                                        class="tn-Powered-by-XIUMI"></section>
-                                <section
-                                        style="border-left: 1px solid rgb(249, 110, 87); border-top-color: rgb(249, 110, 87); border-right-color: rgb(249, 110, 87); border-bottom-color: rgb(249, 110, 87);"
-                                        class="tn-Powered-by-XIUMI">
-                                    <section
-                                            style="clear: both; margin-top: -0.4em; margin-left: 1.6em; padding-bottom: 0.2em; font-size: 1em; font-family: inherit; text-decoration: inherit; color: rgb(160, 160, 160);"
-                                            class="tn-Powered-by-XIUMI">
-                                        <section class="tn-Powered-by-XIUMI">... ...</section>
-                                    </section>
-                                </section>
-                            </section>
-                        </section>
-                        <section style="width: 0px; height: 0px; clear: both;"></section>
-                    </section>
                     <section
                             style="border-width: initial; border-style: none; border-color: initial; margin: 0.5em 0.3em;"
                             class="tn-Powered-by-XIUMI">
@@ -925,17 +901,18 @@
                                     <section
                                             style="padding-top: 0.3em; padding-bottom: 0.3em; width: 55%; overflow: hidden; font-size: 1.2em; font-family: inherit; text-decoration: inherit;"
                                             class="tn-Powered-by-XIUMI">
-                                        <section class="tn-Powered-by-XIUMI">内容描述</section>
+                                        <section class="tn-Powered-by-XIUMI">周期描述</section>
                                     </section>
-                                    <section style="line-height: 1.5em; width: 55%;" class="tn-Powered-by-XIUMI">
-                                        <section class="tn-Powered-by-XIUMI">1、施药......</section>
-                                    </section>
+                                    @foreach($cropInfo['cycleList'] as $key => $cycle)
+                                        <section style="line-height: 1.5em; width: 55%;" class="tn-Powered-by-XIUMI">
+                                            <section class="tn-Powered-by-XIUMI">{{$key+1}}、{{$cycle['cycle_describe']}}</section>
+                                        </section>
+                                    @endforeach
+                                    <p></p>
                                 </section>
                                 <section
                                         style="margin-top: 0.5em; font-size: 1em; font-family: inherit; text-decoration: inherit;"
                                         class="tn-Powered-by-XIUMI">
-                                    <section class="tn-Powered-by-XIUMI">2、施肥...... <br class="tn-Powered-by-XIUMI"/>
-                                    </section>
                                     <section class="tn-Powered-by-XIUMI link-us">联系我们 <br class="tn-Powered-by-XIUMI"/>
                                     </section>
                                 </section>

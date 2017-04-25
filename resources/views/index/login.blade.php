@@ -19,12 +19,16 @@
             background-size: 100% 100%;
             position: relative;
         }
+        .login-logo {
+            width: 400px;
+            margin-left: -20px;
+        }
     </style>
 </head>
 <body class="hold-transition login-page login">
 <div class="login-box">
     <div class="login-logo">
-        <b>农产品追溯监管平台</b>
+        <h3>太仓市海丰农产品质量追溯管理系统</h3>
     </div>
     <div class="login-box-body">
         <p class="login-box-msg"></p>

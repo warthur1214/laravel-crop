@@ -122,7 +122,7 @@
         </div>
         <div class="box-footer clearfix text-center">
             <button type="submit" class="btn btn-primary" id="submit"><i class="fa fa-save"></i> 提交</button>
-            <a href="{{env("APP_URL")}}/crop/cropList" class="btn btn-default"><i class="fa fa-arrow-left"></i>
+            <a href="{{config('app.url')}}/crop/cropList" class="btn btn-default"><i class="fa fa-arrow-left"></i>
                 返回</a>
         </div>
     </div>
