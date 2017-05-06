@@ -59,6 +59,6 @@ class LoginController extends Controller
     public function loginOut(Request $request)
     {
         $request->session()->forget('accountId');
-        return view("index/login");
+        return redirect("/login");
     }
 }

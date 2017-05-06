@@ -59,7 +59,7 @@ $(function() {
             "password": password
         };
         $.ajax({
-            url: "loginAjax",
+            url: "/loginAjax",
             type: "post",
             data: requestData,
             dataType: "json",
