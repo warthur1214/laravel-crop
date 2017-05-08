@@ -7,9 +7,9 @@
 	<meta content="telephone=no,email=no" name="format-detection">
 	
 
-	<script src="js/flexible_css.debug.js"></script> 
-	<script src="js/flexible.debug.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/index.css">	
+	<script src="{{asset('/resources/js/public/flexible_css.debug.js')}}"></script>
+	<script src="{{asset('/resources/js/public/flexible.debug.js')}}"></script>
+	<link rel="stylesheet" type="text/css" href="{{asset('/resources/css/public/wechat.css')}}">
 </head> 
 
 <script>
