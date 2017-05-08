@@ -23,8 +23,8 @@
 		<div class="product_select_title tc">
 			<span>太仓市海丰农产品质量追溯</span>
 		</div>	
-		<p class="tc">黄豆</p>
-		<p class="tc">这个是黄豆吗？只是需要测试看看</p>
+		<p class="tc">{{$cropInfo['crop_name']}}</p>
+		<p class="tc">{{$cropInfo['crop_describe']}}</p>
 
 	</div>
 	<div class="split tc clearfix">
