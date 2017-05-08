@@ -15,7 +15,7 @@
             width: 250px;
             height: 250px;
             float: right;
-            margin-top: -160px;
+            margin-top: -100px;
             background-image: url(http://pan.baidu.com/share/qrcode?w=300&h=300&url=http://pingjia.ngrok.cc/laravel-master/public/crop/scanBinCode/{{$cropInfo['id']}};);
             position: relative;
             background-size: 100% 100%;

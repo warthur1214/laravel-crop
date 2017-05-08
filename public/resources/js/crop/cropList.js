@@ -123,10 +123,10 @@ $(document).ready(function () {
 
 
     function scanBinCode() {
-        // var loc = encodeURI("http://192.168.8.98/crop/public/crop/scanBinCode/" + $(this).attr("cropId")),
+        var loc = encodeURI("http://192.168.8.98/crop/public/crop/scanBinCode/" + $(this).attr("cropId")),
             cropName = $(this).attr("cropName");
 
-        var loc = encodeURI("http://192.168.2.202/crop/scanBinCode/" + $(this).attr("cropId")),
+        // var loc = encodeURI("http://192.168.2.202/crop/scanBinCode/" + $(this).attr("cropId")),
             cropName = $(this).attr("cropName");
 
         layer.open({
