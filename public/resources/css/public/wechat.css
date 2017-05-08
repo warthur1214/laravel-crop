@@ -93,7 +93,6 @@ margin-top: -0.053rem
 	transform: rotate( 45deg );
 }
 .product_cycle{
-	height: ;
     box-shadow: rgb(226, 226, 226) 0px 16px 1px -13px;
     line-height: 1;	
     color: white;
@@ -113,7 +112,8 @@ margin-top: -0.053rem
 }
 .bd_left, .bd_content{
 	border-left: 1px solid #F36468;
-	margin-left: 0.267rem; 
+	margin-left: 0.267rem;
+	margin-top: 0rem;
 }
 .bd_left{
 	height: 0.48rem;
@@ -207,6 +207,7 @@ margin-top: -0.053rem
 }
 .footer_title{
 	font-size: 0.48rem;
+	margin-bottom: 10px;
 }
 #footer p{
 	font-size: 0.373rem;
