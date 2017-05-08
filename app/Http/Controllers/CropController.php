@@ -164,7 +164,7 @@ class CropController extends Controller
         $where['id'] = $cropId;
         $cropInfo = CropService::getCropInfoById($crop, $where);
 
-        return view("public/binCode", [
+        return view("public/wechatWeb", [
             'cropInfo' => $cropInfo
         ]);
     }

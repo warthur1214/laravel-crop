@@ -30,7 +30,7 @@ class IndexController extends BaseController
         if (session('accountId')) {
             return view("index/index");
         } else {
-            return view("index/login");
+            return redirect("/login");
         }
 	}
 
