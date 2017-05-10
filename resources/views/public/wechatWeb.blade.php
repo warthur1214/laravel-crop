@@ -22,10 +22,9 @@
         }
 
         .cycle_img {
-            width: 450px;
-            height: 350px;
+            width: 5.5rem;
+            height: 4.7rem;
             margin-top: -5rem;
-            margin-left: 0rem;
         }
     </style>
 </head>
@@ -38,10 +37,10 @@
             <span>太仓市海丰农产品质量追溯</span>
         </div>
         <div style="margin-top: 0.3rem">
-            <img style="margin-left: -1rem; width: 3rem; height: 2.5rem;" src="{{$cropInfo['crop_img']}}">
-            <div style="float: right; margin-right: 1rem">
-                <p style="font-size: 40px">{{$cropInfo['crop_name']}}</p>
-                <p>{{$cropInfo['crop_describe']}}</p>
+            <img style="margin-left: 0rem; width: 3rem; height: 2.5rem;" src="{{$cropInfo['crop_img']}}">
+            <div style="float: right; margin-right: 0.5rem;">
+                <p style="font-size: 0.5rem">{{$cropInfo['crop_name']}}</p>
+                <div style="word-break: normal; width: 3rem;text-align: left;">{{$cropInfo['crop_describe']}}</div>
             </div>
         </div>
 
@@ -64,11 +63,11 @@
                 <div class="bd_left"></div>
                 <div class="bd_title clearfix">
                     <div class="bd_circle tc l">{{$key+1}}</div>
-                    <div class="bd_title_letter l tc" style="font-size: 40px; margin-left: 1.7rem;">{{$cycle['cycle_name']}}</div>
+                    <div class="bd_title_letter l tc" style="font-size: 32px; margin-left: 1.7rem;">{{$cycle['cycle_name']}}</div>
                 </div>
                 <div class="bd_content clearfix">
                     <div class="bd_empty tc l"></div>
-                    <div class="bd_content_letter l tc" style="font-size: 32px; margin-left: 0rem">{{$cycle['cycle_section']}}</div>
+                    <div class="bd_content_letter l tc" style="font-size: 40px; margin-left: 0rem">{{$cycle['cycle_section']}}</div>
                 </div>
                 <div class="bd_content clearfix"></div>
                 <div class="bd_content clearfix"></div>

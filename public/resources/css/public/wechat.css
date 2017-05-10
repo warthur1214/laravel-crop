@@ -40,7 +40,8 @@ header{
     text-align: center;
     text-decoration: inherit;
     color: rgb(160, 160, 160);
-    background-color: rgb(255, 255, 240);	
+    background-color: rgb(255, 255, 240);
+	word-break: break-all;
 }
 #content{
 	overflow: hidden;
@@ -112,7 +113,7 @@ margin-top: -0.053rem
 }
 .bd_left, .bd_content{
 	border-left: 1px solid #F36468;
-	margin-left: 1.5rem;
+	margin-left: 1.3rem;
 	margin-top: 0rem;
 }
 .bd_left{
@@ -131,7 +132,7 @@ margin-top: -0.053rem
 	line-height: 0.56rem;
 	box-sizing: border-box;
 	border: 1px solid rgb(249, 110, 87);
-	margin-left: 1.222rem;
+	margin-left: 1.055rem;
 }
 .bd_title .bd_title_letter{
 	height: 0.56rem;
