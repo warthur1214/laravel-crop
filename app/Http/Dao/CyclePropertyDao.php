@@ -29,7 +29,7 @@ class CyclePropertyDao
     {
         try {
             $link = "";
-            if (!$crop_id) {
+            if ($crop_id) {
                 $link = "AND p.crop_id={$crop_id}";
             }
             $sql = "select 

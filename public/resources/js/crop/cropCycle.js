@@ -148,10 +148,10 @@ function renderUploadImg(el) {
 
     if (fileLen === 0 || fileLen > 5 || imgCnt > maxNum) {
         var _msg = (fileLen === 0 ? '您没有选择图片' : '您最多可上传五张图片');
-        layer.alert(_msg, {icon: 0});
+        // layer.alert(_msg, {icon: 0});
 
         // $uploadfileBox.addClass('no-img');
-        return;
+        // return;
     }
     if ($form.length === 0) {
         $uploadfileBox.wrap('<form></form>');
