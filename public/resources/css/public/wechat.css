@@ -22,7 +22,7 @@ body{
 }
 header{
 	width: 100%;
-	font-size: 0.64rem; 
+	font-size: 0.64rem;
 	line-height: 1.4;
 	font-weight: 400;
 	text-align: center; 
@@ -35,7 +35,7 @@ header{
     border-style: solid;
     border-color: rgb(204, 204, 204);
     box-shadow: rgb(165, 165, 165) 0.133rem 0.133rem 0.053rem;
-    font-size: 0.373rem;
+    font-size: 0.4rem;
     font-family: inherit;
     text-align: center;
     text-decoration: inherit;
@@ -98,11 +98,11 @@ margin-top: -0.053rem
     color: white;
     background: rgb(249, 110, 87);
     padding: 0.267rem;
-    font-size: 0.373rem;
+    font-size: 0.4rem;
 }
 .product_point{
 	color: rgb(249, 110, 87);
-	font-size: 1.5em;
+	font-size: 1.7em;
 	line-height: 1.4;
 }
 .product_classify{
@@ -112,7 +112,7 @@ margin-top: -0.053rem
 }
 .bd_left, .bd_content{
 	border-left: 1px solid #F36468;
-	margin-left: 0.267rem;
+	margin-left: 1.5rem;
 	margin-top: 0rem;
 }
 .bd_left{
@@ -131,6 +131,7 @@ margin-top: -0.053rem
 	line-height: 0.56rem;
 	box-sizing: border-box;
 	border: 1px solid rgb(249, 110, 87);
+	margin-left: 1.222rem;
 }
 .bd_title .bd_title_letter{
 	height: 0.56rem;
@@ -188,7 +189,7 @@ margin-top: -0.053rem
  	height: 0.88rem;
  	background:rgb(249, 110, 87);
  	margin-top:-0.44rem; 
- 	font-size: 0.373rem	
+ 	font-size: 0.4rem
 }
 #footer{
 	color: #fff;

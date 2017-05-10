@@ -12,8 +12,8 @@
     <link rel="stylesheet" type="text/css" href="{{asset('/resources/css/public/wechat.css')}}">
     <style>
         .bin_code {
-            width: 250px;
-            height: 250px;
+            width: 3.7rem;
+            height: 3.7rem;
             float: right;
             margin-top: -100px;
             background-image: url(http://pan.baidu.com/share/qrcode?w=300&h=300&url=http://pingjia.ngrok.cc/laravel-master/public/crop/scanBinCode/{{$cropInfo['id']}};);
@@ -22,9 +22,10 @@
         }
 
         .cycle_img {
-            width: 300px;
-            height: 200px;
-            margin-top: -200px;
+            width: 450px;
+            height: 350px;
+            margin-top: -5rem;
+            margin-left: 0rem;
         }
     </style>
 </head>
@@ -36,9 +37,14 @@
         <div class="product_select_title tc">
             <span>太仓市海丰农产品质量追溯</span>
         </div>
-        <p class="tc">{{$cropInfo['crop_name']}}</p>
-        <p class="tc">{{$cropInfo['crop_describe']}}</p>
-        <img src="{{$cropInfo['crop_img']}}">
+        <div style="margin-top: 0.3rem">
+            <img style="margin-left: -1rem; width: 3rem; height: 2.5rem;" src="{{$cropInfo['crop_img']}}">
+            <div style="float: right; margin-right: 1rem">
+                <p style="font-size: 40px">{{$cropInfo['crop_name']}}</p>
+                <p>{{$cropInfo['crop_describe']}}</p>
+            </div>
+        </div>
+
     </div>
     <div class="split tc clearfix">
         <div class="l seperate"></div>
@@ -53,24 +59,28 @@
 		↓↓↓
 	</div>
     <div class="repeat_wrap">
-        @foreach($cropInfo['cycleList'] as $cycle)
+        @foreach($cropInfo['cycleList'] as $key=>$cycle)
             <div class="product_classify">
                 <div class="bd_left"></div>
                 <div class="bd_title clearfix">
-                    <div class="bd_circle tc l">*</div>
-                    <div class="bd_title_letter l">{{$cycle['cycle_name']}}</div>
+                    <div class="bd_circle tc l">{{$key+1}}</div>
+                    <div class="bd_title_letter l tc" style="font-size: 40px; margin-left: 1.7rem;">{{$cycle['cycle_name']}}</div>
                 </div>
                 <div class="bd_content clearfix">
                     <div class="bd_empty tc l"></div>
-                    <div class="bd_content_letter l">{{$cycle['cycle_section']}}</div>
+                    <div class="bd_content_letter l tc" style="font-size: 32px; margin-left: 0rem">{{$cycle['cycle_section']}}</div>
                 </div>
+                <div class="bd_content clearfix"></div>
+                <div class="bd_content clearfix"></div>
+                <div class="bd_content clearfix"></div>
+                <div class="bd_content clearfix"></div>
                 <div class="bd_content clearfix"></div>
                 <div class="bd_content clearfix"></div>
                 <div class="bd_content clearfix"></div>
                 <div class="bd_content clearfix"></div>
                 <div class="bd_content clearfix">
                     <div class="bd_empty tc l"></div>
-                    <div class="bd_content_letter l">
+                    <div class="bd_content_letter l tc">
                         <img class="cycle_img" src="{{$cycle['cycle_img']}}">
                     </div>
                 </div>
@@ -96,7 +106,7 @@
 <footer id="footer">
     <div class="clearfix">
         <div class="l">
-            <h3 class="footer_title">周期描述</h3>
+            <h3 class="footer_title">施药及施肥情况描述</h3>
             @foreach($cropInfo['cycleList'] as $key=>$cycle)
                 <p>{{$key + 1}}、{{$cycle['cycle_describe']}}</p>
                 <br/>
@@ -106,9 +116,9 @@
             <img src="" />
         </div>
     </div>
-    <div class="connectUs tc">
-		<a href="http://www.tcwanfeng.com">联系我们</a>
-	</div>
+    {{--<div class="connectUs tc">--}}
+		{{--<a href="http://www.tcwanfeng.com">联系我们</a>--}}
+	{{--</div>--}}
 </footer>
 
 </body>

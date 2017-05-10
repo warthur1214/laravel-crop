@@ -19,7 +19,7 @@ use MoenSun\MSLaravelExtension\MSLaravelDB;
 class CropService
 {
 
-    public static function getCropList(CropModel $model, $where = null)
+    public static function getCropList(CropModel $model, $where = [])
     {
         try {
             return CropDao::getCropList($model, $where);
@@ -66,11 +66,16 @@ class CropService
         }
     }
 
-    public static function deleteCropById(CropModel $model, $where=null)
+    public static function deleteCropById(CropModel $crop, $where=null)
     {
+        MSLaravelDB::beginTransaction();
         try {
-            return CropDao::deleteCropById($model, $where);
+            CyclePropertyDao::deletePropertyInfo(new CyclePropertyModel(), ['crop_id'=>$where['id']]);
+            CropDao::deleteCropById($crop, $where);
+
+            MSLaravelDB::commit();
         } catch (\Exception $e) {
+            MSLaravelDB::rollback();
             throw new \Exception($e);
         }
     }

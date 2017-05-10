@@ -17,8 +17,8 @@
         }
 
         .img_browser {
-            height: 400px;
-            width: 300px;
+            height: 300px;
+            width: 400px;
         }
     </style>
 @endsection
@@ -62,8 +62,8 @@
                     <tr class="form-group">
                         <th>产品重量 <span class="text-red">*</span></th>
                         <td>
-                            <input type="text" class="form-control" id="crop_weight" name="crop_weight"
-                                   value="{{$cropInfo['crop_weight']}}" placeholder="产品重量">
+                            <input type="text" class="form-control"  style="width: 60%;float: left;" id="crop_weight" name="crop_weight"
+                                   value="{{$cropInfo['crop_weight']}}" placeholder="产品重量"> &nbsp;&nbsp;&nbsp;&nbsp;kg
                         </td>
                     </tr>
                     <tr class="form-group">
@@ -74,8 +74,8 @@
                                     <option value="{{$b['id']}}" {{$b['id']==$cropInfo['batch_id'] ? 'selected' : ''}}>{{$b['batch_name']}}</option>
                                 @endforeach
                             </select>
-                            <span class="span1">没有？<a href="{{config('app.url')}}/batch/addBatch"
-                                                      class="a1">加一个</a></span>
+                            <span class="span1"><a href="{{config('app.url')}}/batch/batchList"
+                                                   class="a1">请确认选择</a></span>
                         </td>
                     </tr>
                     <tr class="form-group">
@@ -86,16 +86,15 @@
                                     <option value="{{$var['id']}}" {{$var['id']==$cropInfo['variety_id'] ? 'selected' : ''}}>{{$var['variety_name']}}</option>
                                 @endforeach
                             </select>
-                            <span class="span1">没有？<a href="{{config('app.url')}}/variety/addVariety"
-                                                      class="a1">加一个</a></span>
+                            <span class="span1"><a href="{{config('app.url')}}/variety/varietyList"
+                                                   class="a1">请确认选择</a></span>
                         </td>
                     </tr>
                     <tr class="form-group">
                         <th>上传图片</th>
                         <td colspan="5">
-                            <div class="form-group"><input type="file" class="form-control" id="crop_img"
-                                                           name="crop_img"
-                                                           placeholder="农产品图片"></div>
+                            <input type="file" class="form-control" style="width: 60%;float: left;" id="crop_img" name="crop_img" placeholder="农产品图片">
+                            <span class="a1" style="margin-left: 20px;">建议上传 400*300像素</span>
                         </td>
                     </tr>
 
@@ -103,7 +102,8 @@
                         <th>图片预览</th>
                         <td colspan="5">
                             <div class="form-group">
-                                <img src="{{$cropInfo['crop_img']}}" class="img_browser" id="img_browser" alt="图片预览">
+                                <img src="{{$cropInfo['crop_img']}}" class="img_browser" id="img_browser"
+                                     title="建议上传 400*300像素">
                             </div>
                         </td>
                     </tr>

@@ -14,7 +14,7 @@ use MoenSun\MSLaravelExtension\MSLaravelDB;
 
 class CropDao
 {
-    public static function getCropList(CropModel $model, $where = null)
+    public static function getCropList(CropModel $model, $where = [])
     {
         try {
             $sql = "SELECT 
@@ -25,7 +25,15 @@ class CropDao
                     LEFT JOIN t_crop_cycle cc ON cc.id = c.cycle_id
                     LEFT JOIN t_crop_variety v ON c.variety_id = v.id
                     LEFT JOIN t_crop_batch b ON c.batch_id = b.id
+                    WHERE 1=1
                     ";
+            if (array_key_exists('id', $where) && $where['id']) {
+                $sql .= " and c.id = {$where['id']}";
+            }
+
+            if (array_key_exists('create_time', $where) && $where['create_time']) {
+                $sql .= " and {$where['create_time']}";
+            }
             return MSLaravelDB::queryAll($sql);
         } catch (\Exception $e) {
             throw new \Exception($e);

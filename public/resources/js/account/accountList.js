@@ -15,8 +15,6 @@ $(function () {
                 "account_id": {title: "账号编号"},
                 "account_name": {title: "账号名称"},
                 "display_name": {title: "账号姓名"},
-                "organ_name": {title: "账号归属"},
-                "role_name": {title: "账号角色"},
                 "login_time": {title: "最后登录时间"}
             },
             operate: {

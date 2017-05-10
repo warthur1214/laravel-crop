@@ -20,15 +20,15 @@
             position: relative;
         }
         .login-logo {
-            width: 400px;
-            margin-left: -20px;
+            width: 500px;
+            margin-left: -70px;
         }
     </style>
 </head>
 <body class="hold-transition login-page login">
 <div class="login-box">
     <div class="login-logo">
-        <h3>太仓市海丰农产品质量追溯管理系统</h3>
+        <h2>太仓市海丰农产品质量追溯管理系统</h2>
     </div>
     <div class="login-box-body">
         <p class="login-box-msg"></p>

@@ -51,7 +51,7 @@ class CropController extends Controller
     {
         $crop = new CropModel();
         $today = date("Y-m-d 00:00:00");
-        $where = "create_time >'{$today}'";
+        $where['create_time'] = "c.create_time >'{$today}'";
         $cropInfo = CropService::getCropList($crop, $where);
 
         $cropNumber = "CPN".date("Ymd")."0001";
@@ -88,6 +88,8 @@ class CropController extends Controller
                     $crop->crop_img = config('app.url'). "/uploads/" . $fileName;
                 }
             }
+            $crop->create_time = date("Y-m-d H:i:s");
+            $crop->update_time = date("Y-m-d H:i:s");
             CropService::insertCropInfo($crop);
         } catch (\Exception $e) {
             Log::ERROR($e);
@@ -134,6 +136,8 @@ class CropController extends Controller
                         $crop->crop_img = config('app.url'). "/uploads/" . $fileName;
                     }
                 }
+
+                $crop->update_time = date("Y-m-d H:i:s");
                 CropService::updateCropById($crop, $where);
             }
         } catch (\Exception $e) {
