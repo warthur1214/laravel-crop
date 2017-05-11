@@ -106,7 +106,9 @@ class CropService
                 $propertyModel->cycle_describe = $v['cycle_describe'];
                 $propertyModel->cycle_id = $v['cycle_id'];
                 $propertyModel->cycle_section = $v['cycle_section'];
-                $propertyModel->cycle_img = $v['cycle_img'];
+                if (array_key_exists('cycle_img', $v) && $v['cycle_img'] != '') {
+                    $propertyModel->cycle_img = $v['cycle_img'];
+                }
 
                 CyclePropertyDao::insertPropertyInfo($propertyModel, $where);
             }

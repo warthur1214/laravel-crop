@@ -97,6 +97,9 @@ Route::group(['middleware' => ['web']], function () {
     Route::get("/crop/cropCycle/{crop_id?}", ['uses' => "CropController@cropCycle"]);
     Route::post("/crop/uploadCycleImg", ['uses' => "CropController@uploadCycleImg"]);
     Route::post("/crop/saveCycleProperty", ['uses' => "CropController@savePropertyInfo"]);
+
+    //关于我们
+
 });
 
 

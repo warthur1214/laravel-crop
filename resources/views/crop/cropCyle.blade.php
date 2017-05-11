@@ -6,6 +6,15 @@
     <link rel="stylesheet" href="{{asset("/resources/plugins/daterangepicker/daterangepicker-bs3.css")}}">
 @endsection
 
+<style type="text/css">
+    .lengh1 {
+        width: 25%;
+    }
+    .lengh2 {
+        width: 30%;
+    }
+</style>
+
 @section("body")
     <body>
     <section class="content-header">
@@ -27,9 +36,9 @@
                             <input type="checkbox" title=""/>
                         </th>
                         <th>周期名称</th>
-                        <th>周期区间</th>
-                        <th>施药及施肥情况描述</th>
-                        <th>周期图片</th>
+                        <th class="lengh1">周期区间</th>
+                        <th class="lengh2">施药及施肥情况描述</th>
+                        <th>周期图片<span style="color: red;">（建议不要超过500KB以内）</span></th>
                     </tr>
                     </thead>
                     <tbody>
