@@ -26,6 +26,9 @@
             height: 4.7rem;
             margin-top: -5rem;
         }
+        .weight_cl {
+            font-weight: 500;
+        }
     </style>
 </head>
 <body>
@@ -33,14 +36,15 @@
 <header id="header" class="clearfix">太仓市海丰农产品质量追溯</header>
 <div id="content">
     <div class="product_select">
-        <div class="product_select_title tc">
+        <div class="product_select_title tc weight_cl">
             <span>太仓市海丰农产品质量追溯</span>
         </div>
-        <div style="margin-top: 0.3rem">
-            <img style="margin-left: 0rem; width: 3rem; height: 2.5rem;" src="{{$cropInfo['crop_img']}}">
+        <div style="margin-top: 0.3rem;height: 3rem;">
+            <img style="margin-left: 0rem; width: 2.1rem; height: 1.7rem;" src="{{$cropInfo['crop_img']}}">
             <div style="float: right; margin-right: 0.5rem;">
-                <p style="font-size: 0.5rem">{{$cropInfo['crop_name']}}</p>
-                <div style="word-break: normal; width: 3rem;text-align: left;">{{$cropInfo['crop_describe']}}</div>
+                <p style="font-size: 0.5rem;font-weight: 600;">{{$cropInfo['crop_name']}}</p>
+                <div style="word-break: normal; width: 4.5rem;text-align: left;margin-right: 0.1rem">{{$cropInfo['crop_describe']}}
+                </div>
             </div>
         </div>
 
@@ -116,8 +120,8 @@
         </div>
     </div>
     {{--<div class="connectUs tc">--}}
-		{{--<a href="http://www.tcwanfeng.com">联系我们</a>--}}
-	{{--</div>--}}
+    {{--<a href="http://www.tcwanfeng.com">联系我们</a>--}}
+    {{--</div>--}}
 </footer>
 
 </body>
