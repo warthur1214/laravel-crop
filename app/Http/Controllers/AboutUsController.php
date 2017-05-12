@@ -38,7 +38,7 @@ class AboutUsController extends Controller
                     $ext = $cropImg->getClientOriginalExtension();
                     $fileName = "about_".time().".".$ext;
                     $cropImg->move("uploads/", $fileName);
-                    $data['about_img'] = config('app.url'). "uploads/" . $fileName;
+                    $data['about_img'] = config('app.url'). "/uploads/" . $fileName;
                 }
             }
 
