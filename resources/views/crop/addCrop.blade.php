@@ -109,7 +109,7 @@
                         <th>图片预览</th>
                         <td colspan="5">
                             <div class="form-group">
-                                <img src="" class="img_browser" id="img_browser" title="建议上传 400*300像素">
+                                <img src="" class="img_browser" id="img_browser" title="推荐图片大小在500KB以内">
                             </div>
                         </td>
                     </tr>

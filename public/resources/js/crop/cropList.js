@@ -88,7 +88,8 @@ $(document).ready(function () {
                 "data": null,
                 "createdCell": function (td, cellData, rowData) {
                     $(td).html("<a href='editCrop/" + rowData.id + "' class='btn btn-xs btn-primary'>查看</a> " +
-                        "<a href='javascript:;' class='btn btn-xs btn-primary' cropWeight='" + rowData.crop_weight +
+                        "<a href='javascript:;' class='btn btn-xs btn-primary' cropNumber='" + rowData.crop_number +
+                        "' cropWeight='" + rowData.crop_weight +
                         "' cropName='"+rowData.crop_name+"' cropId='" + rowData.id + "' id='scanBinCode'>二维码</a> " +
                         "<a href='javascript:void(0);' " + rowData.id + " class='btn btn-xs btn-danger deleteById' id='deleteById' index='" +
                         rowData.id + "'>删除</a>");
@@ -131,7 +132,7 @@ $(document).ready(function () {
         //     cropName = $(this).attr("cropName"), cropWeight = $(this).attr("cropWeight");
 
         var loc = encodeURI("http://www.tcwanfeng.com/crop/public/crop/scanBinCode/" + $(this).attr("cropId")),
-            cropName = $(this).attr("cropName"), cropWeight = $(this).attr("cropWeight");
+            cropName = $(this).attr("cropName"), cropWeight = $(this).attr("cropWeight"), cropNumber = $(this).attr("cropNumber");
 
         layer.open({
             title: '农产品二维码',
@@ -141,7 +142,7 @@ $(document).ready(function () {
             '<label style=""><h4>太仓市海丰农产品质量追溯管理系统</h4></label>' +
             '<hr style="height:1px;border:none;border-top:1px solid #555555;" />' +
             '<label>产品名称：'+ cropName+'</label><br>' +
-            '<label>追溯码：无</label><br>' +
+            '<label>追溯码：'+ cropNumber +'</label><br>' +
             '<label>生产企业：太仓市海丰农场专业合作社</label><br>' +
             '<label>产品重量：' + cropWeight + ' kg</label><br>' +
             '<label>销售去向：门店</label><br>' +

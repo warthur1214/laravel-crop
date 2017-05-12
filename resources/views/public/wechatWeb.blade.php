@@ -43,7 +43,7 @@
                  src="{{$cropInfo['crop_img']}}">
             <div style="float: right; padding-left: 0.6rem;">
                 <p style="font-size: 0.5rem;font-weight: 600; margin-right: 2rem">{{$cropInfo['crop_name']}}</p>
-                <div style="word-break: normal; width: 4.5rem;text-align: left;margin-right: 0rem;margin-left: 0rem">{{$cropInfo['crop_describe']}}
+                <div style="font-size: 0.344rem;word-break: normal; width: 4.5rem;text-align: left;margin-right: 0rem;margin-left: 0rem">{{$cropInfo['crop_describe']}}
                 </div>
             </div>
         </div>
@@ -113,10 +113,11 @@
 <footer class="footer">
     <div class="clearfix">
         <div class="l">
-            <h3 class="footer_title">施药及施肥情况描述</h3>
             @foreach($cropInfo['cycleList'] as $key=>$cycle)
-                <p>{{$key + 1}}、{{$cycle['cycle_describe']}}</p>
-                <br/>
+                @if($cycle['cycle_describe'])
+                    <p>{{$key + 1}}、{{$cycle['cycle_describe']}}</p>
+                    <br/>
+                @endif
             @endforeach
         </div>
 
