@@ -14,18 +14,18 @@ use Log;
 class ReturnUtil
 {
 
-    public static function success($msg=null, $data=null)
+    public static function success($msg = null, $data = null)
     {
-        $result = ['msg' => $msg?$msg:'处理成功！', 'status' => 1];
+        $result = ['msg' => $msg ? $msg : '处理成功！', 'status' => 1];
         if ($data) {
             $result['data'] = $data;
         }
-        return response()->json($result);
+        return response()->json($result, 200, [], JSON_UNESCAPED_UNICODE);
     }
 
-    public static function error($msg=null)
+    public static function error($msg = null)
     {
-        return response()->json(['msg' => $msg?$msg:"处理失败", 'status' => 0]);
+        return response()->json(['msg' => $msg ? $msg : "处理失败", 'status' => 0], 200, [], JSON_UNESCAPED_UNICODE);
     }
 
     public static function json($info)

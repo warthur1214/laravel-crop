@@ -99,6 +99,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::post("/crop/saveCycleProperty", ['uses' => "CropController@savePropertyInfo"]);
 
     //关于我们
+    Route::get("/wechat/aboutUs", ['uses' => "AboutUsController@aboutInfo"]);
+    Route::post("/wechat/addAboutUs", ['uses'=>"AboutUsController@addAboutInfo"]);
 });
 
 

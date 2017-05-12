@@ -14,6 +14,7 @@ use App\Http\Model\BatchModel;
 use App\Http\Model\CropModel;
 use App\Http\Model\CycleModel;
 use App\Http\Model\VarietyModel;
+use App\Http\Service\AboutService;
 use App\Http\Service\BatchService;
 use App\Http\Service\CropService;
 use App\Http\Service\CycleService;
@@ -167,9 +168,11 @@ class CropController extends Controller
         $crop = new CropModel();
         $where['id'] = $cropId;
         $cropInfo = CropService::getCropInfoById($crop, $where);
+        $aboutInfo = AboutService::getAboutInfo();
 
         return view("public/wechatWeb", [
-            'cropInfo' => $cropInfo
+            'cropInfo' => $cropInfo,
+            'aboutInfo' => $aboutInfo
         ]);
     }
 

@@ -22,6 +22,12 @@
             height: 300px;
             width: 400px;
         }
+
+        .textarea_width {
+            width: 60%;
+            float: left;
+        }
+
     </style>
 @endsection
 
@@ -95,7 +101,7 @@
                         <th>上传图片</th>
                         <td colspan="5">
                             <input type="file" class="form-control" style="width: 60%;float: left;" id="crop_img" name="crop_img" placeholder="农产品图片">
-                            <span class="a1" style="margin-left: 20px;">建议上传 400*300像素</span>
+                            <span class="span1 a1" style="margin-left: 10px;">建议上传 400*300像素</span>
                         </td>
                     </tr>
 
@@ -110,8 +116,10 @@
                     <tr class="form-group">
                         <th>农产品描述</th>
                         <td colspan="5">
-                            <div class="form-group"><textarea class="form-control" id="crop_describe"
+                            <div class="form-group"><textarea class="form-control textarea_width" id="crop_describe"
                                                               name="crop_describe" placeholder="输入农产品描述信息"></textarea>
+
+                                <span class="span1 a1">描述用于手机页面，建议55个字以内</span>
                             </div>
                         </td>
                     </tr>
