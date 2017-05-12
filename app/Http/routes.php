@@ -99,7 +99,6 @@ Route::group(['middleware' => ['web']], function () {
     Route::post("/crop/saveCycleProperty", ['uses' => "CropController@savePropertyInfo"]);
 
     //关于我们
-
 });
 
 
