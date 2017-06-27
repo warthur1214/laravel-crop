@@ -2,7 +2,7 @@
  * (c) 2016 Guilin Yu 
  */
 
-var APP_URL = "http://www.crop.com/";
+var APP_URL = "http://crop.nginx.com/";
 // var APP_URL = "http://www.tcwanfeng.com/crop/public";
 /*=========ajax请求方法============================
  *

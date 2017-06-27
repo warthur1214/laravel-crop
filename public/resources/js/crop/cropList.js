@@ -125,14 +125,14 @@ $(document).ready(function () {
 
 
     function scanBinCode() {
-        // var loc = encodeURI("http://192.168.8.98/crop/public/crop/scanBinCode/" + $(this).attr("cropId")),
-        // cropName = $(this).attr("cropName"), cropWeight = $(this).attr("cropWeight");
+        // var loc = encodeURI("http://crop.nginx.com/crop/scanBinCode/" + $(this).attr("cropId")),
+        // cropName = $(this).attr("cropName"), cropWeight = $(this).attr("cropWeight"), cropNumber = $(this).attr("cropNumber");
 
-        // var loc = encodeURI("http://192.168.2.202/crop/scanBinCode/" + $(this).attr("cropId")),
-        //     cropName = $(this).attr("cropName"), cropWeight = $(this).attr("cropWeight");
-
-        var loc = encodeURI("http://www.tcwanfeng.com/crop/public/crop/scanBinCode/" + $(this).attr("cropId")),
+        var loc = encodeURI("http://192.168.2.202/crop/scanBinCode/" + $(this).attr("cropId")),
             cropName = $(this).attr("cropName"), cropWeight = $(this).attr("cropWeight"), cropNumber = $(this).attr("cropNumber");
+
+        // var loc = encodeURI("http://www.tcwanfeng.com/crop/public/crop/scanBinCode/" + $(this).attr("cropId")),
+        //     cropName = $(this).attr("cropName"), cropWeight = $(this).attr("cropWeight"), cropNumber = $(this).attr("cropNumber");
 
         layer.open({
             title: '农产品二维码',
