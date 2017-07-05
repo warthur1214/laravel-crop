@@ -93,6 +93,16 @@ Route::group(['middleware' => ['web']], function () {
     Route::get("/crop/editCrop/{cropId}", ['uses' => "CropController@editCrop"]);
     Route::post("/crop/editCropAjax", ['uses' => "CropController@updateCropById"]);
     Route::post("/crop/delCrop/{cropId}", ['uses' => "CropController@deleteCropById"]);
+
+    Route::get('/crop/showBinCode/{cropId}/{cropName}/{cropNumber}/{cropWeight}',
+        function ($cropId, $cropName, $cropNumber, $cropWeight) {
+        return view('/public/showbinCode', [
+            'cropId'=>$cropId,
+            'cropName'=>$cropName,
+            'cropNumber'=>$cropNumber,
+            'cropWeight'=>$cropWeight
+        ]);
+    });
     Route::get("/crop/scanBinCode/{cropId}", ['uses' => "CropController@scanBinCode"]);
     Route::get("/crop/cropCycle/{crop_id?}", ['uses' => "CropController@cropCycle"]);
     Route::post("/crop/uploadCycleImg", ['uses' => "CropController@uploadCycleImg"]);
