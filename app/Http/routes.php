@@ -96,7 +96,7 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/crop/showBinCode/{cropId}/{cropName}/{cropNumber}/{cropWeight}',
         function ($cropId, $cropName, $cropNumber, $cropWeight) {
-        return view('/public/showbinCode', [
+        return view('/public/showBinCode', [
             'cropId'=>$cropId,
             'cropName'=>$cropName,
             'cropNumber'=>$cropNumber,
