@@ -3,46 +3,52 @@
 @section("style")
     <style type="text/css">
         body {
-            font-size: 23px;
+            font-size: 1rem;
         }
-        .content {
-            font-size: 16px;
-            margin-left: 0;
-        }
+
         .hr {
             height: 1px;
             border: none;
             border-top:1px solid #555555;
             width: 100%;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        div {
+            padding-left: 20%;
+            padding-right: 20%;
+            margin-top: 2.7rem;
+        }
+
+        img {
+            margin-left: 2.5rem;
+            width: 10rem;
+            height: 10rem;
+        }
+
+        p {
+            margin: 0 auto;
+            font-size: 0.5rem;
         }
     </style>
 @endsection
 
 @section("body")
 
-    <div style="padding-left: 25%; padding-right: 23%; margin-top: 5rem;">
-        <label style="text-align: center">
+    <div>
+        <label>
             <span>太仓市海丰农产品质量追溯管理系统</span>
         </label>
         <hr class="hr"/>
-        <label>产品名称：<span class="content">{{$cropName}}</span></label><br>
-        <label>追&nbsp;&nbsp;溯&nbsp;码： <span class="content">{{$cropNumber}}</span></label><br>
-        <label>生产企业：<span class="content">太仓市海丰农场专业合作社</span></label><br>
-        <label>产品重量：<span class="content">{{$cropWeight}}</span> kg</label><br>
-        <label>销售去向：<span class="content">门店</span></label><br>
-        <img style='margin-left: 1rem; width: 240px;height: 240px;'
-             src='http://pan.baidu.com/share/qrcode?w=300&h=300&url={{env("APP_URL")}}/crop/scanBinCode/{{$cropId}}'
+        <p>产品名称: {{$cropName}}</p>
+        <p>追&nbsp;&nbsp;溯&nbsp;码:  &nbsp;{{$cropNumber}}</p>
+        <p>生产企业: 太仓市海丰农场专业合作社</p>
+        <p>产品重量: {{$cropWeight}} kg</p>
+        <p>销售去向: 门店</p>
+        <img src='http://pan.baidu.com/share/qrcode?w=300&h=300&url={{env("APP_URL")}}/crop/scanBinCode/{{$cropId}}'
              title='农产品追溯二维码'/>
-        <br>
         <hr class="hr"/>
-        <label>追溯地址：<span class="content">www.ncpziaq.suzhou.gov.cn</span></label>
+        <p>追溯地址：www.tcwanfeng.com/crop/public</p>
     </div>
-
-@endsection
-
-@section("script")
-
-    <script src="{{asset("/resources/js/crop/showBinCode.js")}}"></script>
-    <script src="{{asset("/resources/js/thirdparty/layer/layer.js")}}"></script>
 
 @endsection
