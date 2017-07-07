@@ -45,10 +45,10 @@
         <p>生产企业: 太仓市海丰农场专业合作社</p>
         <p>产品重量: {{$cropWeight}} kg</p>
         <p>销售去向: 门店</p>
-        <img src='http://pan.baidu.com/share/qrcode?w=300&h=300&url={{env("APP_URL")}}/crop/scanBinCode/{{$cropId}}'
+        <img src='http://pan.baidu.com/share/qrcode?w=300&h=300&url=http://www.tcwanfeng.com/crop/public/crop/scanBinCode/{{$cropId}}'
              title='农产品追溯二维码'/>
         <hr class="hr"/>
-        <p>追溯地址：www.tcwanfeng.com/crop/public</p>
+        <p>追溯地址：<a href="http://www.tcwanfeng.com/crop/public">www.tcwanfeng.com/crop/public</a></p>
     </div>
 
 @endsection
