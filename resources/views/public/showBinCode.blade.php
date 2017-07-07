@@ -48,7 +48,7 @@
         <img src='http://pan.baidu.com/share/qrcode?w=300&h=300&url=http://www.tcwanfeng.com/crop/public/crop/scanBinCode/{{$cropId}}'
              title='农产品追溯二维码'/>
         <hr class="hr"/>
-        <p>追溯地址：<a href="http://www.tcwanfeng.com/crop/public">www.tcwanfeng.com/crop/public</a></p>
+        <p>追溯地址：www.tcwanfeng.com/crop/public</p>
     </div>
 
 @endsection
